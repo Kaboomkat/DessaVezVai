@@ -145,14 +145,22 @@ type command
 action Periodic Notes: Open weekly note
 ```
 
-- [[03-Daily/Morning Reviews/<% tp.file.title %> Morning Review|Abrir review da manha]]
-- [[03-Daily/Evening Reviews/<% tp.file.title %> Evening Review|Abrir review da noite]]
-- [[03-Daily/Reviews/Weekly Review|Abrir review semanal]]
+Use os botoes acima para criar ou reabrir as reviews da data desta nota.
 
 ---
 
 ## Navegacao
 
-[[{{date-1d:YYYY-MM-DD}}|<- Ontem]] | [[{{date+1d:YYYY-MM-DD}}|Amanha ->]]
+```button
+name <- Ontem
+type command
+action Periodic Notes: Open previous daily note
+```
 
-[[Daily Dashboard|Daily Dashboard]]
+```button
+name Amanha ->
+type command
+action Periodic Notes: Open next daily note
+```
+
+[[Daily Dashboard|Daily Dashboard]] | [[03-Daily/Index de Diario|Index de Diario]]

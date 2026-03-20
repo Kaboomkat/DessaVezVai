@@ -15,6 +15,7 @@ tags:
 
 | Versao | Data | Titulo |
 |--------|------|--------|
+| [[CHANGELOG v0.2.0\|v0.2.0]] | 2026-03-20 | Criacao segura de reviews e navegacao periodica |
 | [[CHANGELOG v0.1.9\|v0.1.9]] | 2026-03-20 | Indice canonico do diario |
 | [[CHANGELOG v0.1.8\|v0.1.8]] | 2026-03-20 | Fallback do Dataview no tablet + normalizacao do changelog |
 | [[CHANGELOG v0.1.7\|v0.1.7]] | 2026-03-20 | Review contextual por data e retorno do heatmap anual |

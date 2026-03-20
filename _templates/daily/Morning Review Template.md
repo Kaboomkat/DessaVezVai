@@ -45,7 +45,7 @@ const loadReviewControls = async () => {
     const file = app.vault.getAbstractFileByPath("_scripts/ReviewControls.js");
     if (!file) throw new Error("ReviewControls.js missing from _scripts");
     const source = await app.vault.cachedRead(file);
-    const ReviewControlsClass = new Function(`${source}; return ReviewControls;`)();
+    const ReviewControlsClass = new Function(\`\${source}; return ReviewControls;\`)();
     return new ReviewControlsClass(app);
 };
 
@@ -91,5 +91,11 @@ Com qual energia / intencao quero atravessar hoje?
 
 ## Navegacao
 
-[[03-Daily/Journal/${date}|<- Diario do dia]] | [[03-Daily/Evening Reviews/${date} Evening Review|Revisao da Noite ->]]`;
+[[03-Daily/Journal/${date}|<- Diario do dia]]
+
+\`\`\`button
+name Revisao da Noite ->
+type link
+action obsidian://quickadd?vault=Ebook%20Claude&choice=Evening%20Review&value-review_date=${date}
+\`\`\``;
 %>

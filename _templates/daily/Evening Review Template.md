@@ -45,7 +45,7 @@ const loadReviewControls = async () => {
     const file = app.vault.getAbstractFileByPath("_scripts/ReviewControls.js");
     if (!file) throw new Error("ReviewControls.js missing from _scripts");
     const source = await app.vault.cachedRead(file);
-    const ReviewControlsClass = new Function(`${source}; return ReviewControls;`)();
+    const ReviewControlsClass = new Function(\`\${source}; return ReviewControls;\`)();
     return new ReviewControlsClass(app);
 };
 
@@ -98,5 +98,11 @@ await controls.renderReviewPicker(dv, {
 
 ## Navegacao
 
-[[03-Daily/Journal/${date}|<- Diario do dia]] | [[03-Daily/Morning Reviews/${date} Morning Review|Revisao da Manha ->]]`;
+[[03-Daily/Journal/${date}|<- Diario do dia]]
+
+\`\`\`button
+name Revisao da Manha ->
+type link
+action obsidian://quickadd?vault=Ebook%20Claude&choice=Morning%20Review&value-review_date=${date}
+\`\`\``;
 %>
