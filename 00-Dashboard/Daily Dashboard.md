@@ -163,7 +163,7 @@ dv.container.innerHTML = `<table style="width:100%;border-collapse:separate;bord
 </table>`;
 ```
 
-[[03-Daily/Journal/|Todas as entradas do diario]] | [[00-Dashboard/Mood-Energy Tracker/Yearly/2026|Mood Tracker 2026]]
+[[03-Daily/Index de Diario|Todas as entradas do diario]] | [[00-Dashboard/Mood-Energy Tracker/Yearly/2026|Mood Tracker 2026]]
 
 ---
 
@@ -237,7 +237,7 @@ if (completed.length > 0) {
 - [ ] Revisar lista Algum Dia/Talvez
 - [ ] Revisar metas
 
-[[03-Daily/Journal/|Ver todas as entradas do diario]]
+[[03-Daily/Index de Diario|Ver todas as entradas do diario]]
 
 ---
 
@@ -274,7 +274,7 @@ dv.container.innerHTML = `
 
 | Diario | Revisoes | Outros |
 |--------|----------|--------|
-| [[03-Daily/Journal/|Diario]] | [[03-Daily/Morning Reviews/|Revisoes Manha]] | [[Home|Inicio]] |
+| [[03-Daily/Index de Diario|Diario]] | [[03-Daily/Morning Reviews/|Revisoes Manha]] | [[Home|Inicio]] |
 | [[03-Daily/Evening Reviews/|Revisoes Noite]] | [[03-Daily/Reviews/Weekly Review|Revisao Semanal]] | [[Writing Dashboard|Escrita]] |
 | [[Weekly Dashboard|Semanal]] | | |
 
