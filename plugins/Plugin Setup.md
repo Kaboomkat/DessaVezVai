@@ -19,6 +19,8 @@ tags:
 | Periodic Notes | Diario e reviews periodicas | Comandos de daily/weekly note ativos |
 | Buttons | Blocos de acao | Necessario para todos os botoes dos dashboards |
 
+Este repositorio versiona a pasta `.obsidian/`, entao as configuracoes criticas acima ja fazem parte do vault compartilhado.
+
 ## Contrato de dados
 
 - `03-Daily/Morning Reviews/*.md` guarda `mood_morning` e `energy_morning`
