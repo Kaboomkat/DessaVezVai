@@ -324,7 +324,7 @@
       "templatePath": "_templates/daily/Morning Review Template.md",
       "fileNameFormat": {
         "enabled": true,
-        "format": "{{DATE:YYYY-MM-DD}} Morning Review"
+        "format": "{{VALUE:review_date}} Morning Review"
       },
       "folder": {
         "enabled": true,
@@ -354,7 +354,7 @@
       "templatePath": "_templates/daily/Evening Review Template.md",
       "fileNameFormat": {
         "enabled": true,
-        "format": "{{DATE:YYYY-MM-DD}} Evening Review"
+        "format": "{{VALUE:review_date}} Evening Review"
       },
       "folder": {
         "enabled": true,

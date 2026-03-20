@@ -103,13 +103,15 @@ dv.container.innerHTML = `
 ```button
 name Revisao da Manha
 type link
-action obsidian://quickadd?vault=Ebook%20Claude&choice=Morning%20Review
+action obsidian://quickadd?vault=Ebook%20Claude&choice=Morning%20Review&value-review_date=<% tp.file.title %>
+templater true
 ```
 
 ```button
 name Revisao da Noite
 type link
-action obsidian://quickadd?vault=Ebook%20Claude&choice=Evening%20Review
+action obsidian://quickadd?vault=Ebook%20Claude&choice=Evening%20Review&value-review_date=<% tp.file.title %>
+templater true
 ```
 
 ```button
@@ -118,8 +120,8 @@ type command
 action Periodic Notes: Open weekly note
 ```
 
-- [[03-Daily/Morning Reviews/{{date:YYYY-MM-DD}} Morning Review|Abrir review da manha]]
-- [[03-Daily/Evening Reviews/{{date:YYYY-MM-DD}} Evening Review|Abrir review da noite]]
+- [[03-Daily/Morning Reviews/<% tp.file.title %> Morning Review|Abrir review da manha]]
+- [[03-Daily/Evening Reviews/<% tp.file.title %> Evening Review|Abrir review da noite]]
 - [[03-Daily/Reviews/Weekly Review|Abrir review semanal]]
 
 ---

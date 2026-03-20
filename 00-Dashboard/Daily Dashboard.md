@@ -66,13 +66,15 @@ action Periodic Notes: Open daily note
 ```button
 name Revisao da Manha
 type link
-action obsidian://quickadd?vault=Ebook%20Claude&choice=Morning%20Review
+action obsidian://quickadd?vault=Ebook%20Claude&choice=Morning%20Review&value-review_date=<% tp.date.now("YYYY-MM-DD") %>
+templater true
 ```
 
 ```button
 name Revisao da Noite
 type link
-action obsidian://quickadd?vault=Ebook%20Claude&choice=Evening%20Review
+action obsidian://quickadd?vault=Ebook%20Claude&choice=Evening%20Review&value-review_date=<% tp.date.now("YYYY-MM-DD") %>
+templater true
 ```
 
 ```button
