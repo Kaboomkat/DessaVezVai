@@ -86,13 +86,14 @@ for (let i = 0; i < 7; i++) {
     if (en) values.en.push(en);
 
     const target = journal || morning || evening;
+    const highlightText = journal ? await h.resolveHighlight(app, journal) : null;
     rows += `<tr>
         <td style="padding:6px 10px;white-space:nowrap;"><a href="${target.file.path}" class="internal-link">${day.toFormat("dd/MM")} ${dayLabels[i]}</a></td>
         ${h.cell(morning?.mood_morning, "mood")}
         ${h.cell(morning?.energy_morning, "energy")}
         ${h.cell(evening?.mood_evening, "mood")}
         ${h.cell(evening?.energy_evening, "energy")}
-        <td style="padding:6px 10px;">${journal?.highlight || "-"}</td>
+        <td style="padding:6px 10px;">${highlightText || "-"}</td>
     </tr>`;
 }
 
@@ -128,4 +129,4 @@ dv.container.innerHTML = `<table style="width:100%;border-collapse:separate;bord
 
 ## Navegacao
 
-[[Tracker Mensal]] | [[Tracker Anual]]
+[[../../Hub|Mood Tracker Hub]]

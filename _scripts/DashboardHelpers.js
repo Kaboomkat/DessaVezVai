@@ -88,4 +88,67 @@ class DashboardHelpers {
             ((d.getTime() - week1.getTime()) / 86400000 - 3 + ((week1.getDay() + 6) % 7)) / 7
         );
     }
+
+    normalizeHighlight(value) {
+        if (value == null) return null;
+        const text = String(value).replace(/\s+/g, " ").trim();
+        return text ? text : null;
+    }
+
+    _normalizeHeading(text) {
+        return String(text ?? "")
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .toLowerCase()
+            .trim();
+    }
+
+    extractSectionText(source, heading) {
+        if (!source) return null;
+        const wanted = this._normalizeHeading(heading);
+        const lines = String(source).replace(/\r/g, "").split("\n");
+        let startIndex = -1;
+        let level = 0;
+
+        for (let i = 0; i < lines.length; i++) {
+            const match = lines[i].match(/^(#{1,6})\s+(.*)$/);
+            if (!match) continue;
+            if (this._normalizeHeading(match[2]) === wanted) {
+                startIndex = i + 1;
+                level = match[1].length;
+                break;
+            }
+        }
+
+        if (startIndex === -1) return null;
+
+        const collected = [];
+        for (let i = startIndex; i < lines.length; i++) {
+            const line = lines[i];
+            const match = line.match(/^(#{1,6})\s+(.*)$/);
+            if (match && match[1].length <= level) break;
+            collected.push(line);
+        }
+
+        const cleaned = collected
+            .filter(line => !/^`?=\s*this\.highlight`?$/.test(line.trim()))
+            .join("\n")
+            .trim();
+
+        return this.normalizeHighlight(cleaned);
+    }
+
+    async resolveHighlight(app, pageOrPath, heading = "Destaque do Dia") {
+        const page = typeof pageOrPath === "string" ? null : pageOrPath;
+        const filePath = typeof pageOrPath === "string" ? pageOrPath : page?.file?.path;
+        const metaHighlight = this.normalizeHighlight(page?.highlight);
+        if (metaHighlight) return metaHighlight;
+        if (!app?.vault || !filePath) return null;
+
+        const file = app.vault.getAbstractFileByPath(filePath);
+        if (!file) return null;
+
+        const source = await app.vault.cachedRead(file);
+        return this.extractSectionText(source, heading);
+    }
 }

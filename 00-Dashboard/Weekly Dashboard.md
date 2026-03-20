@@ -149,8 +149,9 @@ for (let i = 0; i < 7; i++) {
     const dateStr  = d.toFormat("dd/MM");
     const filePath = jp ? jp.file.path : (mp ? mp.file.path : ep.file.path);
     const link     = `<a href="${filePath}" class="internal-link">${dateStr} ${dayLabel}</a>`;
-    const highlight = jp?.highlight
-        ? `<span style="color:#aaa;font-size:0.85em">${jp.highlight}</span>`
+    const highlightText = jp ? await h.resolveHighlight(app, jp) : null;
+    const highlight = highlightText
+        ? `<span style="color:#aaa;font-size:0.85em">${highlightText}</span>`
         : "<span style='color:#555'>â€”</span>";
 
     rows += `<tr>

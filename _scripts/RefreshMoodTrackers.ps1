@@ -12,6 +12,30 @@ function Write-Utf8 {
     [System.IO.File]::WriteAllText($Path, ($Content.TrimStart("`r", "`n") + "`r`n"), $Utf8NoBom)
 }
 
+function Get-IsoWeekStart {
+    param(
+        [int]$Year,
+        [int]$Week
+    )
+
+    $jan4 = Get-Date -Date "$Year-01-04T12:00:00"
+    $offset = ([int]$jan4.DayOfWeek + 6) % 7
+    $week1Monday = $jan4.Date.AddDays(-$offset)
+    return $week1Monday.AddDays(($Week - 1) * 7)
+}
+
+function Get-IsoWeekCount {
+    param([int]$Year)
+
+    $calendar = [System.Globalization.CultureInfo]::InvariantCulture.Calendar
+    $dec28 = Get-Date -Date "$Year-12-28T12:00:00"
+    return $calendar.GetWeekOfYear(
+        $dec28,
+        [System.Globalization.CalendarWeekRule]::FirstFourDayWeek,
+        [DayOfWeek]::Monday
+    )
+}
+
 function Get-WeekCode {
 @'
 ```dataviewjs
@@ -88,13 +112,14 @@ for (let i = 0; i < 7; i++) {
     if (en) values.en.push(en);
 
     const target = journal || morning || evening;
+    const highlightText = journal ? await h.resolveHighlight(app, journal) : null;
     rows += `<tr>
         <td style="padding:6px 10px;white-space:nowrap;"><a href="${target.file.path}" class="internal-link">${day.toFormat("dd/MM")} ${dayLabels[i]}</a></td>
         ${h.cell(morning?.mood_morning, "mood")}
         ${h.cell(morning?.energy_morning, "energy")}
         ${h.cell(evening?.mood_evening, "mood")}
         ${h.cell(evening?.energy_evening, "energy")}
-        <td style="padding:6px 10px;">${journal?.highlight || "-"}</td>
+        <td style="padding:6px 10px;">${highlightText || "-"}</td>
     </tr>`;
 }
 
@@ -544,7 +569,7 @@ $WeekCode
 
 ## Navegacao
 
-[[Tracker Mensal]] | [[Tracker Anual]]
+[[../../Hub|Mood Tracker Hub]]
 "@
 Write-Utf8 -Path (Join-Path $Root "_templates\daily\Mood-Energy Week Template.md") -Content $WeekTemplate
 
@@ -608,6 +633,44 @@ $MonthCode
 [[../../Yearly/$Year|Tracker Anual $Year]]
 "@
         Write-Utf8 -Path (Join-Path $MonthDir "$MonthPadded.md") -Content $MonthFile
+    }
+}
+
+foreach ($Year in 2026, 2027) {
+    $WeekDir = Join-Path $Root "00-Dashboard\Mood-Energy Tracker\Weekly\$Year"
+    if (-not (Test-Path $WeekDir)) {
+        New-Item -ItemType Directory -Path $WeekDir | Out-Null
+    }
+
+    $WeekCount = Get-IsoWeekCount -Year $Year
+    for ($Week = 1; $Week -le $WeekCount; $Week++) {
+        $WeekPadded = $Week.ToString("00")
+        $WeekStart = Get-IsoWeekStart -Year $Year -Week $Week
+        $WeekEnd = $WeekStart.AddDays(6)
+        $WeekFile = @"
+---
+title: "Semana $($WeekStart.ToString("yyyy-MM-dd")) - $($WeekEnd.ToString("yyyy-MM-dd"))"
+type: mood-tracker
+frequency: weekly
+week_start: $($WeekStart.ToString("yyyy-MM-dd"))
+week_end: $($WeekEnd.ToString("yyyy-MM-dd"))
+year: $Year
+tags:
+  - tracker/weekly
+  - tracker/mood
+---
+
+# Mood-Energy Tracker Semanal
+
+$WeekCode
+
+---
+
+## Navegacao
+
+[[../../Yearly/$Year|Tracker Anual $Year]] | [[../../Hub|Mood Tracker Hub]]
+"@
+        Write-Utf8 -Path (Join-Path $WeekDir "$WeekPadded.md") -Content $WeekFile
     }
 }
 

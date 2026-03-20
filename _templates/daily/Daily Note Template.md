@@ -119,7 +119,7 @@ dv.container.innerHTML = `
 ---
 
 ## Destaque do Dia
-`= this.highlight`
+
 
 ---
 

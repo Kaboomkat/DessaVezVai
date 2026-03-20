@@ -132,12 +132,13 @@ const pages = dv.pages('"03-Daily/Journal"')
     .slice(0, 7);
 
 let rows = "";
-pages.forEach(p => {
+for (const p of pages) {
     const key = p.file.name;
     const morning = morningMap[key];
     const evening = eveningMap[key];
-    const highlight = p.highlight
-        ? `<span style="color:#aaa;font-size:0.85em">${p.highlight}</span>`
+    const highlightText = await h.resolveHighlight(app, p);
+    const highlight = highlightText
+        ? `<span style="color:#aaa;font-size:0.85em">${highlightText}</span>`
         : "<span style='color:#555'>-</span>";
 
     rows += `<tr>
@@ -148,7 +149,7 @@ pages.forEach(p => {
         ${h.cell(evening?.energy_evening, "energy")}
         <td style="padding:4px 10px;max-width:180px;">${highlight}</td>
     </tr>`;
-});
+}
 
 dv.container.innerHTML = `<table style="width:100%;border-collapse:separate;border-spacing:0 3px;">
     <thead><tr style="color:#888;font-size:0.78em;text-align:center;">
