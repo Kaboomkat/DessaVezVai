@@ -15,6 +15,7 @@ tags:
 
 | Versao | Data | Titulo |
 |--------|------|--------|
+| [[CHANGELOG v0.1.0\|v0.1.0]] | 2026-03-20 | Limpeza de ownership do Templater |
 | [[CHANGELOG v0.0.9\|v0.0.9]] | 2026-03-20 | Controles inline de mood e energia nas reviews |
 | [[CHANGELOG v0.0.8\|v0.0.8]] | 2026-03-20 | Migracao da daily note antiga e limpeza dos trackers |
 | [[CHANGELOG v0.0.7\|v0.0.7]] | 2026-03-20 | Correcao de wiring dos botoes e das notas periodicas |
