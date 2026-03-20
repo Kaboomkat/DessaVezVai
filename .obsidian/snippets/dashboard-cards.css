@@ -1,0 +1,116 @@
+/* Dashboard Cards Styling */
+
+/* Card container */
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  padding: 16px 0;
+}
+
+/* Individual cards */
+.dashboard-card {
+  background: var(--background-secondary);
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid var(--background-modifier-border);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Card headers */
+.dashboard-card h3 {
+  margin: 0 0 12px 0;
+  font-size: 1.1em;
+  color: var(--text-accent);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Stat numbers */
+.stat-number {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: var(--text-normal);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.85em;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* Progress bars */
+.progress-bar {
+  height: 8px;
+  background: var(--background-modifier-border);
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 8px 0;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--text-accent);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+/* Task list in cards */
+.dashboard-card .task-list-item {
+  padding: 6px 0;
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.dashboard-card .task-list-item:last-child {
+  border-bottom: none;
+}
+
+/* Quick action buttons */
+.quick-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.quick-action-btn {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.9em;
+  cursor: pointer;
+  border: none;
+  transition: opacity 0.2s;
+}
+
+.quick-action-btn:hover {
+  opacity: 0.9;
+}
+
+/* Callout styling for dashboard sections */
+.callout[data-callout="dashboard"] {
+  background: var(--background-secondary);
+  border: none;
+  border-radius: 12px;
+}
+
+.callout[data-callout="writing-stats"] {
+  background: linear-gradient(135deg, var(--background-secondary), var(--background-primary));
+  border-left: 4px solid #3EB489;
+}
+
+.callout[data-callout="tasks-today"] {
+  border-left: 4px solid #10b981;
+}
+
+.callout[data-callout="projects"] {
+  border-left: 4px solid #f59e0b;
+}

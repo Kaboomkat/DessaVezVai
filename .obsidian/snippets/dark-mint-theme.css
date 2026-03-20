@@ -1,0 +1,117 @@
+/* Dark Gray + Pantone Mint Green (#3EB489) Theme */
+
+.theme-dark {
+  /* Background layers — dark gray palette */
+  --background-primary: #1e1e1e;
+  --background-primary-alt: #252525;
+  --background-secondary: #2a2a2a;
+  --background-secondary-alt: #303030;
+  --background-modifier-border: #3a3a3a;
+  --background-modifier-form-field: #252525;
+  --background-modifier-form-field-highlighted: #303030;
+  --background-modifier-box-shadow: rgba(0, 0, 0, 0.3);
+  --background-modifier-success: #3EB489;
+  --background-modifier-error: #e05252;
+  --background-modifier-error-rgb: 224, 82, 82;
+  --background-modifier-error-hover: #d44;
+  --background-modifier-cover: rgba(0, 0, 0, 0.6);
+
+  /* Accent — Pantone Mint Green */
+  --interactive-accent: #3EB489;
+  --interactive-accent-rgb: 62, 180, 137;
+  --interactive-accent-hover: #4cc99a;
+  --interactive-before: #359e78;
+
+  /* Text */
+  --text-accent: #3EB489;
+  --text-accent-hover: #4cc99a;
+  --text-normal: #dcdcdc;
+  --text-muted: #999999;
+  --text-faint: #666666;
+  --text-on-accent: #1e1e1e;
+
+  /* Links */
+  --link-color: #3EB489;
+  --link-color-hover: #4cc99a;
+  --link-unresolved-color: #3EB48980;
+
+  /* Tags */
+  --tag-color: #3EB489;
+  --tag-background: #3EB48920;
+  --tag-color-hover: #4cc99a;
+  --tag-background-hover: #3EB48930;
+
+  /* Scrollbar */
+  --scrollbar-bg: #1e1e1e;
+  --scrollbar-thumb-bg: #3a3a3a;
+  --scrollbar-active-thumb-bg: #3EB489;
+
+  /* Headings with mint green gradient */
+  --h1-color: #3EB489;
+  --h2-color: #4cc99a;
+  --h3-color: #5ad4a8;
+  --h4-color: #6edbb3;
+  --h5-color: #82e2bf;
+  --h6-color: #96e9cb;
+
+  /* Checkbox */
+  --checkbox-color: #3EB489;
+  --checkbox-color-hover: #4cc99a;
+  --checklist-done-color: #666666;
+
+  /* Nav / sidebar */
+  --nav-item-color-hover: #3EB489;
+  --nav-item-background-hover: #3EB48915;
+  --nav-item-color-active: #3EB489;
+  --nav-item-background-active: #3EB48920;
+
+  /* Graph */
+  --graph-line: #3a3a3a;
+  --graph-node: #3EB489;
+  --graph-node-focused: #4cc99a;
+  --graph-node-tag: #3EB489;
+  --graph-node-attachment: #999999;
+
+  /* Titlebar */
+  --titlebar-background: #1a1a1a;
+  --titlebar-background-focused: #1e1e1e;
+
+  /* Tab */
+  --tab-text-color-focused-active: #3EB489;
+}
+
+/* Minimal theme specific overrides */
+.theme-dark.minimal-default {
+  --accent-h: 156;
+  --accent-s: 49%;
+  --accent-l: 47%;
+  --base-h: 0;
+  --base-s: 0%;
+  --base-l: 12%;
+}
+
+/* Bold accent for active elements */
+.theme-dark .nav-file-title.is-active,
+.theme-dark .nav-folder-title.is-active {
+  color: #3EB489;
+}
+
+/* Styled blockquotes */
+.theme-dark blockquote {
+  border-left-color: #3EB489;
+}
+
+/* Active line highlight */
+.theme-dark .cm-active {
+  background-color: #3EB48908;
+}
+
+/* Selection */
+.theme-dark ::selection {
+  background-color: #3EB48930;
+}
+
+/* Frontmatter */
+.theme-dark .cm-hmd-frontmatter {
+  color: #3EB489;
+}

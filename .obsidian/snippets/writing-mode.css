@@ -1,0 +1,50 @@
+/* Writing Mode Enhancements */
+
+/* Focus mode for distraction-free writing */
+.is-focused .markdown-source-view.mod-cm6 .cm-content {
+  max-width: 700px;
+  margin: 0 auto;
+  font-family: 'iA Writer Quattro', 'Georgia', serif;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+/* Longform plugin tweaks */
+.longform-leaf .markdown-source-view {
+  padding: 40px 60px;
+}
+
+.longform-explorer {
+  border-right: 1px solid var(--background-modifier-border);
+}
+
+/* Typewriter scrolling feel */
+.markdown-source-view.mod-cm6 .cm-scroller {
+  padding-bottom: 50vh;
+}
+
+/* Softer text for long writing sessions */
+.theme-dark .markdown-source-view.mod-cm6 .cm-line {
+  color: #e0e0e0;
+}
+
+.theme-light .markdown-source-view.mod-cm6 .cm-line {
+  color: #2d2d2d;
+}
+
+/* Chapter/Scene headings */
+.markdown-source-view h2 {
+  border-bottom: 1px solid var(--background-modifier-border);
+  padding-bottom: 8px;
+  margin-top: 2em;
+}
+
+/* Dialogue styling */
+.cm-line:has(.cm-quote) {
+  font-style: italic;
+}
+
+/* Word count in status bar */
+.status-bar-item.plugin-word-count {
+  font-weight: bold;
+}

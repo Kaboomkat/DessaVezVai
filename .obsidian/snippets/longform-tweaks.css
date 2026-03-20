@@ -1,0 +1,82 @@
+/* Longform Plugin Enhancements */
+
+/* Scene list styling */
+.longform-explorer .scene-list {
+  padding: 8px;
+}
+
+.longform-explorer .scene-item {
+  padding: 8px 12px;
+  margin: 4px 0;
+  border-radius: 6px;
+  transition: background 0.15s;
+}
+
+.longform-explorer .scene-item:hover {
+  background: var(--background-modifier-hover);
+}
+
+.longform-explorer .scene-item.is-active {
+  background: var(--background-modifier-active-hover);
+  border-left: 3px solid var(--text-accent);
+}
+
+/* Draft status indicators */
+.longform-explorer .draft-status {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.longform-explorer .draft-status.draft {
+  background: #f59e0b;
+}
+
+.longform-explorer .draft-status.revision {
+  background: #3b82f6;
+}
+
+.longform-explorer .draft-status.complete {
+  background: #10b981;
+}
+
+/* Word count display */
+.longform-word-count {
+  font-size: 0.85em;
+  color: var(--text-muted);
+  padding: 4px 8px;
+  background: var(--background-secondary);
+  border-radius: 4px;
+}
+
+/* Compile preview */
+.longform-compile-preview {
+  background: var(--background-secondary);
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px 0;
+}
+
+/* Project overview in sidebar */
+.longform-project-info {
+  padding: 12px;
+  background: var(--background-secondary);
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.longform-project-title {
+  font-weight: bold;
+  font-size: 1.1em;
+  margin-bottom: 8px;
+}
+
+.longform-project-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  font-size: 0.85em;
+  color: var(--text-muted);
+}

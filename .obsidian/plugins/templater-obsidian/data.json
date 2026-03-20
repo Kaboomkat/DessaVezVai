@@ -1,0 +1,30 @@
+{
+  "templates_folder": "_templates",
+  "templates_pairs": [
+    ["01-Writing/Manuscripts", "_templates/writing/Manuscript Template"],
+    ["01-Writing/Characters", "_templates/writing/Character Template"],
+    ["01-Writing/Worldbuilding", "_templates/writing/Worldbuilding Template"],
+    ["01-Writing/Research", "_templates/writing/Research Template"],
+    ["01-Writing/Snippets", "_templates/writing/Snippet Template"],
+    ["02-Projects/Active", "_templates/gtd/Project Template"],
+    ["02-Projects/Someday", "_templates/gtd/Someday Template"],
+    ["03-Daily/Journal", "_templates/daily/Daily Journal Router"],
+    ["03-Daily/Morning Reviews", "_templates/daily/Morning Review Template"],
+    ["03-Daily/Evening Reviews", "_templates/daily/Evening Review Template"],
+    ["04-Tasks/Inbox", "_templates/gtd/Quick Capture Template"],
+    ["04-Tasks/Next", "_templates/gtd/Task Template"],
+    ["05-Resources/Books", "_templates/resources/Book Template"],
+    ["05-Resources/Articles", "_templates/resources/Article Template"],
+    ["05-Resources/Contacts", "_templates/resources/Contact Template"],
+    ["05-Resources/Definitions", "_templates/resources/Definition Template"]
+  ],
+  "trigger_on_file_creation": false,
+  "auto_jump_to_cursor": true,
+  "enable_system_commands": false,
+  "shell_path": "",
+  "user_scripts_folder": "_scripts",
+  "enable_folder_templates": false,
+  "syntax_highlighting": true,
+  "enabled_templates_hotkey": ["_templates/gtd/Quick Capture Template"],
+  "startup_templates": []
+}

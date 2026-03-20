@@ -1,0 +1,12 @@
+{
+  "app:go-back": [{"modifiers": ["Alt"], "key": "ArrowLeft"}],
+  "app:go-forward": [{"modifiers": ["Alt"], "key": "ArrowRight"}],
+  "file-explorer:new-file": [],
+  "templater-obsidian:create-new-note-from-template": [{"modifiers": ["Mod"], "key": "N"}],
+  "templater-obsidian:insert-templater": [{"modifiers": ["Alt"], "key": "T"}],
+  "quickadd:runQuickAdd": [{"modifiers": ["Mod"], "key": "Q"}],
+  "obsidian-tasks-plugin:toggle-done": [{"modifiers": ["Mod"], "key": "Enter"}],
+  "editor:toggle-checklist-status": [{"modifiers": ["Mod", "Shift"], "key": "Enter"}],
+  "workspace:split-vertical": [{"modifiers": ["Mod", "Shift"], "key": "V"}],
+  "workspace:split-horizontal": [{"modifiers": ["Mod", "Shift"], "key": "H"}]
+}

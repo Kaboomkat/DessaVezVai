@@ -1,0 +1,21 @@
+{
+  "version": 4,
+  "homepages": {
+    "Main Homepage": {
+      "homepage": "00-Dashboard/Home",
+      "hasRibbonIcon": true,
+      "openMode": "Replace all open notes",
+      "manualOpenMode": "Keep open notes",
+      "view": "Default view",
+      "refreshDataview": true,
+      "autoCreate": false,
+      "autoScroll": true,
+      "pin": false,
+      "commands": [],
+      "alwaysApply": false,
+      "hideReleaseNotes": false,
+      "kind": "File"
+    }
+  },
+  "separateMobile": false
+}

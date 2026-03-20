@@ -1,0 +1,20 @@
+{
+  "daily": {
+    "format": "YYYY-MM-DD",
+    "template": "_templates/daily/Daily Note Template",
+    "folder": "03-Daily/Journal",
+    "enabled": true
+  },
+  "weekly": {
+    "format": "YYYY-[W]ww",
+    "template": "_templates/daily/Weekly Review Template",
+    "folder": "03-Daily/Reviews",
+    "enabled": true
+  },
+  "monthly": {
+    "format": "YYYY-MM",
+    "template": "_templates/daily/Monthly Review Template",
+    "folder": "03-Daily/Reviews",
+    "enabled": true
+  }
+}
