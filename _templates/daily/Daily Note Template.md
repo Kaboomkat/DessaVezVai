@@ -37,7 +37,32 @@ tR += `> [!quote]\n> *${q}*`;
 ## Estado do Dia
 
 ```dataviewjs
-const { DashboardHelpers: h } = await cJS();
+const loadDashboardHelpers = async () => {
+    if (typeof window.forceLoadCustomJS === "function") {
+        try {
+            await window.forceLoadCustomJS();
+        } catch (error) {
+            console.warn("CustomJS reload failed", error);
+        }
+    }
+
+    if (typeof cJS === "function") {
+        try {
+            const modules = await cJS();
+            if (modules?.DashboardHelpers) return modules.DashboardHelpers;
+        } catch (error) {
+            console.warn("CustomJS DashboardHelpers unavailable", error);
+        }
+    }
+
+    const file = app.vault.getAbstractFileByPath("_scripts/DashboardHelpers.js");
+    if (!file) throw new Error("DashboardHelpers.js missing from _scripts");
+    const source = await app.vault.cachedRead(file);
+    const DashboardHelpersClass = new Function(`${source}; return DashboardHelpers;`)();
+    return new DashboardHelpersClass();
+};
+
+const h = await loadDashboardHelpers();
 const dayKey = dv.date(dv.current().date).toFormat("yyyy-MM-dd");
 const morning = dv.pages('"03-Daily/Morning Reviews"').find(p => p.date && dv.date(p.date).toFormat("yyyy-MM-dd") === dayKey);
 const evening = dv.pages('"03-Daily/Evening Reviews"').find(p => p.date && dv.date(p.date).toFormat("yyyy-MM-dd") === dayKey);

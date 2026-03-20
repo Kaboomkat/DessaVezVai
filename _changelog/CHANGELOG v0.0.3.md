@@ -74,4 +74,4 @@ tags:
 
 ---
 
-[[CHANGELOG|← Índice]]
+[[CHANGELOG INDEX|← Índice]]

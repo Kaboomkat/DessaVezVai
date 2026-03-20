@@ -9,26 +9,28 @@ tags:
 # Changelog v0.1.0
 
 **Data:** 2026-03-20
-**Titulo:** Limpeza de ownership do Templater
+**Titulo:** Documentacao operacional e README do repositorio
 
 ---
 
 ## Mudancas
 
-1. **Templater folder ownership removido**: `templates_pairs` foi zerado para que o plugin nao mantenha rotas antigas de criacao por pasta.
-2. **Daily Journal Router isolado**: o vault deixa de apontar para o router legado em configuracao ativa.
-3. **Arquitetura consolidada**: `Periodic Notes` e `QuickAdd` seguem como unicos criadores de notas, enquanto `Templater` fica apenas como renderizador.
+1. **README atualizado**: o repositorio agora descreve a arquitetura real do vault, os plugins obrigatorios e o fluxo correto de uso.
+2. **Plugin Setup ajustado**: documentado que `.obsidian/` esta versionado e faz parte do contrato do vault.
+3. **Contrato operacional registrado**: `Command Contract` e `Regression Checklist` passam a ser a referencia de validacao do repositorio.
 
 ---
 
 ## Arquivos modificados
 
-- `.obsidian/plugins/templater-obsidian/data.json`
+- `README.md`
+- `plugins/Plugin Setup.md`
+- `_changelog/CHANGELOG.md`
 
 ---
 
 ## Objetivo
 
-Esta versao reduz o risco de dupla aplicacao de template e elimina o principal resquicio da arquitetura antiga.
+Esta versao deixa o repositorio legivel no GitHub e reduz dependencia de memoria para manter o vault funcionando.
 
-[[CHANGELOG|<- Indice]]
+[[CHANGELOG INDEX|<- Indice]]

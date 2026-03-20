@@ -1,4 +1,4 @@
-﻿$ErrorActionPreference = "Stop"
+$ErrorActionPreference = "Stop"
 
 $Root = Split-Path -Parent $PSScriptRoot
 $Utf8NoBom = New-Object System.Text.UTF8Encoding($false)
@@ -15,8 +15,32 @@ function Write-Utf8 {
 function Get-WeekCode {
 @'
 ```dataviewjs
-const { DashboardHelpers } = await cJS();
-const h = DashboardHelpers;
+const loadDashboardHelpers = async () => {
+    if (typeof window.forceLoadCustomJS === "function") {
+        try {
+            await window.forceLoadCustomJS();
+        } catch (error) {
+            console.warn("CustomJS reload failed", error);
+        }
+    }
+
+    if (typeof cJS === "function") {
+        try {
+            const modules = await cJS();
+            if (modules?.DashboardHelpers) return modules.DashboardHelpers;
+        } catch (error) {
+            console.warn("CustomJS DashboardHelpers unavailable", error);
+        }
+    }
+
+    const file = app.vault.getAbstractFileByPath("_scripts/DashboardHelpers.js");
+    if (!file) throw new Error("DashboardHelpers.js missing from _scripts");
+    const source = await app.vault.cachedRead(file);
+    const DashboardHelpersClass = new Function(`${source}; return DashboardHelpers;`)();
+    return new DashboardHelpersClass();
+};
+
+const h = await loadDashboardHelpers();
 
 const cur = dv.current();
 const weekStart = dv.date(cur.week_start);
@@ -107,8 +131,32 @@ dv.container.innerHTML = `<table style="width:100%;border-collapse:separate;bord
 function Get-MonthCode {
 @'
 ```dataviewjs
-const { DashboardHelpers } = await cJS();
-const h = DashboardHelpers;
+const loadDashboardHelpers = async () => {
+    if (typeof window.forceLoadCustomJS === "function") {
+        try {
+            await window.forceLoadCustomJS();
+        } catch (error) {
+            console.warn("CustomJS reload failed", error);
+        }
+    }
+
+    if (typeof cJS === "function") {
+        try {
+            const modules = await cJS();
+            if (modules?.DashboardHelpers) return modules.DashboardHelpers;
+        } catch (error) {
+            console.warn("CustomJS DashboardHelpers unavailable", error);
+        }
+    }
+
+    const file = app.vault.getAbstractFileByPath("_scripts/DashboardHelpers.js");
+    if (!file) throw new Error("DashboardHelpers.js missing from _scripts");
+    const source = await app.vault.cachedRead(file);
+    const DashboardHelpersClass = new Function(`${source}; return DashboardHelpers;`)();
+    return new DashboardHelpersClass();
+};
+
+const h = await loadDashboardHelpers();
 
 const cur = dv.current();
 const year = Number(cur.year) || new Date().getFullYear();
@@ -227,8 +275,32 @@ dv.container.innerHTML = `
 function Get-YearCode {
 @'
 ```dataviewjs
-const { DashboardHelpers } = await cJS();
-const h = DashboardHelpers;
+const loadDashboardHelpers = async () => {
+    if (typeof window.forceLoadCustomJS === "function") {
+        try {
+            await window.forceLoadCustomJS();
+        } catch (error) {
+            console.warn("CustomJS reload failed", error);
+        }
+    }
+
+    if (typeof cJS === "function") {
+        try {
+            const modules = await cJS();
+            if (modules?.DashboardHelpers) return modules.DashboardHelpers;
+        } catch (error) {
+            console.warn("CustomJS DashboardHelpers unavailable", error);
+        }
+    }
+
+    const file = app.vault.getAbstractFileByPath("_scripts/DashboardHelpers.js");
+    if (!file) throw new Error("DashboardHelpers.js missing from _scripts");
+    const source = await app.vault.cachedRead(file);
+    const DashboardHelpersClass = new Function(`${source}; return DashboardHelpers;`)();
+    return new DashboardHelpersClass();
+};
+
+const h = await loadDashboardHelpers();
 
 const cur = dv.current();
 const year = Number(cur.year) || new Date().getFullYear();
@@ -269,7 +341,7 @@ mornings.forEach(p => {
     if (mood) byMonth[d.month].moodMorning.push(mood);
     if (energy) byMonth[d.month].energyMorning.push(energy);
     const key = d.toFormat("yyyy-MM-dd");
-    upsertDay(key, p.file.path);
+    upsertDay(key, { reviewPath: p.file.path });
     if (mood) dayMap[key].moods.push(mood);
 });
 evenings.forEach(p => {
@@ -279,13 +351,13 @@ evenings.forEach(p => {
     if (mood) byMonth[d.month].moodEvening.push(mood);
     if (energy) byMonth[d.month].energyEvening.push(energy);
     const key = d.toFormat("yyyy-MM-dd");
-    upsertDay(key, p.file.path);
+    upsertDay(key, { reviewPath: p.file.path });
     if (mood) dayMap[key].moods.push(mood);
 });
 journals.forEach(p => {
     const d = dv.date(p.date);
     const key = d.toFormat("yyyy-MM-dd");
-    upsertDay(key, p.file.path);
+    upsertDay(key, { journalPath: p.file.path });
 });
 
 const statHtml = (label, avgValue, type) => {
@@ -362,7 +434,7 @@ for (let i = 0; i < cells.length; i += 7) {
             return `<div style="width:12px;height:12px;border-radius:3px;background:transparent;"></div>`;
         }
         const bg = cell.score == null ? "var(--background-secondary)" : h.scoreColor(cell.score, "mood");
-        const title = `${cell.key}${cell.score == null ? "" : ` mood ${cell.score.toFixed(1)}`}`;
+        const title = `${cell.key}${cell.score == null ? "" : ` media do dia ${cell.score.toFixed(1)}`}`;
         const inner = `<div title="${title}" style="width:12px;height:12px;border-radius:3px;background:${bg};"></div>`;
         return cell.path
             ? `<a href="${cell.path}" class="internal-link" style="display:block;width:12px;height:12px;">${inner}</a>`

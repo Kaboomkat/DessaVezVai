@@ -11,7 +11,32 @@ tags:
 # Mood-Energy Tracker Anual
 
 ```dataviewjs
-const { DashboardHelpers: h } = await cJS();
+const loadDashboardHelpers = async () => {
+    if (typeof window.forceLoadCustomJS === "function") {
+        try {
+            await window.forceLoadCustomJS();
+        } catch (error) {
+            console.warn("CustomJS reload failed", error);
+        }
+    }
+
+    if (typeof cJS === "function") {
+        try {
+            const modules = await cJS();
+            if (modules?.DashboardHelpers) return modules.DashboardHelpers;
+        } catch (error) {
+            console.warn("CustomJS DashboardHelpers unavailable", error);
+        }
+    }
+
+    const file = app.vault.getAbstractFileByPath("_scripts/DashboardHelpers.js");
+    if (!file) throw new Error("DashboardHelpers.js missing from _scripts");
+    const source = await app.vault.cachedRead(file);
+    const DashboardHelpersClass = new Function(`${source}; return DashboardHelpers;`)();
+    return new DashboardHelpersClass();
+};
+
+const h = await loadDashboardHelpers();
 
 const cur = dv.current();
 const year = Number(cur.year) || new Date().getFullYear();
@@ -40,9 +65,12 @@ for (let month = 1; month <= 12; month++) {
 }
 
 const dayMap = {};
-const upsertDay = (key, path) => {
-    if (!dayMap[key]) dayMap[key] = { moods: [], path };
-    if (!dayMap[key].path) dayMap[key].path = path;
+const upsertDay = (key, { reviewPath = null, journalPath = null } = {}) => {
+    if (!dayMap[key]) {
+        dayMap[key] = { moods: [], reviewPath: null, journalPath: null };
+    }
+    if (reviewPath && !dayMap[key].reviewPath) dayMap[key].reviewPath = reviewPath;
+    if (journalPath) dayMap[key].journalPath = journalPath;
 };
 
 mornings.forEach(p => {
@@ -52,7 +80,7 @@ mornings.forEach(p => {
     if (mood) byMonth[d.month].moodMorning.push(mood);
     if (energy) byMonth[d.month].energyMorning.push(energy);
     const key = d.toFormat("yyyy-MM-dd");
-    upsertDay(key, p.file.path);
+    upsertDay(key, { reviewPath: p.file.path });
     if (mood) dayMap[key].moods.push(mood);
 });
 evenings.forEach(p => {
@@ -62,13 +90,13 @@ evenings.forEach(p => {
     if (mood) byMonth[d.month].moodEvening.push(mood);
     if (energy) byMonth[d.month].energyEvening.push(energy);
     const key = d.toFormat("yyyy-MM-dd");
-    upsertDay(key, p.file.path);
+    upsertDay(key, { reviewPath: p.file.path });
     if (mood) dayMap[key].moods.push(mood);
 });
 journals.forEach(p => {
     const d = dv.date(p.date);
     const key = d.toFormat("yyyy-MM-dd");
-    upsertDay(key, p.file.path);
+    upsertDay(key, { journalPath: p.file.path });
 });
 
 const statHtml = (label, avgValue, type) => {
@@ -119,11 +147,12 @@ for (let cursor = new Date(start); cursor <= end; cursor.setDate(cursor.getDate(
     const key = `${cursor.getFullYear()}-${String(cursor.getMonth() + 1).padStart(2, "0")}-${String(cursor.getDate()).padStart(2, "0")}`;
     const entry = dayMap[key];
     const score = avg(entry?.moods);
+    const path = entry?.journalPath || entry?.reviewPath || null;
     cells.push({
         key,
         day: cursor.getDate(),
         month: cursor.getMonth(),
-        path: entry?.path,
+        path,
         score
     });
 }
@@ -145,7 +174,7 @@ for (let i = 0; i < cells.length; i += 7) {
             return `<div style="width:12px;height:12px;border-radius:3px;background:transparent;"></div>`;
         }
         const bg = cell.score == null ? "var(--background-secondary)" : h.scoreColor(cell.score, "mood");
-        const title = `${cell.key}${cell.score == null ? "" : ` mood ${cell.score.toFixed(1)}`}`;
+        const title = `${cell.key}${cell.score == null ? "" : ` media do dia ${cell.score.toFixed(1)}`}`;
         const inner = `<div title="${title}" style="width:12px;height:12px;border-radius:3px;background:${bg};"></div>`;
         return cell.path
             ? `<a href="${cell.path}" class="internal-link" style="display:block;width:12px;height:12px;">${inner}</a>`

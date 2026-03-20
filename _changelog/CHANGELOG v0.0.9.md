@@ -9,32 +9,26 @@ tags:
 # Changelog v0.0.9
 
 **Data:** 2026-03-20
-**Titulo:** Controles inline de mood e energia nas reviews
+**Titulo:** Limpeza de ownership do Templater
 
 ---
 
 ## Mudancas
 
-1. **ReviewControls.js**: criada uma camada de controles inline para atualizar mood e energia direto na nota de review, sem mudar o contrato de dados existente.
-2. **Morning Review Template**: agora exibe botoes embutidos para selecionar `mood_morning` e `energy_morning`.
-3. **Evening Review Template**: agora exibe botoes embutidos para selecionar `mood_evening` e `energy_evening`.
-4. **Review existente migrada**: `2026-03-19 Morning Review.md` recebeu os controles inline para manter consistencia com as novas reviews.
-5. **Persistencia**: os botoes escrevem no frontmatter da propria nota, preservando compatibilidade com dashboards, trackers e queries atuais.
-6. **Hardening**: corrigido o encoding dos emojis e strings dos templates de review, evitando mojibake nas opcoes e nas novas notas geradas.
+1. **Templater folder ownership removido**: `templates_pairs` foi zerado para que o plugin nao mantenha rotas antigas de criacao por pasta.
+2. **Daily Journal Router isolado**: o vault deixa de apontar para o router legado em configuracao ativa.
+3. **Arquitetura consolidada**: `Periodic Notes` e `QuickAdd` seguem como unicos criadores de notas, enquanto `Templater` fica apenas como renderizador.
 
 ---
 
 ## Arquivos modificados
 
-- `_scripts/ReviewControls.js`
-- `_templates/daily/Morning Review Template.md`
-- `_templates/daily/Evening Review Template.md`
-- `03-Daily/Morning Reviews/2026-03-19 Morning Review.md`
+- `.obsidian/plugins/templater-obsidian/data.json`
 
 ---
 
 ## Objetivo
 
-Esta versao permite ajustar humor e energia depois da criacao da review, direto dentro da nota, sem reabrir o popup inicial e sem quebrar os dashboards.
+Esta versao reduz o risco de dupla aplicacao de template e elimina o principal resquicio da arquitetura antiga.
 
-[[CHANGELOG|<- Indice]]
+[[CHANGELOG INDEX|<- Indice]]

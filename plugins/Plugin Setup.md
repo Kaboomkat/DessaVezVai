@@ -21,6 +21,12 @@ tags:
 
 Este repositorio versiona a pasta `.obsidian/`, entao as configuracoes criticas acima ja fazem parte do vault compartilhado.
 
+## Sync e mobile
+
+- `_scripts/*.js` precisa continuar dentro do sync; em `Obsidian Sync`, isso depende de `Sync all other types` ativo no dispositivo.
+- Os blocos `dataviewjs` do vault agora tentam carregar `DashboardHelpers` e `ReviewControls` direto de `_scripts` quando o `CustomJS` ainda nao reaplicou a configuracao no device.
+- Mesmo com esse fallback, plugin novo ou config nova em tablet/celular ainda pode exigir restart completo do Obsidian para aplicar.
+
 ## Contrato de dados
 
 - `03-Daily/Morning Reviews/*.md` guarda `mood_morning` e `energy_morning`

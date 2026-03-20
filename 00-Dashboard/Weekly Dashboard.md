@@ -1,4 +1,4 @@
-﻿---
+---
 title: Weekly Dashboard
 type: dashboard
 include_in_navbar: true
@@ -80,8 +80,32 @@ dv.container.innerHTML = `
 ## ðŸ˜Œ Humor & Energia da Semana
 
 ```dataviewjs
-const { DashboardHelpers } = await cJS();
-const h = DashboardHelpers;
+const loadDashboardHelpers = async () => {
+    if (typeof window.forceLoadCustomJS === "function") {
+        try {
+            await window.forceLoadCustomJS();
+        } catch (error) {
+            console.warn("CustomJS reload failed", error);
+        }
+    }
+
+    if (typeof cJS === "function") {
+        try {
+            const modules = await cJS();
+            if (modules?.DashboardHelpers) return modules.DashboardHelpers;
+        } catch (error) {
+            console.warn("CustomJS DashboardHelpers unavailable", error);
+        }
+    }
+
+    const file = app.vault.getAbstractFileByPath("_scripts/DashboardHelpers.js");
+    if (!file) throw new Error("DashboardHelpers.js missing from _scripts");
+    const source = await app.vault.cachedRead(file);
+    const DashboardHelpersClass = new Function(`${source}; return DashboardHelpers;`)();
+    return new DashboardHelpersClass();
+};
+
+const h = await loadDashboardHelpers();
 
 const today = dv.date("today");
 const weekStart = today.minus({ days: today.weekday - 1 });

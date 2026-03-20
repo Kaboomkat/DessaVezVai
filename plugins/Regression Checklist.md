@@ -26,6 +26,7 @@ tags:
 - [ ] `Daily Dashboard` mostra mood e energia dos review files
 - [ ] `Weekly Dashboard` mostra a tabela de humor e energia sem erro de CustomJS
 - [ ] `Mood-Energy Tracker` anual e mensal le review files, nao daily frontmatter
+- [ ] `Mood-Energy Tracker` anual usa a media do dia entre manha e noite e abre a daily note quando ela existir
 
 ## Configuracao
 
@@ -33,3 +34,5 @@ tags:
 - [ ] `Templater.enable_folder_templates = false`
 - [ ] `CustomJS.jsFolder = _scripts`
 - [ ] `Periodic Notes` weekly/monthly apontam para `03-Daily/Reviews`
+- [ ] `Obsidian Sync -> Sync all other types` esta ativo nos devices que usam o vault
+- [ ] Reviews e trackers continuam abrindo sem erro mesmo quando o `CustomJS` ainda nao reidratou a configuracao no mobile

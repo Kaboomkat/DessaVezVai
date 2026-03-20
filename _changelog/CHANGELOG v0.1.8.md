@@ -9,32 +9,48 @@ tags:
 # Changelog v0.1.8
 
 **Data:** 2026-03-20
-**Titulo:** Review contextual por data e retorno do heatmap anual
+**Titulo:** Fallback do Dataview no tablet + normalizacao do changelog
 
 ---
 
 ## Mudancas
 
-1. **Review contextual por nota**: `Morning Review` e `Evening Review` agora usam `review_date` no `QuickAdd`, permitindo que o botao dentro de uma daily note abra/crie a review da data da propria nota.
-2. **Buttons com Templater contextual**: os botoes no Daily Dashboard injetam a data de hoje; os botoes nas daily notes injetam `tp.file.title`, evitando cair na review do dia atual quando a nota aberta e de outra data.
-3. **Links auxiliares do template diario**: os links de fallback do `Daily Note Template` passaram a apontar para a data da nota gerada.
-4. **Gerador anual alinhado**: o script `RefreshMoodTrackers.ps1` voltou a carregar o bloco do heatmap estilo GitHub para as geracoes futuras do tracker anual.
+1. **Fallback real para DashboardHelpers e ReviewControls**: os blocos `dataviewjs` deixam de depender apenas do `cJS()` configurado no plugin `CustomJS`; agora tentam `forceLoadCustomJS()`, usam o plugin quando ele estiver pronto e, se necessario, carregam `_scripts/*.js` direto do vault.
+2. **Heatmap anual mais contextual**: o score diario continua sendo a media entre manha e noite, mas o clique agora prefere a daily note do dia quando ela existir, e o tooltip passa a deixar explicito que se trata da media do dia.
+3. **Sequencia de versoes corrigida**: a lacuna em `v0.0.4` foi fechada, os arquivos a partir do antigo `v0.0.5` foram renumerados em cascata e o indice do changelog voltou a ficar monotonicamente consistente.
+4. **Documentacao, QA e regeneracao alinhados**: `Plugin Setup`, `Regression Checklist` e `RefreshMoodTrackers.ps1` agora registram o comportamento esperado em sync/mobile e reemitem o tracker anual com a mesma logica contextual do vault.
 
 ---
 
 ## Arquivos modificados
 
-- `.obsidian/plugins/quickadd/data.json`
 - `00-Dashboard/Daily Dashboard.md`
+- `00-Dashboard/Weekly Dashboard.md`
+- `00-Dashboard/Mood-Energy Tracker/Monthly/2026/*.md`
+- `00-Dashboard/Mood-Energy Tracker/Monthly/2027/*.md`
+- `00-Dashboard/Mood-Energy Tracker/Yearly/2026.md`
+- `00-Dashboard/Mood-Energy Tracker/Yearly/2027.md`
 - `03-Daily/Journal/2026-03-19.md`
 - `03-Daily/Journal/2026-03-20.md`
+- `03-Daily/Morning Reviews/2026-03-19 Morning Review.md`
+- `03-Daily/Morning Reviews/2026-03-20 Morning Review.md`
+- `03-Daily/Evening Reviews/2026-03-19 Evening Review.md`
+- `03-Daily/Evening Reviews/2026-03-20 Evening Review.md`
+- `plugins/Plugin Setup.md`
+- `plugins/Regression Checklist.md`
 - `_templates/daily/Daily Note Template.md`
+- `_templates/daily/Evening Review Template.md`
+- `_templates/daily/Mood-Energy Month Template.md`
+- `_templates/daily/Mood-Energy Week Template.md`
+- `_templates/daily/Mood-Energy Year Template.md`
+- `_templates/daily/Morning Review Template.md`
 - `_scripts/RefreshMoodTrackers.ps1`
+- `_changelog/CHANGELOG INDEX.md`
 
 ---
 
 ## Objetivo
 
-Esta versao corrige o desvio de data nas reviews abertas a partir de diarios antigos e devolve a visualizacao anual em heatmap sem reabrir a arquitetura fragil baseada em nome de comando.
+Esta versao corta a dependencia fragil de configuracao do `CustomJS` em dispositivos moveis, esclarece a navegacao do heatmap anual e devolve coerencia ao historico de versoes do vault.
 
-[[CHANGELOG|<- Indice]]
+[[CHANGELOG INDEX|<- Indice]]

@@ -9,28 +9,33 @@ tags:
 # Changelog v0.1.1
 
 **Data:** 2026-03-20
-**Titulo:** Documentacao operacional e README do repositorio
+**Titulo:** Hotfix do sistema daily e reviews inline
 
 ---
 
 ## Mudancas
 
-1. **README atualizado**: o repositorio agora descreve a arquitetura real do vault, os plugins obrigatorios e o fluxo correto de uso.
-2. **Plugin Setup ajustado**: documentado que `.obsidian/` esta versionado e faz parte do contrato do vault.
-3. **Contrato operacional registrado**: `Command Contract` e `Regression Checklist` passam a ser a referencia de validacao do repositorio.
+1. **DashboardHelpers restaurado**: o helper voltou a um estado valido para `CustomJS`, com escala de humor e energia operacional.
+2. **Estado do Dia corrigido**: o diario deixou de instanciar `DashboardHelpers` incorretamente e voltou a renderizar a tabela.
+3. **Daily note refeito**: o template e as daily notes existentes ganharam estrutura limpa, quote funcional e botoes reais de review.
+4. **Reviews existentes normalizadas**: as reviews ja criadas foram recriadas com frontmatter valido e controles inline operacionais.
 
 ---
 
 ## Arquivos modificados
 
-- `README.md`
-- `plugins/Plugin Setup.md`
-- `_changelog/CHANGELOG.md`
+- `_scripts/DashboardHelpers.js`
+- `_templates/daily/Daily Note Template.md`
+- `03-Daily/Journal/2026-03-19.md`
+- `03-Daily/Journal/2026-03-20.md`
+- `03-Daily/Morning Reviews/2026-03-19 Morning Review.md`
+- `03-Daily/Morning Reviews/2026-03-20 Morning Review.md`
+- `03-Daily/Evening Reviews/2026-03-20 Evening Review.md`
 
 ---
 
 ## Objetivo
 
-Esta versao deixa o repositorio legivel no GitHub e reduz dependencia de memoria para manter o vault funcionando.
+Esta versao tirou o diario do estado quebrado e devolveu o fluxo minimo de uso diario.
 
-[[CHANGELOG|<- Indice]]
+[[CHANGELOG INDEX|<- Indice]]

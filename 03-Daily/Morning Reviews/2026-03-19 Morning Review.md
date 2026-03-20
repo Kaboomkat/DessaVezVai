@@ -15,8 +15,32 @@ tags:
 ---
 
 ```dataviewjs
-const { ReviewControls } = await cJS();
-const controls = ReviewControls;
+const loadReviewControls = async () => {
+    if (typeof window.forceLoadCustomJS === "function") {
+        try {
+            await window.forceLoadCustomJS();
+        } catch (error) {
+            console.warn("CustomJS reload failed", error);
+        }
+    }
+
+    if (typeof cJS === "function") {
+        try {
+            const modules = await cJS();
+            if (modules?.ReviewControls) return modules.ReviewControls;
+        } catch (error) {
+            console.warn("CustomJS ReviewControls unavailable", error);
+        }
+    }
+
+    const file = app.vault.getAbstractFileByPath("_scripts/ReviewControls.js");
+    if (!file) throw new Error("ReviewControls.js missing from _scripts");
+    const source = await app.vault.cachedRead(file);
+    const ReviewControlsClass = new Function(`${source}; return ReviewControls;`)();
+    return new ReviewControlsClass(app);
+};
+
+const controls = await loadReviewControls();
 await controls.renderReviewPicker(dv, {
     filePath: dv.current().file.path,
     moodField: "mood_morning",

@@ -9,39 +9,31 @@ tags:
 # Changelog v0.0.6
 
 **Data:** 2026-03-20
-**Titulo:** Reescrita dos trackers de humor e energia
+**Titulo:** Correcao de wiring dos botoes e das notas periodicas
 
 ---
 
 ## Mudancas
 
-1. **Script de regeneracao**: criado `_scripts/RefreshMoodTrackers.ps1` para reemitir trackers e templates sem depender de copy-paste manual.
-2. **Mood-Energy Week Template**: reescrito para ler apenas `Morning Reviews`, `Evening Reviews` e `Journal`, usando `DashboardHelpers`.
-3. **Mood-Energy Month Template**: reescrito para abandonar a logica antiga 1-10 e usar a escala emoji 1-5 consolidada no vault.
-4. **Mood-Energy Year Template**: reescrito com a mesma fonte de dados e o mesmo helper compartilhado.
-5. **Trackers anuais existentes**: `2026.md` e `2027.md` foram regenerados na nova logica.
-6. **Trackers mensais existentes**: todos os meses de `2026` foram regenerados na nova logica.
-7. **Trackers mensais de 2027**: pasta `00-Dashboard/Mood-Energy Tracker/Monthly/2027/` criada para remover navegacao quebrada a partir do tracker anual de 2027.
-8. **Mood-Energy Tracker Hub**: simplificado e alinhado ao novo contrato de dados.
+1. **Home Dashboard**: o botao de diario passou de um label generico para o comando explicito `Periodic Notes: Open daily note`.
+2. **Daily Dashboard**: o botao `Abrir Diario de Hoje` agora usa `Periodic Notes: Open daily note`.
+3. **Daily Dashboard**: o botao `Revisao Semanal` agora usa `Periodic Notes: Open weekly note`.
+4. **Weekly Dashboard**: o botao `Abrir Revisao Semanal` agora usa `Periodic Notes: Open weekly note`.
+5. **Periodic Notes config**: notas semanais e mensais deixaram de ser criadas em `03-Daily/Journal` e passaram para `03-Daily/Reviews`.
 
 ---
 
 ## Arquivos modificados
 
-- `_scripts/RefreshMoodTrackers.ps1`
-- `_templates/daily/Mood-Energy Week Template.md`
-- `_templates/daily/Mood-Energy Month Template.md`
-- `_templates/daily/Mood-Energy Year Template.md`
-- `00-Dashboard/Mood-Energy Tracker/Hub.md`
-- `00-Dashboard/Mood-Energy Tracker/Yearly/2026.md`
-- `00-Dashboard/Mood-Energy Tracker/Yearly/2027.md`
-- `00-Dashboard/Mood-Energy Tracker/Monthly/2026/*.md`
-- `00-Dashboard/Mood-Energy Tracker/Monthly/2027/*.md`
+- `00-Dashboard/Home.md`
+- `00-Dashboard/Daily Dashboard.md`
+- `00-Dashboard/Weekly Dashboard.md`
+- `.obsidian/plugins/periodic-notes/data.json`
 
 ---
 
 ## Objetivo
 
-Esta versao elimina a divergencia entre dashboards e trackers: todo o sistema de humor/energia passa a consumir a mesma estrutura de dados e o mesmo helper.
+Esta versao fecha as quebras mais provaveis dos botoes de abrir diario e abrir revisao semanal, e realinha o destino das notas periodicas com a estrutura do vault.
 
-[[CHANGELOG|← Índice]]
+[[CHANGELOG INDEX|<- Indice]]

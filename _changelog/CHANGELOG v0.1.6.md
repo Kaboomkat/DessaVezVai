@@ -9,29 +9,37 @@ tags:
 # Changelog v0.1.6
 
 **Data:** 2026-03-20
-**Titulo:** Hotfix da media no Mood-Energy Tracker mensal
+**Titulo:** Arquitetura de review via QuickAdd URI
 
 ---
 
 ## Mudancas
 
-1. **Media robusta no mensal**: a funcao `avg()` do tracker mensal passou a normalizar `Dataview DataArray` com `Array.from(...)` antes de usar `reduce()`.
-2. **Mensais regenerados**: os trackers mensais de 2026 e 2027 foram atualizados com a funcao corrigida.
-3. **Gerador alinhado**: o script de regeneracao e o template base mensal agora compartilham a mesma implementacao segura.
+1. **QuickAdd restaurado**: o arquivo `.obsidian/plugins/quickadd/data.json` voltou ao estado versionado com as choices registradas, incluindo `Morning Review` e `Evening Review`.
+2. **Buttons desacoplado de command lookup**: os botoes de review no Daily Dashboard e nas daily notes passaram de `type command` para `type link` com `obsidian://quickadd?...`.
+3. **Create-or-open canonico**: as choices de `Morning Review` e `Evening Review` agora usam `fileExistsMode: "Nothing"`, que no QuickAdd atual cria o arquivo se nao existir e abre o existente sem tentar sobrescrever.
+4. **Template futuro alinhado**: o `Daily Note Template` foi atualizado para usar a mesma arquitetura dos arquivos diarios ja existentes.
 
 ---
 
 ## Arquivos modificados
 
-- `_templates/daily/Mood-Energy Month Template.md`
-- `_scripts/RefreshMoodTrackers.ps1`
-- `00-Dashboard/Mood-Energy Tracker/Monthly/2026/*.md`
-- `00-Dashboard/Mood-Energy Tracker/Monthly/2027/*.md`
+- `.obsidian/plugins/quickadd/data.json`
+- `00-Dashboard/Daily Dashboard.md`
+- `03-Daily/Journal/2026-03-19.md`
+- `03-Daily/Journal/2026-03-20.md`
+- `_templates/daily/Daily Note Template.md`
+
+---
+
+## Arquitetura
+
+`Buttons (link) -> obsidian://quickadd?choice=... -> QuickAdd choice -> Templater on file creation -> review file`
 
 ---
 
 ## Objetivo
 
-Esta versao fecha o erro `arr.reduce is not a function` no tracker mensal.
+Esta versao remove a dependencia fragil de lookup por nome do `Buttons` e passa a usar o handler nativo de URI do QuickAdd para reviews.
 
-[[CHANGELOG|<- Indice]]
+[[CHANGELOG INDEX|<- Indice]]

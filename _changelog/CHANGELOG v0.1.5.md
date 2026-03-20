@@ -9,23 +9,20 @@ tags:
 # Changelog v0.1.5
 
 **Data:** 2026-03-20
-**Titulo:** Hotfix do Daily Dashboard, QuickAdd e calendario mensal
+**Titulo:** Hotfix da media no Mood-Energy Tracker mensal
 
 ---
 
 ## Mudancas
 
-1. **QuickAdd restaurado**: as choices `Morning Review` e `Evening Review` voltaram para a configuracao ativa do plugin, com `open existing file` e template correto.
-2. **Daily Dashboard limpo**: o dashboard diario foi reescrito em UTF-8 limpo para remover mojibake e voltar a ficar legivel.
-3. **Tracker mensal em grid**: o calendario mensal deixou de usar tabela esticada e passou a usar grid com celulas quadradas.
-4. **Regeneracao dos trackers**: todos os trackers mensais de 2026 e 2027 foram atualizados com o layout novo.
+1. **Media robusta no mensal**: a funcao `avg()` do tracker mensal passou a normalizar `Dataview DataArray` com `Array.from(...)` antes de usar `reduce()`.
+2. **Mensais regenerados**: os trackers mensais de 2026 e 2027 foram atualizados com a funcao corrigida.
+3. **Gerador alinhado**: o script de regeneracao e o template base mensal agora compartilham a mesma implementacao segura.
 
 ---
 
 ## Arquivos modificados
 
-- `.obsidian/plugins/quickadd/data.json`
-- `00-Dashboard/Daily Dashboard.md`
 - `_templates/daily/Mood-Energy Month Template.md`
 - `_scripts/RefreshMoodTrackers.ps1`
 - `00-Dashboard/Mood-Energy Tracker/Monthly/2026/*.md`
@@ -35,6 +32,6 @@ tags:
 
 ## Objetivo
 
-Esta versao fecha o hotfix de usabilidade mais urgente: comandos de review encontrados pelo Command Palette, dashboard diario legivel e tracker mensal com cara de calendario.
+Esta versao fecha o erro `arr.reduce is not a function` no tracker mensal.
 
-[[CHANGELOG|<- Indice]]
+[[CHANGELOG INDEX|<- Indice]]

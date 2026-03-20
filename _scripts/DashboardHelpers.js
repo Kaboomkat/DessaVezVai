@@ -1,8 +1,20 @@
 class DashboardHelpers {
 
     constructor() {
-        this.MOOD_EMOJIS = ["😢", "😕", "😐", "🙂", "😄"];
-        this.ENERGY_EMOJIS = ["💤", "😪", "😐", "🔥", "⚡"];
+        this.MOOD_EMOJIS = [
+            "\uD83D\uDE22",
+            "\uD83D\uDE15",
+            "\uD83D\uDE10",
+            "\uD83D\uDE42",
+            "\uD83D\uDE04"
+        ];
+        this.ENERGY_EMOJIS = [
+            "\uD83D\uDCA4",
+            "\uD83D\uDE2A",
+            "\uD83D\uDE10",
+            "\uD83D\uDD25",
+            "\u26A1"
+        ];
     }
 
     _emojiIndex(value, arr) {

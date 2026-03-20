@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Semana {{week_start}} - {{week_end}}"
 type: mood-tracker
 frequency: weekly
@@ -13,8 +13,32 @@ tags:
 # Mood-Energy Tracker Semanal
 
 ```dataviewjs
-const { DashboardHelpers } = await cJS();
-const h = DashboardHelpers;
+const loadDashboardHelpers = async () => {
+    if (typeof window.forceLoadCustomJS === "function") {
+        try {
+            await window.forceLoadCustomJS();
+        } catch (error) {
+            console.warn("CustomJS reload failed", error);
+        }
+    }
+
+    if (typeof cJS === "function") {
+        try {
+            const modules = await cJS();
+            if (modules?.DashboardHelpers) return modules.DashboardHelpers;
+        } catch (error) {
+            console.warn("CustomJS DashboardHelpers unavailable", error);
+        }
+    }
+
+    const file = app.vault.getAbstractFileByPath("_scripts/DashboardHelpers.js");
+    if (!file) throw new Error("DashboardHelpers.js missing from _scripts");
+    const source = await app.vault.cachedRead(file);
+    const DashboardHelpersClass = new Function(`${source}; return DashboardHelpers;`)();
+    return new DashboardHelpersClass();
+};
+
+const h = await loadDashboardHelpers();
 
 const cur = dv.current();
 const weekStart = dv.date(cur.week_start);
@@ -36,7 +60,10 @@ mornings.forEach(p => { if (p.date) morningMap[dv.date(p.date).toFormat("yyyy-MM
 evenings.forEach(p => { if (p.date) eveningMap[dv.date(p.date).toFormat("yyyy-MM-dd")] = p; });
 journals.forEach(p => { if (p.date) journalMap[dv.date(p.date).toFormat("yyyy-MM-dd")] = p; });
 
-const avg = values => { const arr = Array.from(values ?? []); return arr.length ? arr.reduce((a, b) => a + b, 0) / arr.length : null; };
+const avg = values => {
+    const arr = Array.from(values ?? []);
+    return arr.length ? arr.reduce((a, b) => a + b, 0) / arr.length : null;
+};
 const values = { mm: [], em: [], mn: [], en: [] };
 const dayLabels = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sab", "Dom"];
 let rows = "";
@@ -102,5 +129,3 @@ dv.container.innerHTML = `<table style="width:100%;border-collapse:separate;bord
 ## Navegacao
 
 [[Tracker Mensal]] | [[Tracker Anual]]
-
-

@@ -1,29 +1,20 @@
-<%*
-const date = tp.file.title.replace(" Evening Review", "");
-const dayNames = ["Domingo", "Segunda-feira", "Terca-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sabado"];
-const monthNames = ["Janeiro", "Fevereiro", "Marco", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
-const d = new Date(date + "T12:00:00");
-const dayName = dayNames[d.getDay()];
-const monthName = monthNames[d.getMonth()];
-const dayNum = d.getDate();
-const year = d.getFullYear();
-tR += `---
-title: "${tp.file.title}"
+---
+title: 2026-03-19 Evening Review
 type: review
 frequency: evening
-date: ${date}
-created: ${date}
-mood_evening:
-energy_evening:
+date: 2026-03-19
+created: 2026-03-19
+mood_evening: 🙂
+energy_evening: 😐
 tags:
   - review/evening
 ---
 
-# Revisao da Noite - ${dayName}, ${dayNum} de ${monthName} de ${year}
+# Revisao da Noite - Quinta-feira, 19 de Marco de 2026
 
 ---
 
-\`\`\`dataviewjs
+```dataviewjs
 const loadReviewControls = async () => {
     if (typeof window.forceLoadCustomJS === "function") {
         try {
@@ -57,7 +48,7 @@ await controls.renderReviewPicker(dv, {
     currentMood: dv.current().mood_evening,
     currentEnergy: dv.current().energy_evening
 });
-\`\`\`
+```
 
 ---
 
@@ -98,5 +89,4 @@ await controls.renderReviewPicker(dv, {
 
 ## Navegacao
 
-[[03-Daily/Journal/${date}|<- Diario do dia]] | [[03-Daily/Morning Reviews/${date} Morning Review|Revisao da Manha ->]]`;
-%>
+[[03-Daily/Journal/2026-03-19|<- Diario do dia]] | [[03-Daily/Morning Reviews/2026-03-19 Morning Review|Revisao da Manha ->]]

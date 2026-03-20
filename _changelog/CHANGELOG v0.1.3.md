@@ -9,22 +9,29 @@ tags:
 # Changelog v0.1.3
 
 **Data:** 2026-03-20
-**Titulo:** Restauracao do fluxo de criacao e dos trackers
+**Titulo:** Hotfix do QuickAdd e ajuste visual do tracker mensal
 
 ---
 
 ## Mudancas
 
-1. **Templater reequilibrado**: o processamento em criacao de arquivo voltou a ser habilitado, sem reativar folder templates.
-2. **Morning/Evening Review simplificados**: os templates deixaram de depender do picker inicial e passam a nascer com campos vazios e controles inline.
-3. **Weekly Review limpo**: o template semanal e a nota semanal criada foram normalizados.
-4. **Tracker mensal corrigido**: a media agora converte corretamente `DataArray` para array comum.
-5. **Heatmap anual restaurado**: o tracker anual voltou a exibir uma grade estilo GitHub com links para os dias registrados.
+1. **QuickAdd reviews**: `Morning Review` e `Evening Review` passaram a usar o comportamento canonico `Nothing` quando o arquivo do dia ja existe.
+2. **Fluxo idempotente**: o objetivo e evitar o warning `File not written to` no caso comum de abrir uma review diaria que ja foi criada.
+3. **Tracker mensal compacto**: os dias do calendario ficaram menores e mais quadrados, com menos altura visual.
+
+---
+
+## Arquivos modificados
+
+- `.obsidian/plugins/quickadd/data.json`
+- `_templates/daily/Mood-Energy Month Template.md`
+- `00-Dashboard/Mood-Energy Tracker/Monthly/2026/*.md`
+- `00-Dashboard/Mood-Energy Tracker/Monthly/2027/*.md`
 
 ---
 
 ## Objetivo
 
-Esta versao fecha as regressos de criacao de review e devolve os trackers mensal e anual.
+Esta versao fecha o hotfix do QuickAdd com base no contrato do plugin e melhora a legibilidade do tracker mensal.
 
-[[CHANGELOG|<- Indice]]
+[[CHANGELOG INDEX|<- Indice]]

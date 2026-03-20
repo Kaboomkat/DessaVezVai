@@ -3,18 +3,18 @@ class ReviewControls {
     constructor(appInstance = app) {
         this.app = appInstance;
         this.moodOptions = [
-            { value: "😢", label: "Muito mal" },
-            { value: "😕", label: "Mal" },
-            { value: "😐", label: "Neutro" },
-            { value: "🙂", label: "Bem" },
-            { value: "😄", label: "Otimo" }
+            { value: "\uD83D\uDE22", label: "Muito mal" },
+            { value: "\uD83D\uDE15", label: "Mal" },
+            { value: "\uD83D\uDE10", label: "Neutro" },
+            { value: "\uD83D\uDE42", label: "Bem" },
+            { value: "\uD83D\uDE04", label: "Otimo" }
         ];
         this.energyOptions = [
-            { value: "💤", label: "Sem energia" },
-            { value: "😪", label: "Cansado" },
-            { value: "😐", label: "Neutro" },
-            { value: "🔥", label: "Disposto" },
-            { value: "⚡", label: "Energizado" }
+            { value: "\uD83D\uDCA4", label: "Sem energia" },
+            { value: "\uD83D\uDE2A", label: "Cansado" },
+            { value: "\uD83D\uDE10", label: "Neutro" },
+            { value: "\uD83D\uDD25", label: "Disposto" },
+            { value: "\u26A1", label: "Energizado" }
         ];
     }
 

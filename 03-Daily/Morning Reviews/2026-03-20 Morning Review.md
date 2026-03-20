@@ -1,11 +1,11 @@
 ---
-title: "2026-03-20 Morning Review"
+title: 2026-03-20 Morning Review
 type: review
 frequency: morning
 date: 2026-03-20
 created: 2026-03-20
-mood_morning:
-energy_morning:
+mood_morning: 😐
+energy_morning: 🔥
 tags:
   - review/morning
 ---
@@ -15,8 +15,32 @@ tags:
 ---
 
 ```dataviewjs
-const { ReviewControls } = await cJS();
-const controls = ReviewControls;
+const loadReviewControls = async () => {
+    if (typeof window.forceLoadCustomJS === "function") {
+        try {
+            await window.forceLoadCustomJS();
+        } catch (error) {
+            console.warn("CustomJS reload failed", error);
+        }
+    }
+
+    if (typeof cJS === "function") {
+        try {
+            const modules = await cJS();
+            if (modules?.ReviewControls) return modules.ReviewControls;
+        } catch (error) {
+            console.warn("CustomJS ReviewControls unavailable", error);
+        }
+    }
+
+    const file = app.vault.getAbstractFileByPath("_scripts/ReviewControls.js");
+    if (!file) throw new Error("ReviewControls.js missing from _scripts");
+    const source = await app.vault.cachedRead(file);
+    const ReviewControlsClass = new Function(`${source}; return ReviewControls;`)();
+    return new ReviewControlsClass(app);
+};
+
+const controls = await loadReviewControls();
 await controls.renderReviewPicker(dv, {
     filePath: dv.current().file.path,
     moodField: "mood_morning",
@@ -36,10 +60,10 @@ O que esta agendado para hoje?
 
 ## 2. Top 3 Prioridades
 
-- [ ]
-- [ ]
-- [ ]
-
+- [ ] 
+- [ ] 
+- [ ] 
+ 
 ---
 
 ## 3. Intencao de Escrita
