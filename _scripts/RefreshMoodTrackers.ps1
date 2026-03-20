@@ -38,7 +38,10 @@ mornings.forEach(p => { if (p.date) morningMap[dv.date(p.date).toFormat("yyyy-MM
 evenings.forEach(p => { if (p.date) eveningMap[dv.date(p.date).toFormat("yyyy-MM-dd")] = p; });
 journals.forEach(p => { if (p.date) journalMap[dv.date(p.date).toFormat("yyyy-MM-dd")] = p; });
 
-const avg = arr => arr.length ? arr.reduce((a, b) => a + b, 0) / arr.length : null;
+const avg = values => {
+    const arr = Array.from(values ?? []);
+    return arr.length ? arr.reduce((a, b) => a + b, 0) / arr.length : null;
+};
 const values = { mm: [], em: [], mn: [], en: [] };
 const dayLabels = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sab", "Dom"];
 let rows = "";
@@ -133,7 +136,10 @@ mornings.forEach(p => { const d = dv.date(p.date); if (d) morningByDay[d.day] = 
 evenings.forEach(p => { const d = dv.date(p.date); if (d) eveningByDay[d.day] = p; });
 journals.forEach(p => { const d = dv.date(p.date); if (d) journalByDay[d.day] = p; });
 
-const avg = arr => arr.length ? arr.reduce((a, b) => a + b, 0) / arr.length : null;
+const avg = values => {
+    const arr = Array.from(values ?? []);
+    return arr.length ? arr.reduce((a, b) => a + b, 0) / arr.length : null;
+};
 const statHtml = (label, avgValue, type) => {
     const emoji = h.closestEmoji(avgValue, type) || "-";
     const numeric = avgValue == null ? "-" : avgValue.toFixed(1);
