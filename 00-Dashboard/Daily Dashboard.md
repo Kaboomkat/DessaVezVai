@@ -65,14 +65,14 @@ action Periodic Notes: Open daily note
 
 ```button
 name Revisao da Manha
-type command
-action QuickAdd: Morning Review
+type link
+action obsidian://quickadd?vault=Ebook%20Claude&choice=Morning%20Review
 ```
 
 ```button
 name Revisao da Noite
-type command
-action QuickAdd: Evening Review
+type link
+action obsidian://quickadd?vault=Ebook%20Claude&choice=Evening%20Review
 ```
 
 ```button

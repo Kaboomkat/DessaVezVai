@@ -15,6 +15,7 @@ tags:
 
 | Versao | Data | Titulo |
 |--------|------|--------|
+| [[CHANGELOG v0.1.7\|v0.1.7]] | 2026-03-20 | Arquitetura de review via QuickAdd URI |
 | [[CHANGELOG v0.1.6\|v0.1.6]] | 2026-03-20 | Hotfix da media no Mood-Energy Tracker mensal |
 | [[CHANGELOG v0.1.5\|v0.1.5]] | 2026-03-20 | Hotfix do Daily Dashboard, QuickAdd e calendario mensal |
 | [[CHANGELOG v0.1.4\|v0.1.4]] | 2026-03-20 | Hotfix do QuickAdd e ajuste visual do tracker mensal |

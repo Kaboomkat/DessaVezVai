@@ -1,4 +1,4 @@
-﻿{
+{
   "choices": [
     {
       "id": "quick-capture",
@@ -343,7 +343,7 @@
         "mode": "default",
         "focus": true
       },
-      "fileExistsMode": "Open existing file",
+      "fileExistsMode": "Nothing",
       "setFileExistsBehavior": true
     },
     {
@@ -373,7 +373,7 @@
         "mode": "default",
         "focus": true
       },
-      "fileExistsMode": "Open existing file",
+      "fileExistsMode": "Nothing",
       "setFileExistsBehavior": true
     }
   ],
