@@ -1,16 +1,16 @@
 ---
-title: "2026-03-19 Morning Review"
+title: "2026-03-20 Morning Review"
 type: review
 frequency: morning
-date: 2026-03-19
-created: 2026-03-19
-mood_morning: 😕
-energy_morning: 😐
+date: 2026-03-20
+created: 2026-03-20
+mood_morning:
+energy_morning:
 tags:
   - review/morning
 ---
 
-# Revisao da Manha - Quinta-feira, 19 de Marco de 2026
+# Revisao da Manha - Sexta-feira, 20 de Marco de 2026
 
 ---
 
@@ -60,4 +60,4 @@ Com qual energia / intencao quero atravessar hoje?
 
 ## Navegacao
 
-[[03-Daily/Journal/2026-03-19|<- Diario do dia]] | [[03-Daily/Evening Reviews/2026-03-19 Evening Review|Revisao da Noite ->]]
+[[03-Daily/Journal/2026-03-20|<- Diario do dia]] | [[03-Daily/Evening Reviews/2026-03-20 Evening Review|Revisao da Noite ->]]

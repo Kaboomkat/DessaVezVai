@@ -15,6 +15,8 @@ tags:
 
 | Versao | Data | Titulo |
 |--------|------|--------|
+| [[CHANGELOG v0.1.3\|v0.1.3]] | 2026-03-20 | Restauracao do fluxo de criacao e dos trackers |
+| [[CHANGELOG v0.1.2\|v0.1.2]] | 2026-03-20 | Hotfix do sistema daily e reviews inline |
 | [[CHANGELOG v0.1.1\|v0.1.1]] | 2026-03-20 | Documentacao operacional e README do repositorio |
 | [[CHANGELOG v0.1.0\|v0.1.0]] | 2026-03-20 | Limpeza de ownership do Templater |
 | [[CHANGELOG v0.0.9\|v0.0.9]] | 2026-03-20 | Controles inline de mood e energia nas reviews |
