@@ -15,6 +15,7 @@ tags:
 
 | Versao | Data | Titulo |
 |--------|------|--------|
+| [[CHANGELOG v0.1.5\|v0.1.5]] | 2026-03-20 | Hotfix do Daily Dashboard, QuickAdd e calendario mensal |
 | [[CHANGELOG v0.1.4\|v0.1.4]] | 2026-03-20 | Hotfix do QuickAdd e ajuste visual do tracker mensal |
 | [[CHANGELOG v0.1.3\|v0.1.3]] | 2026-03-20 | Restauracao do fluxo de criacao e dos trackers |
 | [[CHANGELOG v0.1.2\|v0.1.2]] | 2026-03-20 | Hotfix do sistema daily e reviews inline |

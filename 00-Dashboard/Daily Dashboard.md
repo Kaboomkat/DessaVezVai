@@ -1,4 +1,4 @@
-﻿---
+---
 title: Daily Dashboard
 type: dashboard
 include_in_navbar: true
@@ -6,22 +6,22 @@ navbar_name: Daily
 cssclass: dashboard
 ---
 
-# ðŸ“… Daily Dashboard
+# Daily Dashboard
 
 > [!quote]
-> *"Como gastamos nossos dias Ã©, claro, como gastamos nossas vidas."* â€” Annie Dillard
+> *"Como gastamos nossos dias e, claro, como gastamos nossas vidas."* - Annie Dillard
 
 ---
 
-## ðŸ“Š Esta Semana
+## Esta Semana
 
 ```dataviewjs
 const today = dv.date("today");
-const weekStart = today.minus({days: today.weekday - 1});
+const weekStart = today.minus({ days: today.weekday - 1 });
 
 const weekDays = [];
 for (let i = 0; i < 7; i++) {
-    const day = weekStart.plus({days: i});
+    const day = weekStart.plus({ days: i });
     const dayNote = dv.page(`03-Daily/Journal/${day.toFormat("yyyy-MM-dd")}`);
     weekDays.push({
         date: day,
@@ -31,96 +31,95 @@ for (let i = 0; i < 7; i++) {
 }
 
 const html = weekDays.map(d => {
-    const classes = [];
-    if (d.hasNote) classes.push("has-note");
-    if (d.isToday) classes.push("is-today");
-    
-    return `<div class="week-day ${classes.join(' ')}" style="
-        display: inline-block;
-        width: 40px;
-        height: 40px;
-        line-height: 40px;
-        text-align: center;
-        margin: 4px;
-        border-radius: 8px;
-        background: ${d.isToday ? 'var(--text-accent)' : d.hasNote ? 'var(--background-secondary)' : 'var(--background-primary)'};
-        color: ${d.isToday ? 'var(--text-on-accent)' : 'var(--text-normal)'};
-        border: 1px solid var(--background-modifier-border);
-    ">${d.date.toFormat("d")}</div>`;
-}).join('');
+    const bg = d.isToday
+        ? "var(--text-accent)"
+        : d.hasNote
+            ? "var(--background-secondary)"
+            : "var(--background-primary)";
+    const color = d.isToday ? "var(--text-on-accent)" : "var(--text-normal)";
+
+    return `<div style="display:inline-block;width:40px;height:40px;line-height:40px;text-align:center;margin:4px;border-radius:8px;background:${bg};color:${color};border:1px solid var(--background-modifier-border);">${d.date.toFormat("d")}</div>`;
+}).join("");
 
 dv.container.innerHTML = `
-<div style="text-align: center; margin: 20px 0;">
-    <div style="font-size: 0.9em; color: var(--text-muted); margin-bottom: 8px;">
+<div style="text-align:center;margin:20px 0;">
+    <div style="font-size:0.9em;color:var(--text-muted);margin-bottom:8px;">
         ${weekStart.toFormat("MMMM yyyy")}
     </div>
     <div>${html}</div>
-    <div style="font-size: 0.8em; color: var(--text-muted); margin-top: 8px;">
-        Seg â€” Dom
+    <div style="font-size:0.8em;color:var(--text-muted);margin-top:8px;">
+        Seg - Dom
     </div>
-</div>
-`;
+</div>`;
 ```
 
 ---
 
-## ðŸš€ AÃ§Ãµes RÃ¡pidas
+## Acoes Rapidas
 
 ```button
-name ðŸ““ Abrir DiÃ¡rio de Hoje
+name Abrir Diario de Hoje
 type command
 action Periodic Notes: Open daily note
 ```
+
 ```button
-name ðŸ”„ RevisÃ£o da ManhÃ£
+name Revisao da Manha
 type command
 action QuickAdd: Morning Review
 ```
+
 ```button
-name ðŸŒ™ RevisÃ£o da Noite
+name Revisao da Noite
 type command
 action QuickAdd: Evening Review
 ```
+
 ```button
-name ðŸ“Š RevisÃ£o Semanal
+name Revisao Semanal
 type command
 action Periodic Notes: Open weekly note
 ```
 
 ---
 
-## ðŸ““ Entradas Recentes do DiÃ¡rio
+## Entradas Recentes do Diario
 
 ```dataviewjs
 const { DashboardHelpers } = await cJS();
 const h = DashboardHelpers;
 
-// Indexar reviews por data
-const morningMap = {}, eveningMap = {};
+const morningMap = {};
+const eveningMap = {};
+
 dv.pages('"03-Daily/Morning Reviews"').forEach(p => {
     if (p.date) morningMap[dv.date(p.date).toFormat("yyyy-MM-dd")] = p;
 });
+
 dv.pages('"03-Daily/Evening Reviews"').forEach(p => {
     if (p.date) eveningMap[dv.date(p.date).toFormat("yyyy-MM-dd")] = p;
 });
 
 const pages = dv.pages('"03-Daily/Journal"')
     .where(p => p.type === "daily")
-    .sort(p => p.file.name, 'desc')
+    .sort(p => p.file.name, "desc")
     .slice(0, 7);
 
 let rows = "";
 pages.forEach(p => {
-    const key = p.file.name; // "YYYY-MM-DD"
-    const mp = morningMap[key];
-    const ep = eveningMap[key];
-    const highlight = p.highlight ? `<span style="color:#aaa;font-size:0.85em">${p.highlight}</span>` : "<span style='color:#555'>â€”</span>";
+    const key = p.file.name;
+    const morning = morningMap[key];
+    const evening = eveningMap[key];
+    const highlight = p.highlight
+        ? `<span style="color:#aaa;font-size:0.85em">${p.highlight}</span>`
+        : "<span style='color:#555'>-</span>";
+
     rows += `<tr>
         <td style="padding:4px 10px;white-space:nowrap;"><a href="${p.file.path}" class="internal-link">${p.file.name}</a></td>
-        ${h.cell(mp?.mood_morning, 'mood')}
-        ${h.cell(mp?.energy_morning, 'energy')}
-        ${h.cell(ep?.mood_evening, 'mood')}
-        ${h.cell(ep?.energy_evening, 'energy')}
+        ${h.cell(morning?.mood_morning, "mood")}
+        ${h.cell(morning?.energy_morning, "energy")}
+        ${h.cell(evening?.mood_evening, "mood")}
+        ${h.cell(evening?.energy_evening, "energy")}
         <td style="padding:4px 10px;max-width:180px;">${highlight}</td>
     </tr>`;
 });
@@ -128,40 +127,43 @@ pages.forEach(p => {
 dv.container.innerHTML = `<table style="width:100%;border-collapse:separate;border-spacing:0 3px;">
     <thead><tr style="color:#888;font-size:0.78em;text-align:center;">
         <th style="text-align:left;padding:4px 10px;">Data</th>
-        <th>ðŸ˜Œ ManhÃ£</th><th>âš¡ ManhÃ£</th><th>ðŸ˜Œ Noite</th><th>âš¡ Noite</th>
-        <th style="text-align:left;padding:4px 10px;">âœ¨ Destaque</th>
+        <th>Humor manha</th>
+        <th>Energia manha</th>
+        <th>Humor noite</th>
+        <th>Energia noite</th>
+        <th style="text-align:left;padding:4px 10px;">Destaque</th>
     </tr></thead>
     <tbody>${rows}</tbody>
 </table>`;
 ```
 
-[[03-Daily/Journal/|â†’ Todas as entradas do diÃ¡rio]] | [[00-Dashboard/Mood-Energy Tracker/Yearly/2026|ðŸ“Š Mood Tracker 2026]]
+[[03-Daily/Journal/|Todas as entradas do diario]] | [[00-Dashboard/Mood-Energy Tracker/Yearly/2026|Mood Tracker 2026]]
 
 ---
 
-## âœï¸ Atividade de Escrita Esta Semana
+## Atividade de Escrita Esta Semana
 
 ```dataviewjs
 const today = dv.date("today");
-const weekAgo = today.minus({days: 7});
+const weekAgo = today.minus({ days: 7 });
 
 const writingActivity = dv.pages('"01-Writing"')
     .where(p => p.file.mday >= weekAgo)
-    .sort(p => p.file.mday, 'desc');
+    .sort(p => p.file.mday, "desc");
 
 if (writingActivity.length > 0) {
     let totalWords = 0;
     writingActivity.forEach(p => {
         if (p.wordcount) totalWords += p.wordcount;
     });
-    
+
     dv.paragraph(`**Arquivos tocados:** ${writingActivity.length} | **Palavras estimadas em andamento:** ${totalWords.toLocaleString()}`);
-    
+
     dv.table(
         ["Arquivo", "Tipo", "Modificado"],
         writingActivity.slice(0, 5).map(p => [
             p.file.link,
-            p.type || "â€”",
+            p.type || "-",
             p.file.mday.toFormat("EEE, MMM d")
         ])
     );
@@ -172,59 +174,59 @@ if (writingActivity.length > 0) {
 
 ---
 
-## âœ… Tarefas ConcluÃ­das Esta Semana
+## Tarefas Concluidas Esta Semana
 
 ```dataviewjs
 const today = dv.date("today");
-const weekAgo = today.minus({days: 7});
+const weekAgo = today.minus({ days: 7 });
 
 const completed = dv.pages('"04-Tasks"')
     .where(p => p.completed_date && dv.date(p.completed_date) >= weekAgo)
-    .sort(p => p.completed_date, 'desc');
+    .sort(p => p.completed_date, "desc");
 
 if (completed.length > 0) {
-    dv.paragraph(`**ConcluÃ­das:** ${completed.length} tarefas ðŸŽ‰`);
-    dv.list(completed.map(p => `~~${p.file.name}~~ â€” ${p.completed_date}`));
+    dv.paragraph(`**Concluidas:** ${completed.length} tarefas`);
+    dv.list(completed.map(p => `~~${p.file.name}~~ - ${p.completed_date}`));
 } else {
-    dv.paragraph("*Nenhuma tarefa concluÃ­da esta semana ainda.*");
+    dv.paragraph("*Nenhuma tarefa concluida esta semana ainda.*");
 }
 ```
 
 ---
 
-## ðŸ”„ RevisÃµes
+## Revisoes
 
-### RevisÃ£o DiÃ¡ria
-1. **Esvaziar Caixa de Entrada** â€” Processar itens capturados
-2. **Verificar calendÃ¡rio** â€” O que estÃ¡ agendado hoje?
-3. **Revisar PrÃ³ximas AÃ§Ãµes** â€” O que vocÃª vai fazer hoje?
-4. **Verificar Aguardando Resposta** â€” Algum follow-up necessÃ¡rio?
+### Revisao Diaria
+1. **Esvaziar Caixa de Entrada** - Processar itens capturados
+2. **Verificar calendario** - O que esta agendado hoje?
+3. **Revisar Proximas Acoes** - O que voce vai fazer hoje?
+4. **Verificar Aguardando Resposta** - Algum follow-up necessario?
 
-### Lista de VerificaÃ§Ã£o Semanal
+### Lista de Verificacao Semanal
 - [ ] Zerar a Caixa de Entrada
-- [ ] Revisar calendÃ¡rio anterior
-- [ ] Revisar calendÃ¡rio futuro
+- [ ] Revisar calendario anterior
+- [ ] Revisar calendario futuro
 - [ ] Revisar lista de Aguardando Resposta
 - [ ] Revisar lista de Projetos
 - [ ] Revisar lista Algum Dia/Talvez
 - [ ] Revisar metas
 
-[[03-Daily/Journal/|â†’ Ver todas as entradas do diÃ¡rio]]
+[[03-Daily/Journal/|Ver todas as entradas do diario]]
 
 ---
 
-## ðŸ“ˆ SequÃªncias e HÃ¡bitos
+## Sequencias e Habitos
 
 ```dataviewjs
 const journals = dv.pages('"03-Daily/Journal"')
-    .sort(p => p.file.name, 'desc')
+    .sort(p => p.file.name, "desc")
     .map(p => p.file.name);
 
 let streak = 0;
 let checkDate = dv.date("today");
 
 for (let i = 0; i < journals.length && i < 100; i++) {
-    const expectedDate = checkDate.minus({days: i}).toFormat("yyyy-MM-dd");
+    const expectedDate = checkDate.minus({ days: i }).toFormat("yyyy-MM-dd");
     if (journals.includes(expectedDate)) {
         streak++;
     } else {
@@ -233,25 +235,23 @@ for (let i = 0; i < journals.length && i < 100; i++) {
 }
 
 dv.container.innerHTML = `
-<div class="dashboard-card" style="text-align: center;">
-    <h3>ðŸ”¥ SequÃªncia do DiÃ¡rio</h3>
+<div class="dashboard-card" style="text-align:center;">
+    <h3>Sequencia do Diario</h3>
     <div class="stat-number">${streak}</div>
     <div class="stat-label">dias consecutivos</div>
-</div>
-`;
+</div>`;
 ```
 
 ---
 
-## ðŸ”— NavegaÃ§Ã£o RÃ¡pida
+## Navegacao Rapida
 
-| DiÃ¡rio | RevisÃµes | Outros |
+| Diario | Revisoes | Outros |
 |--------|----------|--------|
-| [[03-Daily/Journal/\|ðŸ““ DiÃ¡rio]] | [[03-Daily/Morning Reviews/\|â˜€ï¸ RevisÃµes ManhÃ£]] | [[Home\|ðŸ  InÃ­cio]] |
-| [[03-Daily/Evening Reviews/\|ðŸŒ™ RevisÃµes Noite]] | [[03-Daily/Reviews/Weekly Review\|ðŸ”„ RevisÃ£o Semanal]] | [[Writing Dashboard\|âœï¸ Escrita]] |
-| [[Weekly Dashboard\|ðŸ“† Semanal]] | | |
+| [[03-Daily/Journal/|Diario]] | [[03-Daily/Morning Reviews/|Revisoes Manha]] | [[Home|Inicio]] |
+| [[03-Daily/Evening Reviews/|Revisoes Noite]] | [[03-Daily/Reviews/Weekly Review|Revisao Semanal]] | [[Writing Dashboard|Escrita]] |
+| [[Weekly Dashboard|Semanal]] | | |
 
 ---
 
-*Hoje Ã© uma nova pÃ¡gina. Escreva bem.*
-
+*Hoje e uma nova pagina. Escreva bem.*
