@@ -15,6 +15,7 @@ tags:
 
 | Versao | Data | Titulo |
 |--------|------|--------|
+| [[CHANGELOG v0.2.2\|v0.2.2]] | 2026-03-20 | Limpeza de encoding do Weekly Dashboard |
 | [[CHANGELOG v0.2.1\|v0.2.1]] | 2026-03-20 | Destaque resiliente e weekly trackers canonicos |
 | [[CHANGELOG v0.2.0\|v0.2.0]] | 2026-03-20 | Criacao segura de reviews e navegacao periodica |
 | [[CHANGELOG v0.1.9\|v0.1.9]] | 2026-03-20 | Indice canonico do diario |
