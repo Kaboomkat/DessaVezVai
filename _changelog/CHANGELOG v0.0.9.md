@@ -20,6 +20,7 @@ tags:
 3. **Evening Review Template**: agora exibe botoes embutidos para selecionar `mood_evening` e `energy_evening`.
 4. **Review existente migrada**: `2026-03-19 Morning Review.md` recebeu os controles inline para manter consistencia com as novas reviews.
 5. **Persistencia**: os botoes escrevem no frontmatter da propria nota, preservando compatibilidade com dashboards, trackers e queries atuais.
+6. **Hardening**: corrigido o encoding dos emojis e strings dos templates de review, evitando mojibake nas opcoes e nas novas notas geradas.
 
 ---
 

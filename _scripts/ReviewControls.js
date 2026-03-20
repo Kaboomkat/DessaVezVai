@@ -18,10 +18,6 @@ class ReviewControls {
         ];
     }
 
-    _fieldLine(field, value) {
-        return `${field}: ${value}`;
-    }
-
     _emojiIndex(value, options) {
         const idx = options.findIndex(option => option.value === String(value).trim());
         return idx >= 0 ? idx + 1 : null;
