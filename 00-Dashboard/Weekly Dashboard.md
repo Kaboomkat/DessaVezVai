@@ -1,4 +1,4 @@
----
+﻿---
 title: Weekly Dashboard
 type: dashboard
 include_in_navbar: true
@@ -6,10 +6,10 @@ navbar_name: Weekly
 cssclass: dashboard
 ---
 
-# 📆 Weekly Dashboard
+# ðŸ“† Weekly Dashboard
 
 ```dataviewjs
-// ─── Cabeçalho dinâmico ────────────────────────────────────────────────────
+// â”€â”€â”€ CabeÃ§alho dinÃ¢mico â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const today = dv.date("today");
 const weekStart = today.minus({ days: today.weekday - 1 });
 const weekEnd   = weekStart.plus({ days: 6 });
@@ -19,21 +19,21 @@ dv.container.innerHTML = `
 <div style="text-align:center;margin:8px 0 4px;">
     <span style="font-size:1.1em;color:var(--text-muted);">
         Semana <strong style="color:var(--text-normal);">${weekNum}</strong>
-        &nbsp;·&nbsp;
-        ${weekStart.toFormat("d MMM")} – ${weekEnd.toFormat("d MMM yyyy")}
+        &nbsp;Â·&nbsp;
+        ${weekStart.toFormat("d MMM")} â€“ ${weekEnd.toFormat("d MMM yyyy")}
     </span>
 </div>`;
 ```
 
 ```button
-name 🔄 Abrir Revisão Semanal
+name ðŸ”„ Abrir RevisÃ£o Semanal
 type command
 action Periodic Notes: Open weekly note
 ```
 
 ---
 
-## 📅 Esta Semana
+## ðŸ“… Esta Semana
 
 ```dataviewjs
 const today = dv.date("today");
@@ -46,7 +46,7 @@ for (let i = 0; i < 7; i++) {
     weekDays.push({ date: day, hasNote: !!dayNote, isToday: day.toISODate() === today.toISODate() });
 }
 
-const dayLabels = ["Seg","Ter","Qua","Qui","Sex","Sáb","Dom"];
+const dayLabels = ["Seg","Ter","Qua","Qui","Sex","SÃ¡b","Dom"];
 
 const cells = weekDays.map((d, i) => {
     const bg = d.isToday
@@ -70,18 +70,18 @@ dv.container.innerHTML = `
 <div style="text-align:center;margin:16px 0 8px;">
     <div>${cells}</div>
     <div style="font-size:0.8em;color:var(--text-muted);margin-top:8px;">
-        ${filled}/7 dias com entrada no diário
+        ${filled}/7 dias com entrada no diÃ¡rio
     </div>
 </div>`;
 ```
 
 ---
 
-## 😌 Humor & Energia da Semana
+## ðŸ˜Œ Humor & Energia da Semana
 
 ```dataviewjs
 const { DashboardHelpers } = await cJS();
-const h = new DashboardHelpers();
+const h = DashboardHelpers;
 
 const today = dv.date("today");
 const weekStart = today.minus({ days: today.weekday - 1 });
@@ -110,7 +110,7 @@ evenings.forEach(p => {
 });
 const avg = (s, c) => c > 0 ? (s/c).toFixed(1) : null;
 
-const dayLabels = ["Seg","Ter","Qua","Qui","Sex","Sáb","Dom"];
+const dayLabels = ["Seg","Ter","Qua","Qui","Sex","SÃ¡b","Dom"];
 let rows = "";
 let hasAnyData = false;
 
@@ -127,7 +127,7 @@ for (let i = 0; i < 7; i++) {
     const link     = `<a href="${filePath}" class="internal-link">${dateStr} ${dayLabel}</a>`;
     const highlight = jp?.highlight
         ? `<span style="color:#aaa;font-size:0.85em">${jp.highlight}</span>`
-        : "<span style='color:#555'>—</span>";
+        : "<span style='color:#555'>â€”</span>";
 
     rows += `<tr>
         <td style="padding:6px 10px;white-space:nowrap;">${link}</td>
@@ -144,7 +144,7 @@ if (!hasAnyData) {
 }
 
 const avgRow = `<tr style="border-top:2px solid #444;font-weight:bold;">
-    <td style="padding:6px 10px;">📊 Média</td>
+    <td style="padding:6px 10px;">ðŸ“Š MÃ©dia</td>
     ${h.cell(h.closestEmoji(avg(sums.mm,counts.mm), 'mood'),   'mood')}
     ${h.cell(h.closestEmoji(avg(sums.em,counts.em), 'energy'), 'energy')}
     ${h.cell(h.closestEmoji(avg(sums.mn,counts.mn), 'mood'),   'mood')}
@@ -157,11 +157,11 @@ dv.container.innerHTML = `
     <thead>
         <tr style="color:#888;font-size:0.8em;text-align:center;">
             <th style="text-align:left;padding:4px 10px;">Dia</th>
-            <th style="padding:4px 8px;">😌 Humor<br><span style="font-size:0.8em">Manhã</span></th>
-            <th style="padding:4px 8px;">⚡ Energia<br><span style="font-size:0.8em">Manhã</span></th>
-            <th style="padding:4px 8px;">😌 Humor<br><span style="font-size:0.8em">Noite</span></th>
-            <th style="padding:4px 8px;">⚡ Energia<br><span style="font-size:0.8em">Noite</span></th>
-            <th style="text-align:left;padding:4px 10px;">✨ Destaque</th>
+            <th style="padding:4px 8px;">ðŸ˜Œ Humor<br><span style="font-size:0.8em">ManhÃ£</span></th>
+            <th style="padding:4px 8px;">âš¡ Energia<br><span style="font-size:0.8em">ManhÃ£</span></th>
+            <th style="padding:4px 8px;">ðŸ˜Œ Humor<br><span style="font-size:0.8em">Noite</span></th>
+            <th style="padding:4px 8px;">âš¡ Energia<br><span style="font-size:0.8em">Noite</span></th>
+            <th style="text-align:left;padding:4px 10px;">âœ¨ Destaque</th>
         </tr>
     </thead>
     <tbody>${rows}${avgRow}</tbody>
@@ -170,7 +170,7 @@ dv.container.innerHTML = `
 
 ---
 
-## ✍️ Escrita Esta Semana
+## âœï¸ Escrita Esta Semana
 
 ```dataviewjs
 const today = dv.date("today");
@@ -188,7 +188,7 @@ if (writingActivity.length > 0) {
         ["Arquivo", "Tipo", "Modificado"],
         writingActivity.slice(0, 7).map(p => [
             p.file.link,
-            p.type || "—",
+            p.type || "â€”",
             p.file.mday.toFormat("EEE, dd/MM")
         ])
     );
@@ -199,7 +199,7 @@ if (writingActivity.length > 0) {
 
 ---
 
-## ✅ Tarefas Concluídas Esta Semana
+## âœ… Tarefas ConcluÃ­das Esta Semana
 
 ```dataviewjs
 const today = dv.date("today");
@@ -210,16 +210,16 @@ const completed = dv.pages('"04-Tasks"')
     .sort(p => p.completed_date, 'desc');
 
 if (completed.length > 0) {
-    dv.paragraph(`**Concluídas esta semana:** ${completed.length} tarefas 🎉`);
-    dv.list(completed.map(p => `~~${p.file.name}~~ — ${p.completed_date}`));
+    dv.paragraph(`**ConcluÃ­das esta semana:** ${completed.length} tarefas ðŸŽ‰`);
+    dv.list(completed.map(p => `~~${p.file.name}~~ â€” ${p.completed_date}`));
 } else {
-    dv.paragraph("*Nenhuma tarefa concluída esta semana ainda.*");
+    dv.paragraph("*Nenhuma tarefa concluÃ­da esta semana ainda.*");
 }
 ```
 
 ---
 
-## 📋 Revisões desta Semana
+## ðŸ“‹ RevisÃµes desta Semana
 
 ```dataviewjs
 const today = dv.date("today");
@@ -235,28 +235,29 @@ const evenings = dv.pages('"03-Daily/Evening Reviews"')
 
 if (mornings.length > 0 || evenings.length > 0) {
     if (mornings.length > 0) {
-        dv.paragraph(`**☀️ Manhã (${mornings.length})**`);
+        dv.paragraph(`**â˜€ï¸ ManhÃ£ (${mornings.length})**`);
         dv.list(mornings.map(p => p.file.link));
     }
     if (evenings.length > 0) {
-        dv.paragraph(`**🌙 Noite (${evenings.length})**`);
+        dv.paragraph(`**ðŸŒ™ Noite (${evenings.length})**`);
         dv.list(evenings.map(p => p.file.link));
     }
 } else {
-    dv.paragraph("*Nenhuma revisão encontrada para esta semana.*");
+    dv.paragraph("*Nenhuma revisÃ£o encontrada para esta semana.*");
 }
 ```
 
 ---
 
-## 🔗 Navegação Rápida
+## ðŸ”— NavegaÃ§Ã£o RÃ¡pida
 
-| Diário | Dashboards | Outros |
+| DiÃ¡rio | Dashboards | Outros |
 |--------|------------|--------|
-| [[Daily Dashboard\|📅 Daily]] | [[Home\|🏠 Início]] | [[Writing Dashboard\|✍️ Escrita]] |
-| [[03-Daily/Journal/\|📓 Diário]] | [[Tasks Dashboard\|✅ Tarefas]] | [[Projects Dashboard\|📂 Projetos]] |
-| [[00-Dashboard/Mood-Energy Tracker/Hub\|📊 Mood Hub]] | [[03-Daily/Morning Reviews/\|☀️ Manhã]] | [[03-Daily/Evening Reviews/\|🌙 Noite]] |
+| [[Daily Dashboard\|ðŸ“… Daily]] | [[Home\|ðŸ  InÃ­cio]] | [[Writing Dashboard\|âœï¸ Escrita]] |
+| [[03-Daily/Journal/\|ðŸ““ DiÃ¡rio]] | [[Tasks Dashboard\|âœ… Tarefas]] | [[Projects Dashboard\|ðŸ“‚ Projetos]] |
+| [[00-Dashboard/Mood-Energy Tracker/Hub\|ðŸ“Š Mood Hub]] | [[03-Daily/Morning Reviews/\|â˜€ï¸ ManhÃ£]] | [[03-Daily/Evening Reviews/\|ðŸŒ™ Noite]] |
 
 ---
 
-*Cada semana é uma chance de recalibrar.*
+*Cada semana Ã© uma chance de recalibrar.*
+

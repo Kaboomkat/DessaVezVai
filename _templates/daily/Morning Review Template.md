@@ -7,36 +7,14 @@ const dayName = dayNames[d.getDay()];
 const monthName = monthNames[d.getMonth()];
 const dayNum = d.getDate();
 const year = d.getFullYear();
-
-// Se o frontmatter ja veio preenchido pelo fluxo de criacao, evita abrir o picker duas vezes.
-const alreadyFilled = String(tp.frontmatter?.mood_morning ?? "").trim() !== "";
-
-let mood = tp.frontmatter?.mood_morning ?? "";
-let energy = tp.frontmatter?.energy_morning ?? "";
-
-if (!alreadyFilled) {
-    mood = await tp.system.suggester(
-        ["😢  Muito mal", "😕  Mal", "😐  Neutro", "🙂  Bem", "😄  Otimo"],
-        ["😢", "😕", "😐", "🙂", "😄"],
-        false,
-        "Como esta seu humor esta manha?"
-    ) ?? "";
-    energy = await tp.system.suggester(
-        ["💤  Sem energia", "😪  Cansado", "😐  Neutro", "🔥  Disposto", "⚡  Energizado"],
-        ["💤", "😪", "😐", "🔥", "⚡"],
-        false,
-        "Qual e seu nivel de energia?"
-    ) ?? "";
-}
-
 tR += `---
 title: "${tp.file.title}"
 type: review
 frequency: morning
 date: ${date}
 created: ${date}
-mood_morning: ${mood}
-energy_morning: ${energy}
+mood_morning:
+energy_morning:
 tags:
   - review/morning
 ---
@@ -47,7 +25,7 @@ tags:
 
 \`\`\`dataviewjs
 const { ReviewControls } = await cJS();
-const controls = new ReviewControls(app);
+const controls = ReviewControls;
 await controls.renderReviewPicker(dv, {
     filePath: dv.current().file.path,
     moodField: "mood_morning",
@@ -61,7 +39,6 @@ await controls.renderReviewPicker(dv, {
 
 ## 1. Calendario
 O que esta agendado para hoje?
-
 
 ---
 
@@ -85,7 +62,6 @@ O que esta agendado para hoje?
 
 ## 4. Intencao do Dia
 Com qual energia / intencao quero atravessar hoje?
-
 
 ---
 

@@ -7,36 +7,14 @@ const dayName = dayNames[d.getDay()];
 const monthName = monthNames[d.getMonth()];
 const dayNum = d.getDate();
 const year = d.getFullYear();
-
-// Se o frontmatter ja veio preenchido pelo fluxo de criacao, evita abrir o picker duas vezes.
-const alreadyFilled = String(tp.frontmatter?.mood_evening ?? "").trim() !== "";
-
-let mood = tp.frontmatter?.mood_evening ?? "";
-let energy = tp.frontmatter?.energy_evening ?? "";
-
-if (!alreadyFilled) {
-    mood = await tp.system.suggester(
-        ["😢  Muito mal", "😕  Mal", "😐  Neutro", "🙂  Bem", "😄  Otimo"],
-        ["😢", "😕", "😐", "🙂", "😄"],
-        false,
-        "Como foi seu humor hoje?"
-    ) ?? "";
-    energy = await tp.system.suggester(
-        ["💤  Sem energia", "😪  Cansado", "😐  Neutro", "🔥  Disposto", "⚡  Energizado"],
-        ["💤", "😪", "😐", "🔥", "⚡"],
-        false,
-        "Como estava sua energia hoje?"
-    ) ?? "";
-}
-
 tR += `---
 title: "${tp.file.title}"
 type: review
 frequency: evening
 date: ${date}
 created: ${date}
-mood_evening: ${mood}
-energy_evening: ${energy}
+mood_evening:
+energy_evening:
 tags:
   - review/evening
 ---
@@ -47,7 +25,7 @@ tags:
 
 \`\`\`dataviewjs
 const { ReviewControls } = await cJS();
-const controls = new ReviewControls(app);
+const controls = ReviewControls;
 await controls.renderReviewPicker(dv, {
     filePath: dv.current().file.path,
     moodField: "mood_evening",

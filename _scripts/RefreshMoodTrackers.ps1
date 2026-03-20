@@ -1,4 +1,4 @@
-$ErrorActionPreference = "Stop"
+﻿$ErrorActionPreference = "Stop"
 
 $Root = Split-Path -Parent $PSScriptRoot
 $Utf8NoBom = New-Object System.Text.UTF8Encoding($false)
@@ -16,7 +16,7 @@ function Get-WeekCode {
 @'
 ```dataviewjs
 const { DashboardHelpers } = await cJS();
-const h = new DashboardHelpers();
+const h = DashboardHelpers;
 
 const cur = dv.current();
 const weekStart = dv.date(cur.week_start);
@@ -105,7 +105,7 @@ function Get-MonthCode {
 @'
 ```dataviewjs
 const { DashboardHelpers } = await cJS();
-const h = new DashboardHelpers();
+const h = DashboardHelpers;
 
 const cur = dv.current();
 const year = Number(cur.year) || new Date().getFullYear();
@@ -234,7 +234,7 @@ function Get-YearCode {
 @'
 ```dataviewjs
 const { DashboardHelpers } = await cJS();
-const h = new DashboardHelpers();
+const h = DashboardHelpers;
 
 const cur = dv.current();
 const year = Number(cur.year) || new Date().getFullYear();
@@ -482,3 +482,4 @@ $HubPath = Join-Path $Root "00-Dashboard\Mood-Energy Tracker\Hub.md"
 $HubContent = Get-Content $HubPath -Raw
 $HubContent = $HubContent -replace "_templates/Daily/", "_templates/daily/"
 Write-Utf8 -Path $HubPath -Content $HubContent
+

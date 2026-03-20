@@ -1,4 +1,4 @@
----
+﻿---
 title: "Semana {{week_start}} - {{week_end}}"
 type: mood-tracker
 frequency: weekly
@@ -14,7 +14,7 @@ tags:
 
 ```dataviewjs
 const { DashboardHelpers } = await cJS();
-const h = new DashboardHelpers();
+const h = DashboardHelpers;
 
 const cur = dv.current();
 const weekStart = dv.date(cur.week_start);
@@ -36,7 +36,7 @@ mornings.forEach(p => { if (p.date) morningMap[dv.date(p.date).toFormat("yyyy-MM
 evenings.forEach(p => { if (p.date) eveningMap[dv.date(p.date).toFormat("yyyy-MM-dd")] = p; });
 journals.forEach(p => { if (p.date) journalMap[dv.date(p.date).toFormat("yyyy-MM-dd")] = p; });
 
-const avg = arr => arr.length ? arr.reduce((a, b) => a + b, 0) / arr.length : null;
+const avg = values => { const arr = Array.from(values ?? []); return arr.length ? arr.reduce((a, b) => a + b, 0) / arr.length : null; };
 const values = { mm: [], em: [], mn: [], en: [] };
 const dayLabels = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sab", "Dom"];
 let rows = "";
@@ -102,3 +102,5 @@ dv.container.innerHTML = `<table style="width:100%;border-collapse:separate;bord
 ## Navegacao
 
 [[Tracker Mensal]] | [[Tracker Anual]]
+
+

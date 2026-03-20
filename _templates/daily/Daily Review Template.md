@@ -27,9 +27,9 @@ LIMIT 5
 ```
 
 **Today I will focus on:**
-- [ ]
-- [ ]
-- [ ]
+- [ ] 
+- [ ] 
+- [ ] 
 
 ### 3. Writing Intention
 **Today's writing goal:**
