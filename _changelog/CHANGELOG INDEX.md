@@ -15,6 +15,7 @@ tags:
 
 | Versão | Data | Título |
 |--------|------|--------|
+| [[CHANGELOG v0.2.4\|v0.2.4]] | 2026-03-20 | Destaque do dia confiável no índice e README reescrito |
 | [[CHANGELOG v0.2.3\|v0.2.3]] | 2026-03-20 | Normalização visível de PT-BR e hardening da navegação rápida |
 | [[CHANGELOG v0.2.2\|v0.2.2]] | 2026-03-20 | Limpeza de encoding do Weekly Dashboard |
 | [[CHANGELOG v0.2.1\|v0.2.1]] | 2026-03-20 | Destaque resiliente e weekly trackers canonicos |

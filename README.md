@@ -1,79 +1,129 @@
 # Vault de Escrita Integrado
 
-Vault Obsidian focado em escrita, rotina diária e organização GTD. O repositório inclui dashboards, templates, scripts CustomJS, trackers e a configuração do `.obsidian` necessária para reproduzir o fluxo principal do sistema.
+Este repositório versiona um vault Obsidian voltado para escrita, rotina diária e GTD leve. O centro do sistema não é o plugin da moda nem o dashboard em si; é o fluxo de produção de texto sustentado por notas diárias, revisões curtas e uma camada mínima de automação para reduzir atrito.
 
-## O que este vault faz
+## O que este vault prioriza
 
-- Centraliza a rotina diária em `03-Daily/`.
-- Separa `Morning Reviews` e `Evening Reviews` como fonte oficial de humor e energia.
-- Usa dashboards em `00-Dashboard/` para leitura, navegação e acompanhamento semanal.
-- Usa `QuickAdd`, `Periodic Notes`, `Templater`, `Dataview`, `CustomJS` e `Buttons` como camada operacional.
-- Mantém changelogs em `_changelog/` para registrar cada lote de correções.
+- escrita criativa em `01-Writing/`
+- operação diária em `03-Daily/`
+- captura e execução em `04-Tasks/`
+- dashboards em `00-Dashboard/` como superfície de leitura e navegação, não como fonte de verdade
 
-## Estado atual da arquitetura
+## Estrutura do vault
 
-- `Periodic Notes` é o dono de `03-Daily/Journal` e `03-Daily/Reviews`.
-- `QuickAdd` é o dono das reviews ad hoc e das notas de criação rápida.
-- `Templater` não cria notas por pasta; ele apenas renderiza templates quando chamado pelos fluxos acima.
-- `Morning Reviews` e `Evening Reviews` são a única fonte de verdade para `mood_*` e `energy_*`.
-- Dashboards e trackers leem review files, não o frontmatter das daily notes.
-- `03-Daily/Index de Diario.md` é o índice oficial das daily notes; a pasta `03-Daily/Journal/` fica reservada apenas para os arquivos do diário.
+```text
+00-Dashboard/   Dashboards operacionais e trackers
+01-Writing/     Manuscritos, pesquisa, personagens, mundo e fragmentos
+02-Projects/    Projetos não literários
+03-Daily/       Diário, reviews e índice do diário
+04-Tasks/       Inbox, próximas ações, waiting e referência
+05-Resources/   Contatos, livros, artigos, definições
+06-Archive/     Material arquivado
+_templates/     Templates usados por Periodic Notes e QuickAdd
+_scripts/       CustomJS e geração dos trackers
+_changelog/     Histórico versionado das mudanças
+.obsidian/      Configuração versionada dos plugins
+```
 
-## Plugins obrigatórios
+## Arquitetura operacional
+
+### Fonte de verdade
+
+- `03-Daily/Journal/` guarda as daily notes
+- `03-Daily/Morning Reviews/` e `03-Daily/Evening Reviews/` guardam humor e energia
+- `03-Daily/Reviews/` guarda as revisões semanais e mensais
+- `03-Daily/Index de Diario.md` é o índice canônico das daily notes
+
+O tracker de humor/energia não lê o frontmatter da daily note como fonte principal. Ele lê os arquivos de review.
+
+### Donos de criação
+
+- `Periodic Notes` cria:
+  - daily notes em `03-Daily/Journal`
+  - weekly reviews em `03-Daily/Reviews`
+  - monthly reviews em `03-Daily/Reviews`
+- `QuickAdd` cria ou reabre:
+  - `Morning Review`
+  - `Evening Review`
+  - notas rápidas de projetos, escrita e recursos
+- `Templater` não é o dono da criação por pasta; ele renderiza os templates quando o arquivo nasce
+
+### Superfícies de leitura
+
+- [Home.md](./00-Dashboard/Home.md)
+- [Daily Dashboard.md](./00-Dashboard/Daily%20Dashboard.md)
+- [Weekly Dashboard.md](./00-Dashboard/Weekly%20Dashboard.md)
+- [Index de Diario.md](./03-Daily/Index%20de%20Diario.md)
+- [Mood-Energy Tracker](./00-Dashboard/Mood-Energy%20Tracker/)
+
+## Fluxo diário esperado
+
+1. Abrir a daily note do dia pelo `Daily Dashboard` ou pelo comando do `Periodic Notes`.
+2. Criar ou reabrir `Morning Review` e `Evening Review` pelos botões do dashboard ou da própria daily note.
+3. Preencher mood e energia na review, não na daily note.
+4. Escrever o `Destaque do Dia` no bloco correspondente da daily note.
+5. Revisar a semana no `Weekly Dashboard` e no `Mood-Energy Tracker`.
+
+## Convenções que importam
+
+- daily notes: `YYYY-MM-DD.md`
+- morning review: `YYYY-MM-DD Morning Review.md`
+- evening review: `YYYY-MM-DD Evening Review.md`
+- weekly review: `YYYY-Www.md`
+- o arquivo `Index de Diario.md` fica em ASCII no path por estabilidade de link; o texto visível usa acentuação normal
+
+## Plugins realmente relevantes
 
 - `Dataview`
-- `Templater`
 - `CustomJS`
+- `Templater`
 - `QuickAdd`
 - `Periodic Notes`
 - `Buttons`
 
-O contrato detalhado está em [plugins/Plugin Setup.md](./plugins/Plugin%20Setup.md), [plugins/Command Contract.md](./plugins/Command%20Contract.md) e [plugins/Regression Checklist.md](./plugins/Regression%20Checklist.md).
+Sem esses seis, o vault abre; mas o fluxo operacional fica incompleto.
 
-## Estrutura principal
+## Arquivos de contrato
 
-```text
-00-Dashboard/   Dashboards operacionais
-01-Writing/     Escrita criativa
-03-Daily/       Diário, reviews e revisões
-04-Tasks/       Captura e tarefas
-05-Resources/   Base de referência
-06-Archive/     Arquivo
-_scripts/       CustomJS e automações
-_templates/     Templates do vault
-_changelog/     Histórico de mudanças
-.obsidian/      Configuração versionada do Obsidian
-```
+- [Plugin Setup.md](./plugins/Plugin%20Setup.md)
+- [Command Contract.md](./plugins/Command%20Contract.md)
+- [Regression Checklist.md](./plugins/Regression%20Checklist.md)
+- [CLAUDE.md](./CLAUDE.md)
 
-## Fluxo recomendado
+## Trackers
 
-1. Abra o vault no Obsidian.
-2. Confirme que os plugins da comunidade estão habilitados.
-3. Use `Home` ou `Daily Dashboard` para abrir o diário do dia.
-4. Crie `Morning Review` e `Evening Review` pelos botões do dashboard ou da daily note.
-5. Preencha humor e energia pelos controles inline da própria review.
-6. Registre o `Destaque do Dia` no corpo da daily note.
-7. Consulte `Weekly Dashboard` e `Mood-Energy Tracker` para consolidação.
+O `Mood-Energy Tracker` tem três camadas:
 
-## Componentes principais
+- mensal
+- semanal
+- anual
 
-- `Daily Dashboard`: visão operacional do dia, reviews, entradas recentes e hábitos.
-- `Weekly Dashboard`: consolidação semanal de diário, reviews, escrita e tarefas.
-- `Mood-Energy Tracker`: visões mensal, semanal e anual com leitura direta dos review files.
-- `Index de Diario`: índice canônico das daily notes já escritas.
-- `RefreshMoodTrackers.ps1`: gerador dos trackers materializados do vault.
+Os arquivos materializados são gerados a partir de:
+
+- [Mood-Energy Month Template.md](./_templates/daily/Mood-Energy%20Month%20Template.md)
+- [Mood-Energy Week Template.md](./_templates/daily/Mood-Energy%20Week%20Template.md)
+- [Mood-Energy Year Template.md](./_templates/daily/Mood-Energy%20Year%20Template.md)
+- [RefreshMoodTrackers.ps1](./_scripts/RefreshMoodTrackers.ps1)
+
+Se o tracker quebrar, a primeira suspeita deve ser a fonte de review, não a daily note.
 
 ## Git e changelog
 
-O repositório está preparado para commits pequenos e auditáveis. Cada lote de mudanças deve idealmente seguir este ciclo:
+O repositório foi organizado para mudanças pequenas e rastreáveis.
 
-1. editar
-2. revisar com `git diff`
-3. atualizar ou criar o changelog da versão
-4. `git add .`
-5. `git commit -m "vX.Y.Z descricao curta"`
-6. `git push`
+Fluxo recomendado:
 
-## Validação
+1. alterar a fonte do comportamento
+2. corrigir o materializado afetado, se houver
+3. registrar o lote em `_changelog/`
+4. revisar com `git diff`
+5. commitar com a versão correspondente
+6. publicar
 
-Antes de considerar uma mudança concluída, rode a checklist em [plugins/Regression Checklist.md](./plugins/Regression%20Checklist.md).
+## Leitura rápida do estado atual
+
+- o sistema diário gira em torno de `Periodic Notes + QuickAdd + Templater`
+- `Morning Review` e `Evening Review` são a fonte de verdade para humor e energia
+- o `Index de Diario` substitui navegação por link de pasta
+- dashboards são camadas de operação e observação
+- o README não é especificação completa; os contratos detalhados estão nos arquivos de `plugins/` e em `CLAUDE.md`

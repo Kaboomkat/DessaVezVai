@@ -109,6 +109,7 @@ class DashboardHelpers {
         const lines = String(source).replace(/\r/g, "").split("\n");
         let startIndex = -1;
         let level = 0;
+        const isSeparator = line => /^([-*_])\1{2,}$/.test(String(line).trim());
 
         for (let i = 0; i < lines.length; i++) {
             const match = lines[i].match(/^(#{1,6})\s+(.*)$/);
@@ -127,10 +128,12 @@ class DashboardHelpers {
             const line = lines[i];
             const match = line.match(/^(#{1,6})\s+(.*)$/);
             if (match && match[1].length <= level) break;
+            if (isSeparator(line)) break;
             collected.push(line);
         }
 
         const cleaned = collected
+            .filter(line => !isSeparator(line))
             .filter(line => !/^`?=\s*this\.highlight`?$/.test(line.trim()))
             .join("\n")
             .trim();
