@@ -55,37 +55,37 @@ dv.container.innerHTML = `
 
 ---
 
-## Acoes Rapidas
+## Ações Rápidas
 
 ```button
-name Abrir Diario de Hoje
+name Abrir Diário de Hoje
 type command
 action Periodic Notes: Open daily note
 ```
 
 ```button
-name Revisao da Manha
+name Revisão da Manhã
 type link
 action obsidian://quickadd?vault=Ebook%20Claude&choice=Morning%20Review&value-review_date=<% tp.date.now("YYYY-MM-DD") %>
 templater true
 ```
 
 ```button
-name Revisao da Noite
+name Revisão da Noite
 type link
 action obsidian://quickadd?vault=Ebook%20Claude&choice=Evening%20Review&value-review_date=<% tp.date.now("YYYY-MM-DD") %>
 templater true
 ```
 
 ```button
-name Revisao Semanal
+name Revisão Semanal
 type command
 action Periodic Notes: Open weekly note
 ```
 
 ---
 
-## Entradas Recentes do Diario
+## Entradas Recentes do Diário
 
 ```dataviewjs
 const loadDashboardHelpers = async () => {
@@ -154,8 +154,8 @@ for (const p of pages) {
 dv.container.innerHTML = `<table style="width:100%;border-collapse:separate;border-spacing:0 3px;">
     <thead><tr style="color:#888;font-size:0.78em;text-align:center;">
         <th style="text-align:left;padding:4px 10px;">Data</th>
-        <th>Humor manha</th>
-        <th>Energia manha</th>
+        <th>Humor manhã</th>
+        <th>Energia manhã</th>
         <th>Humor noite</th>
         <th>Energia noite</th>
         <th style="text-align:left;padding:4px 10px;">Destaque</th>
@@ -164,7 +164,7 @@ dv.container.innerHTML = `<table style="width:100%;border-collapse:separate;bord
 </table>`;
 ```
 
-[[03-Daily/Index de Diario|Todas as entradas do diario]] | [[00-Dashboard/Mood-Energy Tracker/Yearly/2026|Mood Tracker 2026]]
+[[03-Daily/Index de Diario|Todas as entradas do diário]] | [[00-Dashboard/Mood-Energy Tracker/Yearly/2026|Mood Tracker 2026]]
 
 ---
 
@@ -201,7 +201,7 @@ if (writingActivity.length > 0) {
 
 ---
 
-## Tarefas Concluidas Esta Semana
+## Tarefas Concluídas Esta Semana
 
 ```dataviewjs
 const today = dv.date("today");
@@ -212,37 +212,37 @@ const completed = dv.pages('"04-Tasks"')
     .sort(p => p.completed_date, "desc");
 
 if (completed.length > 0) {
-    dv.paragraph(`**Concluidas:** ${completed.length} tarefas`);
+    dv.paragraph(`**Concluídas:** ${completed.length} tarefas`);
     dv.list(completed.map(p => `~~${p.file.name}~~ - ${p.completed_date}`));
 } else {
-    dv.paragraph("*Nenhuma tarefa concluida esta semana ainda.*");
+    dv.paragraph("*Nenhuma tarefa concluída esta semana ainda.*");
 }
 ```
 
 ---
 
-## Revisoes
+## Revisões
 
-### Revisao Diaria
+### Revisão Diária
 1. **Esvaziar Caixa de Entrada** - Processar itens capturados
-2. **Verificar calendario** - O que esta agendado hoje?
-3. **Revisar Proximas Acoes** - O que voce vai fazer hoje?
-4. **Verificar Aguardando Resposta** - Algum follow-up necessario?
+2. **Verificar calendário** - O que está agendado hoje?
+3. **Revisar Próximas Ações** - O que você vai fazer hoje?
+4. **Verificar Aguardando Resposta** - Algum follow-up necessário?
 
 ### Lista de Verificacao Semanal
 - [ ] Zerar a Caixa de Entrada
-- [ ] Revisar calendario anterior
-- [ ] Revisar calendario futuro
+- [ ] Revisar calendário anterior
+- [ ] Revisar calendário futuro
 - [ ] Revisar lista de Aguardando Resposta
 - [ ] Revisar lista de Projetos
 - [ ] Revisar lista Algum Dia/Talvez
 - [ ] Revisar metas
 
-[[03-Daily/Index de Diario|Ver todas as entradas do diario]]
+[[03-Daily/Index de Diario|Ver todas as entradas do diário]]
 
 ---
 
-## Sequencias e Habitos
+## Sequências e Hábitos
 
 ```dataviewjs
 const journals = dv.pages('"03-Daily/Journal"')
@@ -263,7 +263,7 @@ for (let i = 0; i < journals.length && i < 100; i++) {
 
 dv.container.innerHTML = `
 <div class="dashboard-card" style="text-align:center;">
-    <h3>Sequencia do Diario</h3>
+    <h3>Sequência do Diário</h3>
     <div class="stat-number">${streak}</div>
     <div class="stat-label">dias consecutivos</div>
 </div>`;
@@ -271,14 +271,26 @@ dv.container.innerHTML = `
 
 ---
 
-## Navegacao Rapida
+## Navegação Rápida
 
-| Diario | Revisoes | Outros |
-|--------|----------|--------|
-| [[03-Daily/Index de Diario|Diario]] | [[03-Daily/Morning Reviews/|Revisoes Manha]] | [[Home|Inicio]] |
-| [[03-Daily/Evening Reviews/|Revisoes Noite]] | [[03-Daily/Reviews/Weekly Review|Revisao Semanal]] | [[Writing Dashboard|Escrita]] |
-| [[Weekly Dashboard|Semanal]] | | |
+- Diário: [[03-Daily/Index de Diario|Diário]]
+- Revisão semanal: [[03-Daily/Reviews/Weekly Review|Revisão Semanal]]
+- Dashboards: [[Home|Início]] | [[Writing Dashboard|Escrita]] | [[Weekly Dashboard|Semanal]]
+
+```button
+name Revisão da Manhã
+type link
+action obsidian://quickadd?vault=Ebook%20Claude&choice=Morning%20Review&value-review_date=<% tp.date.now("YYYY-MM-DD") %>
+templater true
+```
+
+```button
+name Revisão da Noite
+type link
+action obsidian://quickadd?vault=Ebook%20Claude&choice=Evening%20Review&value-review_date=<% tp.date.now("YYYY-MM-DD") %>
+templater true
+```
 
 ---
 
-*Hoje e uma nova pagina. Escreva bem.*
+*Hoje é uma nova página. Escreva bem.*

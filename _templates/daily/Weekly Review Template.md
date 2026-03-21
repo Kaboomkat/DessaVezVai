@@ -1,5 +1,5 @@
 ---
-title: "{{date:YYYY-[W]ww}} Revisao"
+title: "{{date:YYYY-[W]ww}} Revisão"
 type: review
 frequency: weekly
 week: "{{date:YYYY-[W]ww}}"
@@ -9,34 +9,36 @@ tags:
   - review/weekly
 ---
 
-# Revisao Semanal - {{date:YYYY-[W]ww}}
+# Revisão Semanal - {{date:YYYY-[W]ww}}
 
 <%*
+const weekStartDate = tp.date.now("YYYY-MM-DD");
+const displayMonthNames = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
+const displayDate = new Date(`${weekStartDate}T12:00:00`);
+const formattedWeekStart = `${displayDate.getDate()} de ${displayMonthNames[displayDate.getMonth()]} de ${displayDate.getFullYear()}`;
 const weeklyQuotes = [
-  '"A Revisao Semanal e o momento de reunir e processar tudo, revisar seu sistema, atualizar suas listas e ficar limpo, claro, atual e completo." - David Allen',
-  '"Nao basta estar ocupado. A questao e: com o que estamos ocupados?" - Henry David Thoreau',
-  '"A chave nao e priorizar o que esta na sua agenda, mas agendar suas prioridades." - Stephen Covey',
-  '"Planos nao sao nada; planejar e tudo." - Dwight D. Eisenhower',
-  '"O que e medido e gerenciado." - Peter Drucker',
-  '"Sua mente serve para ter ideias, nao para armazena-las." - David Allen',
-  '"Foque em ser produtivo, nao em estar ocupado." - Tim Ferriss',
-  '"Feito e melhor que perfeito." - Sheryl Sandberg'
+  '"A Revisão Semanal é o momento de reunir e processar tudo, revisar seu sistema, atualizar suas listas e ficar limpo, claro, atual e completo." - David Allen',
+  '"Não basta estar ocupado. A questão é: com o que estamos ocupados?" - Henry David Thoreau',
+  '"A chave não é priorizar o que está na sua agenda, mas agendar suas prioridades." - Stephen Covey',
+  '"Planos não são nada; planejar é tudo." - Dwight D. Eisenhower',
+  '"O que é medido é gerenciado." - Peter Drucker',
+  '"Sua mente serve para ter ideias, não para armazená-las." - David Allen',
+  '"Foque em ser produtivo, não em estar ocupado." - Tim Ferriss',
+  '"Feito é melhor que perfeito." - Sheryl Sandberg'
 ];
 const now = new Date();
 const startOfYear = new Date(now.getFullYear(), 0, 1);
 const weekNum = Math.ceil(((now - startOfYear) / 86400000 + startOfYear.getDay() + 1) / 7);
 const q = weeklyQuotes[weekNum % weeklyQuotes.length];
-tR += `> [!quote]\n> *${q}*`;
+tR += `> [!quote]\n> *${q}*\n\n**Semana de ${formattedWeekStart}**`;
 %>
-
-**Semana de {{date:MMMM D, YYYY}}**
 
 ---
 
 ## Parte 1: Clareza
 
-### Recolher Papeis e Materiais Soltos
-- [ ] Reunir notas fisicas, cartoes de visita, recibos
+### Recolher Papéis e Materiais Soltos
+- [ ] Reunir notas físicas, cartões de visita e recibos
 - [ ] Processar todos os itens nos locais adequados
 
 ### Processar Todas as Caixas de Entrada
@@ -52,30 +54,30 @@ tR += `> [!quote]\n> *${q}*`;
 
 ---
 
-## Parte 2: Atualizacao
+## Parte 2: Atualização
 
-### Revisar Calendario Anterior
-Ultimas 1-2 semanas:
-- [ ] Algum follow-up necessario?
+### Revisar Calendário Anterior
+Últimas 1-2 semanas:
+- [ ] Algum follow-up necessário?
 - [ ] Alguma tarefa a capturar?
 - [ ] Alguma nota a arquivar?
 
-### Revisar Calendario Futuro
-Proximas 2-4 semanas:
-- [ ] Alguma preparacao necessaria?
+### Revisar Calendário Futuro
+Próximas 2-4 semanas:
+- [ ] Alguma preparação necessária?
 - [ ] Alguma tarefa a adicionar?
 - [ ] Algum conflito a resolver?
 
-### Revisar Lista de Proximas Acoes
+### Revisar Lista de Próximas Ações
 ```dataview
 LIST
 FROM "04-Tasks/Next"
 WHERE type = "task" AND status = "next"
 ```
 
-- [ ] Marcar itens concluidos
-- [ ] Adicionar novas Proximas Acoes
-- [ ] As acoes ainda sao relevantes?
+- [ ] Marcar itens concluídos
+- [ ] Adicionar novas Próximas Ações
+- [ ] As ações ainda são relevantes?
 
 ### Revisar Lista de Aguardando Resposta
 ```dataview
@@ -88,7 +90,7 @@ WHERE status = "waiting"
 ```
 
 - [ ] Algum item para dar seguimento?
-- [ ] Algum item concluido?
+- [ ] Algum item concluído?
 
 ---
 
@@ -104,9 +106,9 @@ WHERE type = "project"
 ```
 
 Para cada projeto:
-- [ ] Qual e a Proxima Acao? (se nenhuma, adicionar uma)
-- [ ] O projeto ainda esta ativo?
-- [ ] Algum projeto deve ser pausado ou concluido?
+- [ ] Qual é a Próxima Ação? (se nenhuma, adicionar uma)
+- [ ] O projeto ainda está ativo?
+- [ ] Algum projeto deve ser pausado ou concluído?
 
 ### Revisar Projetos de Escrita
 ```dataview
@@ -118,8 +120,8 @@ FROM "01-Writing/Manuscripts"
 WHERE status != "complete"
 ```
 
-- [ ] Algum projeto de escrita precisa de atencao?
-- [ ] Qual sera o foco da proxima sessao de escrita?
+- [ ] Algum projeto de escrita precisa de atenção?
+- [ ] Qual será o foco da próxima sessão de escrita?
 
 ### Revisar Lista Algum Dia/Talvez
 ```dataview
@@ -134,9 +136,9 @@ LIMIT 10
 
 ---
 
-## Parte 4: Revisao de Metas
+## Parte 4: Revisão de Metas
 
-### Vitorias desta Semana
+### Vitórias desta Semana
 -
 -
 -
@@ -146,22 +148,22 @@ LIMIT 10
 -
 -
 
-### Foco para a Proxima Semana
+### Foco para a Próxima Semana
 1.
 2.
 3.
 
-### Meta de Escrita para a Proxima Semana
+### Meta de Escrita para a Próxima Semana
 - Meta de palavras:
 - Projeto em foco:
 
 ---
 
-## Conclusao
+## Conclusão
 
 - [ ] Revisei todos os meus projetos
-- [ ] Ha uma Proxima Acao para cada projeto ativo
-- [ ] Meu calendario esta atualizado
+- [ ] Há uma Próxima Ação para cada projeto ativo
+- [ ] Meu calendário está atualizado
 - [ ] Me sinto claro e pronto para a semana
 
 ---

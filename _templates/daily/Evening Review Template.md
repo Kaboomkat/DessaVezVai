@@ -1,7 +1,7 @@
 <%*
 const date = tp.file.title.replace(" Evening Review", "");
-const dayNames = ["Domingo", "Segunda-feira", "Terca-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sabado"];
-const monthNames = ["Janeiro", "Fevereiro", "Marco", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+const dayNames = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"];
+const monthNames = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
 const d = new Date(date + "T12:00:00");
 const dayName = dayNames[d.getDay()];
 const monthName = monthNames[d.getMonth()];
@@ -19,7 +19,7 @@ tags:
   - review/evening
 ---
 
-# Revisao da Noite - ${dayName}, ${dayNum} de ${monthName} de ${year}
+# Revisão da Noite - ${dayName}, ${dayNum} de ${monthName} de ${year}
 
 ---
 
@@ -77,31 +77,31 @@ await controls.renderReviewPicker(dv, {
 
 ---
 
-## 3. O que esta na minha mente?
-*(Capture aqui - vai para a caixa de entrada depois)*
+## 3. O que está na minha mente?
+*(Capture aqui: vai para a caixa de entrada depois.)*
 
 -
 
 ---
 
-## 4. Gratidao do dia
+## 4. Gratidão do dia
 
 1.
 
 ---
 
-## 5. Prioridade de amanha
+## 5. Prioridade de amanhã
 
 -
 
 ---
 
-## Navegacao
+## Navegação
 
-[[03-Daily/Journal/${date}|<- Diario do dia]]
+[[03-Daily/Journal/${date}|<- Diário do dia]]
 
 \`\`\`button
-name Revisao da Manha ->
+name Revisão da Manhã ->
 type link
 action obsidian://quickadd?vault=Ebook%20Claude&choice=Morning%20Review&value-review_date=${date}
 \`\`\``;

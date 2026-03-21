@@ -10,7 +10,7 @@ tags:
   - review/morning
 ---
 
-# Revisao da Manha - Sexta-feira, 20 de Marco de 2026
+# Revisão da Manhã - Sexta-feira, 20 de Março de 2026
 
 ---
 
@@ -52,8 +52,8 @@ await controls.renderReviewPicker(dv, {
 
 ---
 
-## 1. Calendario
-O que esta agendado para hoje?
+## 1. Calendário
+O que está agendado para hoje?
 
 
 ---
@@ -66,7 +66,7 @@ O que esta agendado para hoje?
  
 ---
 
-## 3. Intencao de Escrita
+## 3. Intenção de Escrita
 
 **Projeto:**
 
@@ -76,12 +76,12 @@ O que esta agendado para hoje?
 
 ---
 
-## 4. Intencao do Dia
-Com qual energia / intencao quero atravessar hoje?
+## 4. Intenção do Dia
+Com qual energia / intenção quero atravessar hoje?
 
 
 ---
 
-## Navegacao
+## Navegação
 
-[[03-Daily/Journal/2026-03-20|<- Diario do dia]] | [[03-Daily/Evening Reviews/2026-03-20 Evening Review|Revisao da Noite ->]]
+[[03-Daily/Journal/2026-03-20|<- Diário do dia]] | [[03-Daily/Evening Reviews/2026-03-20 Evening Review|Revisão da Noite ->]]

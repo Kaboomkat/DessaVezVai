@@ -10,26 +10,29 @@ tags:
   - journal
 ---
 
-# {{date:dddd, MMMM D, YYYY}}
-
 <%*
+const displayDayNames = ["domingo", "segunda-feira", "terça-feira", "quarta-feira", "quinta-feira", "sexta-feira", "sábado"];
+const displayMonthNames = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
+const currentDate = tp.date.now("YYYY-MM-DD");
+const displayDate = new Date(`${currentDate}T12:00:00`);
+const formattedDate = `${displayDayNames[displayDate.getDay()]}, ${displayMonthNames[displayDate.getMonth()]} ${displayDate.getDate()}, ${displayDate.getFullYear()}`;
 const dailyQuotes = [
-  '"Comece a escrever, nao importa o que. A agua nao flui ate que a torneira seja aberta." - Louis L\'Amour',
-  '"O momento mais assustador e sempre logo antes de comecar." - Stephen King',
-  '"Voce sempre pode editar uma pagina ruim. Voce nao pode editar uma pagina em branco." - Jodi Picoult',
-  '"Um escritor e alguem para quem escrever e mais dificil do que para outras pessoas." - Thomas Mann',
-  '"Comece onde voce esta. Use o que voce tem. Faca o que voce pode." - Arthur Ashe',
-  '"O segredo de avancar e comecar." - Mark Twain',
-  '"Escreva o que nao deve ser esquecido." - Isabel Allende',
-  '"Ou escreva algo que valha a pena ler, ou faca algo que valha a pena escrever." - Benjamin Franklin',
-  '"Se voce quer ser escritor, deve fazer duas coisas acima de todas as outras: ler muito e escrever muito." - Stephen King',
-  '"Nao ha maior agonia do que carregar uma historia nao contada dentro de voce." - Maya Angelou'
+  '"Comece a escrever, não importa o que. A água não flui até que a torneira seja aberta." - Louis L\'Amour',
+  '"O momento mais assustador é sempre logo antes de começar." - Stephen King',
+  '"Você sempre pode editar uma página ruim. Você não pode editar uma página em branco." - Jodi Picoult',
+  '"Um escritor é alguém para quem escrever é mais difícil do que para outras pessoas." - Thomas Mann',
+  '"Comece onde você está. Use o que você tem. Faça o que você pode." - Arthur Ashe',
+  '"O segredo de avançar é começar." - Mark Twain',
+  '"Escreva o que não deve ser esquecido." - Isabel Allende',
+  '"Ou escreva algo que valha a pena ler, ou faça algo que valha a pena escrever." - Benjamin Franklin',
+  '"Se você quer ser escritor, deve fazer duas coisas acima de todas as outras: ler muito e escrever muito." - Stephen King',
+  '"Não há maior agonia do que carregar uma história não contada dentro de você." - Maya Angelou'
 ];
 const now = new Date();
 const start = new Date(now.getFullYear(), 0, 0);
 const dayOfYear = Math.floor((now - start) / 86400000);
 const q = dailyQuotes[dayOfYear % dailyQuotes.length];
-tR += `> [!quote]\n> *${q}*`;
+tR += `# ${formattedDate}\n\n> [!quote]\n> *${q}*`;
 %>
 
 ---
@@ -76,7 +79,7 @@ dv.container.innerHTML = `
     <thead>
         <tr>
             <th style="text-align:left;padding:4px 8px;color:#888"></th>
-            <th style="padding:4px 12px;text-align:center;color:#888">Manha</th>
+            <th style="padding:4px 12px;text-align:center;color:#888">Manhã</th>
             <th style="padding:4px 12px;text-align:center;color:#888">Noite</th>
         </tr>
     </thead>
@@ -95,7 +98,7 @@ dv.container.innerHTML = `
 </table>`;
 ```
 
-*(Preenchido nos reviews do dia.)*
+*(Preenchido nas revisões do dia.)*
 
 ---
 
@@ -126,30 +129,30 @@ dv.container.innerHTML = `
 ## Reviews do Dia
 
 ```button
-name Revisao da Manha
+name Revisão da Manhã
 type link
 action obsidian://quickadd?vault=Ebook%20Claude&choice=Morning%20Review&value-review_date=<% tp.file.title %>
 templater true
 ```
 
 ```button
-name Revisao da Noite
+name Revisão da Noite
 type link
 action obsidian://quickadd?vault=Ebook%20Claude&choice=Evening%20Review&value-review_date=<% tp.file.title %>
 templater true
 ```
 
 ```button
-name Revisao Semanal
+name Revisão Semanal
 type command
 action Periodic Notes: Open weekly note
 ```
 
-Use os botoes acima para criar ou reabrir as reviews da data desta nota.
+Use os botões acima para criar ou reabrir as revisões da data desta nota.
 
 ---
 
-## Navegacao
+## Navegação
 
 ```button
 name <- Ontem
@@ -158,9 +161,9 @@ action Periodic Notes: Open previous daily note
 ```
 
 ```button
-name Amanha ->
+name Amanhã ->
 type command
 action Periodic Notes: Open next daily note
 ```
 
-[[Daily Dashboard|Daily Dashboard]] | [[03-Daily/Index de Diario|Index de Diario]]
+[[Daily Dashboard|Daily Dashboard]] | [[03-Daily/Index de Diario|Índice de Diário]]

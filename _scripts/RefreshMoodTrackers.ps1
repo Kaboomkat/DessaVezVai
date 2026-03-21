@@ -128,7 +128,7 @@ if (!rows) {
 }
 
 rows += `<tr style="font-weight:bold;border-top:2px solid var(--background-modifier-border);">
-    <td style="padding:6px 10px;">Media</td>
+    <td style="padding:6px 10px;">Média</td>
     ${h.cell(h.closestEmoji(avg(values.mm), "mood"), "mood")}
     ${h.cell(h.closestEmoji(avg(values.em), "energy"), "energy")}
     ${h.cell(h.closestEmoji(avg(values.mn), "mood"), "mood")}
@@ -140,8 +140,8 @@ dv.container.innerHTML = `<table style="width:100%;border-collapse:separate;bord
     <thead>
         <tr style="color:var(--text-muted);font-size:0.8em;text-align:center;">
             <th style="text-align:left;padding:4px 10px;">Dia</th>
-            <th>Humor manha</th>
-            <th>Energia manha</th>
+            <th>Humor manhã</th>
+            <th>Energia manhã</th>
             <th>Humor noite</th>
             <th>Energia noite</th>
             <th style="text-align:left;padding:4px 10px;">Destaque</th>
@@ -186,7 +186,7 @@ const h = await loadDashboardHelpers();
 const cur = dv.current();
 const year = Number(cur.year) || new Date().getFullYear();
 const month = Number(cur.month) || (new Date().getMonth() + 1);
-const monthNames = ["Janeiro","Fevereiro","Marco","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
+const monthNames = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
 const monthName = monthNames[month - 1];
 
 const mornings = dv.pages('"03-Daily/Morning Reviews"').where(p => {
@@ -287,8 +287,8 @@ dv.container.innerHTML = `
     ${calendarCells}
 </div>
 <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:16px;">
-    ${statHtml("Humor manha", avgMoodMorning, "mood")}
-    ${statHtml("Energia manha", avgEnergyMorning, "energy")}
+    ${statHtml("Humor manhã", avgMoodMorning, "mood")}
+    ${statHtml("Energia manhã", avgEnergyMorning, "energy")}
     ${statHtml("Humor noite", avgMoodEvening, "mood")}
     ${statHtml("Energia noite", avgEnergyEvening, "energy")}
 </div>
@@ -329,7 +329,7 @@ const h = await loadDashboardHelpers();
 
 const cur = dv.current();
 const year = Number(cur.year) || new Date().getFullYear();
-const monthNames = ["Janeiro","Fevereiro","Marco","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
+const monthNames = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
 const avg = values => {
     const arr = Array.from(values ?? []);
     return arr.length ? arr.reduce((a, b) => a + b, 0) / arr.length : null;
@@ -459,7 +459,7 @@ for (let i = 0; i < cells.length; i += 7) {
             return `<div style="width:12px;height:12px;border-radius:3px;background:transparent;"></div>`;
         }
         const bg = cell.score == null ? "var(--background-secondary)" : h.scoreColor(cell.score, "mood");
-        const title = `${cell.key}${cell.score == null ? "" : ` media do dia ${cell.score.toFixed(1)}`}`;
+        const title = `${cell.key}${cell.score == null ? "" : ` média do dia ${cell.score.toFixed(1)}`}`;
         const inner = `<div title="${title}" style="width:12px;height:12px;border-radius:3px;background:${bg};"></div>`;
         return cell.path
             ? `<a href="${cell.path}" class="internal-link" style="display:block;width:12px;height:12px;">${inner}</a>`
@@ -473,19 +473,19 @@ dv.container.innerHTML = `
 <div style="color:var(--text-muted);font-size:0.85em;margin-bottom:12px;">${Object.keys(dayMap).length} dias com registro</div>
 <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px;">${monthCards}</div>
 <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px;">
-    ${statHtml("Humor manha", avg(allMoodMorning), "mood")}
-    ${statHtml("Energia manha", avg(allEnergyMorning), "energy")}
+    ${statHtml("Humor manhã", avg(allMoodMorning), "mood")}
+    ${statHtml("Energia manhã", avg(allEnergyMorning), "energy")}
     ${statHtml("Humor noite", avg(allMoodEvening), "mood")}
     ${statHtml("Energia noite", avg(allEnergyEvening), "energy")}
 </div>
 <div style="display:flex;gap:12px;margin-bottom:16px;">
     <div style="flex:1;background:${bestMonth ? h.scoreColor(bestScore, "mood") : "#2a2a2a"};border-radius:10px;padding:12px;text-align:center;">
-        <div style="font-size:0.75em;color:#eee;">Melhor mes</div>
+        <div style="font-size:0.75em;color:#eee;">Melhor mês</div>
         <div style="font-size:1.2em;">${bestMonth ? monthNames[bestMonth - 1] : "-"}</div>
         <div style="color:#fff;">${bestMonth ? bestScore.toFixed(1) : "-"}</div>
     </div>
     <div style="flex:1;background:${worstMonth ? h.scoreColor(worstScore, "mood") : "#2a2a2a"};border-radius:10px;padding:12px;text-align:center;">
-        <div style="font-size:0.75em;color:#eee;">Mes mais dificil</div>
+        <div style="font-size:0.75em;color:#eee;">Mês mais difícil</div>
         <div style="font-size:1.2em;">${worstMonth ? monthNames[worstMonth - 1] : "-"}</div>
         <div style="color:#fff;">${worstMonth ? worstScore.toFixed(1) : "-"}</div>
     </div>
@@ -519,7 +519,7 @@ $MonthCode
 
 ---
 
-## Navegacao
+## Navegação
 
 [[../../Yearly/<% tp.frontmatter.year %>|Tracker Anual <% tp.frontmatter.year %>]]
 "@
@@ -567,7 +567,7 @@ $WeekCode
 
 ---
 
-## Navegacao
+## Navegação
 
 [[../../Hub|Mood Tracker Hub]]
 "@
@@ -593,7 +593,7 @@ $YearCode
 
 ## Meses de $Year
 
-[[Monthly/$Year/01|Janeiro]] | [[Monthly/$Year/02|Fevereiro]] | [[Monthly/$Year/03|Marco]] | [[Monthly/$Year/04|Abril]] | [[Monthly/$Year/05|Maio]] | [[Monthly/$Year/06|Junho]] | [[Monthly/$Year/07|Julho]] | [[Monthly/$Year/08|Agosto]] | [[Monthly/$Year/09|Setembro]] | [[Monthly/$Year/10|Outubro]] | [[Monthly/$Year/11|Novembro]] | [[Monthly/$Year/12|Dezembro]]
+[[Monthly/$Year/01|Janeiro]] | [[Monthly/$Year/02|Fevereiro]] | [[Monthly/$Year/03|Março]] | [[Monthly/$Year/04|Abril]] | [[Monthly/$Year/05|Maio]] | [[Monthly/$Year/06|Junho]] | [[Monthly/$Year/07|Julho]] | [[Monthly/$Year/08|Agosto]] | [[Monthly/$Year/09|Setembro]] | [[Monthly/$Year/10|Outubro]] | [[Monthly/$Year/11|Novembro]] | [[Monthly/$Year/12|Dezembro]]
 
 ---
 
@@ -628,7 +628,7 @@ $MonthCode
 
 ---
 
-## Navegacao
+## Navegação
 
 [[../../Yearly/$Year|Tracker Anual $Year]]
 "@
@@ -666,7 +666,7 @@ $WeekCode
 
 ---
 
-## Navegacao
+## Navegação
 
 [[../../Yearly/$Year|Tracker Anual $Year]] | [[../../Hub|Mood Tracker Hub]]
 "@

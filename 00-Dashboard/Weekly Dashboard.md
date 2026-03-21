@@ -25,7 +25,7 @@ dv.container.innerHTML = `
 ```
 
 ```button
-name Abrir Revisao Semanal
+name Abrir Revisão Semanal
 type command
 action Periodic Notes: Open weekly note
 ```
@@ -69,7 +69,7 @@ dv.container.innerHTML = `
 <div style="text-align:center;margin:16px 0 8px;">
     <div>${cells}</div>
     <div style="font-size:0.8em;color:var(--text-muted);margin-top:8px;">
-        ${filled}/7 dias com entrada no diario
+        ${filled}/7 dias com entrada no diário
     </div>
 </div>`;
 ```
@@ -175,7 +175,7 @@ if (!hasAnyData) {
 }
 
 const avgRow = `<tr style="border-top:2px solid #444;font-weight:bold;">
-    <td style="padding:6px 10px;">Media</td>
+    <td style="padding:6px 10px;">Média</td>
     ${h.cell(h.closestEmoji(avg(sums.mm, counts.mm), "mood"), "mood")}
     ${h.cell(h.closestEmoji(avg(sums.em, counts.em), "energy"), "energy")}
     ${h.cell(h.closestEmoji(avg(sums.mn, counts.mn), "mood"), "mood")}
@@ -188,8 +188,8 @@ dv.container.innerHTML = `
     <thead>
         <tr style="color:#888;font-size:0.8em;text-align:center;">
             <th style="text-align:left;padding:4px 10px;">Dia</th>
-            <th style="padding:4px 8px;">Humor<br><span style="font-size:0.8em">Manha</span></th>
-            <th style="padding:4px 8px;">Energia<br><span style="font-size:0.8em">Manha</span></th>
+            <th style="padding:4px 8px;">Humor<br><span style="font-size:0.8em">Manhã</span></th>
+            <th style="padding:4px 8px;">Energia<br><span style="font-size:0.8em">Manhã</span></th>
             <th style="padding:4px 8px;">Humor<br><span style="font-size:0.8em">Noite</span></th>
             <th style="padding:4px 8px;">Energia<br><span style="font-size:0.8em">Noite</span></th>
             <th style="text-align:left;padding:4px 10px;">Destaque</th>
@@ -230,7 +230,7 @@ if (writingActivity.length > 0) {
 
 ---
 
-## Tarefas Concluidas Esta Semana
+## Tarefas Concluídas Esta Semana
 
 ```dataviewjs
 const today = dv.date("today");
@@ -241,16 +241,16 @@ const completed = dv.pages('"04-Tasks"')
     .sort(p => p.completed_date, "desc");
 
 if (completed.length > 0) {
-    dv.paragraph(`**Concluidas esta semana:** ${completed.length} tarefas`);
+    dv.paragraph(`**Concluídas esta semana:** ${completed.length} tarefas`);
     dv.list(completed.map(p => `~~${p.file.name}~~ - ${p.completed_date}`));
 } else {
-    dv.paragraph("*Nenhuma tarefa concluida esta semana ainda.*");
+    dv.paragraph("*Nenhuma tarefa concluída esta semana ainda.*");
 }
 ```
 
 ---
 
-## Revisoes desta Semana
+## Revisões desta Semana
 
 ```dataviewjs
 const today = dv.date("today");
@@ -266,7 +266,7 @@ const evenings = dv.pages('"03-Daily/Evening Reviews"')
 
 if (mornings.length > 0 || evenings.length > 0) {
     if (mornings.length > 0) {
-        dv.paragraph(`**Manha (${mornings.length})**`);
+        dv.paragraph(`**Manhã (${mornings.length})**`);
         dv.list(mornings.map(p => p.file.link));
     }
     if (evenings.length > 0) {
@@ -274,20 +274,32 @@ if (mornings.length > 0 || evenings.length > 0) {
         dv.list(evenings.map(p => p.file.link));
     }
 } else {
-    dv.paragraph("*Nenhuma revisao encontrada para esta semana.*");
+    dv.paragraph("*Nenhuma revisão encontrada para esta semana.*");
 }
 ```
 
 ---
 
-## Navegacao Rapida
+## Navegação Rápida
 
-| Diario | Dashboards | Outros |
-|--------|------------|--------|
-| [[Daily Dashboard|Daily]] | [[Home|Inicio]] | [[Writing Dashboard|Escrita]] |
-| [[03-Daily/Index de Diario|Diario]] | [[Tasks Dashboard|Tarefas]] | [[Projects Dashboard|Projetos]] |
-| [[00-Dashboard/Mood-Energy Tracker/Hub|Mood Hub]] | [[03-Daily/Morning Reviews/|Manha]] | [[03-Daily/Evening Reviews/|Noite]] |
+- Diário: [[Daily Dashboard|Daily]] | [[03-Daily/Index de Diario|Diário]]
+- Dashboards: [[Home|Início]] | [[Tasks Dashboard|Tarefas]] | [[Projects Dashboard|Projetos]] | [[Writing Dashboard|Escrita]]
+- Trackers: [[00-Dashboard/Mood-Energy Tracker/Hub|Mood Hub]]
+
+```button
+name Revisão da Manhã
+type link
+action obsidian://quickadd?vault=Ebook%20Claude&choice=Morning%20Review&value-review_date=<% tp.date.now("YYYY-MM-DD") %>
+templater true
+```
+
+```button
+name Revisão da Noite
+type link
+action obsidian://quickadd?vault=Ebook%20Claude&choice=Evening%20Review&value-review_date=<% tp.date.now("YYYY-MM-DD") %>
+templater true
+```
 
 ---
 
-*Cada semana e uma chance de recalibrar.*
+*Cada semana é uma chance de recalibrar.*

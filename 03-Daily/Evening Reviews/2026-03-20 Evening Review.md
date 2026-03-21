@@ -10,7 +10,7 @@ tags:
   - review/evening
 ---
 
-# Revisao da Noite - Sexta-feira, 20 de Marco de 2026
+# Revisão da Noite - Sexta-feira, 20 de Março de 2026
 
 ---
 
@@ -68,25 +68,25 @@ await controls.renderReviewPicker(dv, {
 
 ---
 
-## 3. O que esta na minha mente?
+## 3. O que está na minha mente?
 *(Capture aqui - vai para a caixa de entrada depois)*
 
 -
 
 ---
 
-## 4. Gratidao do dia
+## 4. Gratidão do dia
 
 1.
 
 ---
 
-## 5. Prioridade de amanha
+## 5. Prioridade de amanhã
 
 -
 
 ---
 
-## Navegacao
+## Navegação
 
-[[03-Daily/Journal/2026-03-20|<- Diario do dia]] | [[03-Daily/Morning Reviews/2026-03-20 Morning Review|Revisao da Manha ->]]
+[[03-Daily/Journal/2026-03-20|<- Diário do dia]] | [[03-Daily/Morning Reviews/2026-03-20 Morning Review|Revisão da Manhã ->]]

@@ -6,15 +6,16 @@ tags:
 
 # CHANGELOG - Vault Ebook Claude
 
-> Log de todas as mudancas feitas por Claude ou manualmente.
-> Cada versao e um arquivo separado. Leia o mais recente para contexto de debug.
+> Log de todas as mudanças feitas por Claude ou manualmente.
+> Cada versão é um arquivo separado. Leia o mais recente para contexto de debug.
 
 ---
 
-## Versoes
+## Versões
 
-| Versao | Data | Titulo |
+| Versão | Data | Título |
 |--------|------|--------|
+| [[CHANGELOG v0.2.3\|v0.2.3]] | 2026-03-20 | Normalização visível de PT-BR e hardening da navegação rápida |
 | [[CHANGELOG v0.2.2\|v0.2.2]] | 2026-03-20 | Limpeza de encoding do Weekly Dashboard |
 | [[CHANGELOG v0.2.1\|v0.2.1]] | 2026-03-20 | Destaque resiliente e weekly trackers canonicos |
 | [[CHANGELOG v0.2.0\|v0.2.0]] | 2026-03-20 | Criacao segura de reviews e navegacao periodica |

@@ -1,12 +1,12 @@
 ---
-title: "Index de Diário"
+title: "Índice de Diário"
 type: index
 section: daily
 tags:
   - index/daily
 ---
 
-# Index de Diário
+# Índice de Diário
 
 > [!info]
 > Todas as daily notes ficam listadas aqui automaticamente.
@@ -55,7 +55,7 @@ for (const p of pages) {
     ]);
 }
 
-dv.table(["Diario", "Dia", "Destaque", "Criado", "Atualizado"], rows);
+dv.table(["Diário", "Dia", "Destaque", "Criado", "Atualizado"], rows);
 ```
 
 [[Daily Dashboard|<- Daily Dashboard]]

@@ -1,7 +1,7 @@
 <%*
 const date = tp.file.title.replace(" Morning Review", "");
-const dayNames = ["Domingo", "Segunda-feira", "Terca-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sabado"];
-const monthNames = ["Janeiro", "Fevereiro", "Marco", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+const dayNames = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"];
+const monthNames = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
 const d = new Date(date + "T12:00:00");
 const dayName = dayNames[d.getDay()];
 const monthName = monthNames[d.getMonth()];
@@ -19,7 +19,7 @@ tags:
   - review/morning
 ---
 
-# Revisao da Manha - ${dayName}, ${dayNum} de ${monthName} de ${year}
+# Revisão da Manhã - ${dayName}, ${dayNum} de ${monthName} de ${year}
 
 ---
 
@@ -61,8 +61,8 @@ await controls.renderReviewPicker(dv, {
 
 ---
 
-## 1. Calendario
-O que esta agendado para hoje?
+## 1. Calendário
+O que está agendado para hoje?
 
 ---
 
@@ -74,7 +74,7 @@ O que esta agendado para hoje?
 
 ---
 
-## 3. Intencao de Escrita
+## 3. Intenção de Escrita
 
 **Projeto:**
 
@@ -84,17 +84,17 @@ O que esta agendado para hoje?
 
 ---
 
-## 4. Intencao do Dia
-Com qual energia / intencao quero atravessar hoje?
+## 4. Intenção do Dia
+Com qual energia / intenção quero atravessar hoje?
 
 ---
 
-## Navegacao
+## Navegação
 
-[[03-Daily/Journal/${date}|<- Diario do dia]]
+[[03-Daily/Journal/${date}|<- Diário do dia]]
 
 \`\`\`button
-name Revisao da Noite ->
+name Revisão da Noite ->
 type link
 action obsidian://quickadd?vault=Ebook%20Claude&choice=Evening%20Review&value-review_date=${date}
 \`\`\``;
