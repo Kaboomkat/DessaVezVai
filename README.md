@@ -9,20 +9,27 @@ Este repositório versiona um vault Obsidian voltado para escrita, rotina diári
 - captura e execução em `04-Tasks/`
 - dashboards em `00-Dashboard/` como superfície de leitura e navegação, não como fonte de verdade
 
-## Estrutura do vault
+## Mapa do vault
 
 ```text
-00-Dashboard/   Dashboards operacionais e trackers
-01-Writing/     Manuscritos, pesquisa, personagens, mundo e fragmentos
-02-Projects/    Projetos não literários
-03-Daily/       Diário, reviews e índice do diário
-04-Tasks/       Inbox, próximas ações, waiting e referência
-05-Resources/   Contatos, livros, artigos, definições
-06-Archive/     Material arquivado
-_templates/     Templates usados por Periodic Notes e QuickAdd
-_scripts/       CustomJS e geração dos trackers
-_changelog/     Histórico versionado das mudanças
-.obsidian/      Configuração versionada dos plugins
+/
+├── 00-Dashboard/         # dashboards, hubs e trackers para operação diária e leitura do sistema
+│   └── Mood-Energy Tracker/ # visões mensal, semanal e anual do humor/energia a partir dos review files
+├── 01-Writing/           # núcleo de escrita criativa: manuscritos, pesquisa, personagens e fragmentos
+├── 02-Projects/          # projetos não literários, com áreas para ativos, someday e arquivo
+├── 03-Daily/             # rotina diária: diário, reviews e índice canônico das entradas
+│   ├── Journal/          # daily notes criadas pelo Periodic Notes
+│   ├── Morning Reviews/  # review da manhã, fonte de verdade de mood/energy da manhã
+│   ├── Evening Reviews/  # review da noite, fonte de verdade de mood/energy da noite
+│   ├── Reviews/          # revisões semanais e mensais
+│   └── Index de Diario.md # índice dinâmico das daily notes, sem depender de link de pasta
+├── 04-Tasks/             # captura, próximas ações, waiting e referência operacional
+├── 05-Resources/         # base de conhecimento: contatos, livros, artigos e definições
+├── 06-Archive/           # material que saiu do fluxo ativo
+├── _templates/           # templates chamados por Periodic Notes, QuickAdd e fluxos de criação
+├── _scripts/             # CustomJS e scripts de geração/manutenção do vault
+├── _changelog/           # histórico versionado das correções e mudanças de arquitetura
+└── .obsidian/            # configuração versionada dos plugins e do comportamento do app
 ```
 
 ## Arquitetura operacional
