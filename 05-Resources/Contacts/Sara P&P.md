@@ -6,6 +6,9 @@ company: Pessoa & Pessoa
 email:
 phone:
 location:
+linkedin:
+instagram:
+site:
 met_at: Pessoa & Pessoa
 relationship: profissional
 last_contact:
@@ -17,21 +20,15 @@ tags:
 
 # Sara P&P
 
-> [!contact] Informações de Contato
-> **Cargo:** `= this.role` | **Empresa:** `= this.company`
+> [!contact] Contrato da Nota
+> Os campos estruturados desta pessoa ficam nas propriedades da nota.
+> O corpo abaixo serve para contexto, histórico e follow-ups.
 
 ---
 
 ## 📇 Dados de Contato
 
-| | |
-|---|---|
-| **E-mail** | `= this.email` |
-| **Telefone** | `= this.phone` |
-| **Localização** | `= this.location` |
-| **LinkedIn** | |
-| **Instagram** | |
-| **Site** | |
+Os dados estruturados desta pessoa ficam nas **Properties**.
 
 ---
 
@@ -41,9 +38,9 @@ tags:
 
 No Pessoa & Pessoa.
 
-**Cargo / O que faz:**
+**Contexto profissional / o que faz na prática:**
 
-Colega profissional que ainda me aciona para tarefas pontuais.
+Ex-Colega profissional que ainda me aciona para tarefas pontuais.
 
 **Áreas de expertise:**
 - Trabalho jurídico
@@ -52,7 +49,9 @@ Colega profissional que ainda me aciona para tarefas pontuais.
 
 ## 🔗 Notas de Relacionamento
 
-**Tipo de relação:** `= this.relationship`
+**Dinâmica da relação / observações:**
+
+Relação profissional que continua gerando demandas pontuais.
 
 **Interesses em comum:**
 - Trabalho jurídico

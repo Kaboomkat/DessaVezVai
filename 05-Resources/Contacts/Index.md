@@ -16,10 +16,10 @@ action QuickAdd: New Contact
 ```dataview
 TABLE WITHOUT ID
     file.link as "Nome",
-    role as "Cargo",
-    company as "Empresa",
-    relationship as "Relação",
-    last_contact as "Último contato"
+    default(role, "—") as "Cargo",
+    default(company, "—") as "Empresa",
+    default(relationship, "—") as "Relação",
+    default(last_contact, "—") as "Último contato"
 FROM "05-Resources/Contacts"
 WHERE file.name != "Index"
 SORT file.name ASC

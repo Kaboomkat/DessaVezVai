@@ -6,6 +6,9 @@ company: KNR
 email:
 phone:
 location:
+linkedin:
+instagram:
+site:
 met_at: KNR
 relationship: profissional
 last_contact:
@@ -17,21 +20,15 @@ tags:
 
 # Dra. Carmen
 
-> [!contact] Informações de Contato
-> **Cargo:** `= this.role` | **Empresa:** `= this.company`
+> [!contact] Contrato da Nota
+> Os campos estruturados desta pessoa ficam nas propriedades da nota.
+> O corpo abaixo serve para contexto, histórico e follow-ups.
 
 ---
 
 ## 📇 Dados de Contato
 
-| | |
-|---|---|
-| **E-mail** | `= this.email` |
-| **Telefone** | `= this.phone` |
-| **Localização** | `= this.location` |
-| **LinkedIn** | |
-| **Instagram** | |
-| **Site** | |
+Os dados estruturados desta pessoa ficam nas **Properties**.
 
 ---
 
@@ -41,7 +38,7 @@ tags:
 
 No trabalho, no KNR.
 
-**Cargo / O que faz:**
+**Contexto profissional / o que faz na prática:**
 
 É a coordenadora do núcleo criminal do escritório.
 
@@ -52,7 +49,9 @@ No trabalho, no KNR.
 
 ## 🔗 Notas de Relacionamento
 
-**Tipo de relação:** `= this.relationship`
+**Dinâmica da relação / observações:**
+
+Relação profissional ligada ao trabalho no KNR.
 
 **Interesses em comum:**
 - Trabalho jurídico

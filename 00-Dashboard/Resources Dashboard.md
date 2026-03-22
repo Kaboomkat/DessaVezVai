@@ -98,8 +98,8 @@ LIMIT 15
 ```dataview
 TABLE WITHOUT ID
     file.link as "Nome",
-    role as "Cargo",
-    company as "Empresa",
+    default(role, "—") as "Cargo",
+    default(company, "—") as "Empresa",
     file.mtime as "Atualizado"
 FROM "05-Resources/Contacts"
 WHERE file.name != "Index"

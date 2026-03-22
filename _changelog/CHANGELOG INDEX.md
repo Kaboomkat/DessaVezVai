@@ -15,6 +15,7 @@ tags:
 
 | Versão | Data | Título |
 |--------|------|--------|
+| [[CHANGELOG v0.3.7\|v0.3.7]] | 2026-03-22 | Contrato canônico dos contatos sem `= this.*` no corpo |
 | [[CHANGELOG v0.3.6\|v0.3.6]] | 2026-03-22 | Hotfix da navegação rápida no Projects Dashboard |
 | [[CHANGELOG v0.3.5\|v0.3.5]] | 2026-03-22 | Lists recentes de Resources alinhadas com os índices |
 | [[CHANGELOG v0.3.4\|v0.3.4]] | 2026-03-22 | Visão geral do Resources Dashboard sem contar os índices |

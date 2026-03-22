@@ -6,8 +6,11 @@ company:
 email:
 phone:
 location:
+linkedin:
+instagram:
+site:
 met_at:
-relationship: pessoal | profissional | escrita | outro
+relationship:
 last_contact:
 created: {{date}}
 tags:
@@ -16,21 +19,17 @@ tags:
 
 # {{title}}
 
-> [!contact] Informações de Contato
-> **Cargo:** `= this.role` | **Empresa:** `= this.company`
+> [!contact] Contrato da Nota
+> Preencha `role`, `company`, `email`, `phone`, `location`, `linkedin`, `instagram`, `site`, `relationship` e `last_contact` nas propriedades da nota.
+> Use o corpo abaixo apenas para contexto, histórico e follow-ups.
 
 ---
 
 ## 📇 Dados de Contato
 
-| | |
-|---|---|
-| **E-mail** | `= this.email` |
-| **Telefone** | `= this.phone` |
-| **Localização** | `= this.location` |
-| **LinkedIn** | |
-| **Instagram** | |
-| **Site** | |
+Os dados estruturados desta pessoa vivem nas **Properties** da nota.
+
+Valores esperados para `relationship`: `pessoal`, `profissional`, `escrita` ou `outro`.
 
 ---
 
@@ -39,7 +38,7 @@ tags:
 **Como nos conhecemos:**
 
 
-**Cargo / O que faz:**
+**Contexto profissional / o que faz na prática:**
 
 
 **Áreas de expertise:**
@@ -49,7 +48,8 @@ tags:
 
 ## 🔗 Notas de Relacionamento
 
-**Tipo de relação:** `= this.relationship`
+**Dinâmica da relação / observações:**
+
 
 **Interesses em comum:**
 -
