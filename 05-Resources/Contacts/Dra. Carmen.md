@@ -1,11 +1,11 @@
 ---
-title: "Dra. Carmen"
+title: Dra. Carmen
 type: contact
 role: Coordenadora do núcleo criminal
 company: KNR
-email:
-phone:
-location:
+email: carmen@knr.adv.br
+phone: +55 (71) 9 9961-4151
+location: Salvador-BA
 linkedin:
 instagram:
 site:
@@ -28,7 +28,30 @@ tags:
 
 ## 📇 Dados de Contato
 
-Os dados estruturados desta pessoa ficam nas **Properties**.
+```dataviewjs
+const contact = dv.current();
+const value = (field) => {
+    if (field === null || field === undefined || field === "") return "—";
+    return field;
+};
+
+dv.table(
+    ["Campo", "Valor"],
+    [
+        ["Cargo", value(contact.role)],
+        ["Empresa", value(contact.company)],
+        ["E-mail", value(contact.email)],
+        ["Telefone", value(contact.phone)],
+        ["Localização", value(contact.location)],
+        ["LinkedIn", value(contact.linkedin)],
+        ["Instagram", value(contact.instagram)],
+        ["Site", value(contact.site)],
+        ["Conheci em", value(contact.met_at)],
+        ["Relação", value(contact.relationship)],
+        ["Último contato", value(contact.last_contact)],
+    ]
+);
+```
 
 ---
 
