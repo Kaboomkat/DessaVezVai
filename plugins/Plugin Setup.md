@@ -21,6 +21,14 @@ tags:
 
 Este repositorio versiona a pasta `.obsidian/`, entao as configuracoes criticas acima ja fazem parte do vault compartilhado.
 
+## Plugin recomendado para automacao externa
+
+| Plugin | Uso no vault | Configuracao critica |
+|--------|---------------|----------------------|
+| Local REST API | Ponte estavel para automacao por script/API | Secure server ativo, API key valida e porta HTTPS acessivel |
+
+- A ponte de automacao externa fica em `plugins/Obsidian Automation.md` e `_scripts/obsidian/`.
+- Essa camada nao substitui `QuickAdd`, `Buttons`, `Templater` ou `Periodic Notes`; ela apenas aciona essas superficies sem depender de clique manual.
 ## Sync e mobile
 
 - `_scripts/*.js` precisa continuar dentro do sync; em `Obsidian Sync`, isso depende de `Sync all other types` ativo no dispositivo.
