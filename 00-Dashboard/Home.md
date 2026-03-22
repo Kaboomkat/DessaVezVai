@@ -86,15 +86,15 @@ action [[04-Tasks/Inbox/Inbox]]
 TABLE WITHOUT ID
     file.link as "Projeto",
     status as "Status",
-    wordcount as "Palavras",
-    round((wordcount / 80000) * 100) + "%" as "Progresso"
+    default(wordcount, 0) as "Palavras",
+    round((default(wordcount, 0) / 80000) * 100) + "%" as "Progresso"
 FROM "01-Writing/Manuscripts"
 WHERE status != "complete"
 SORT file.mtime DESC
 LIMIT 5
 ```
 
-[[01-Writing/Manuscripts/|→ Ver todos os manuscritos]]
+[[Writing Dashboard|→ Ver todos os manuscritos]]
 
 ---
 
@@ -109,7 +109,7 @@ WHERE !completed
 LIMIT 7
 ```
 
-[[04-Tasks/Next/|→ Ver todas as Próximas Ações]]
+[[Tasks Dashboard|→ Ver todas as Próximas Ações]]
 
 ---
 
@@ -132,11 +132,11 @@ LIMIT 8
 
 | Escrita | Produtividade | Recursos |
 |---------|---------------|----------|
-| [[01-Writing/Manuscripts/\|📚 Manuscritos]] | [[04-Tasks/Inbox/Inbox\|📥 Caixa de Entrada]] | [[05-Resources/Books/\|📖 Livros]] |
-| [[01-Writing/Characters/\|👤 Personagens]] | [[04-Tasks/Next/\|✅ Próximas Ações]] | [[05-Resources/Articles/\|📄 Artigos]] |
-| [[01-Writing/Worldbuilding/\|🌍 Worldbuilding]] | [[02-Projects/Active/\|🎯 Projetos]] | [[05-Resources/Contacts/\|👥 Contatos]] |
-| [[01-Writing/Research/\|🔬 Pesquisa]] | [[03-Daily/Journal/\|📓 Diário]] | [[05-Resources/Definitions/\|📝 Definições]] |
-| [[Writing Dashboard\|📊 Painel de Escrita]] | [[00-Dashboard/Mood-Energy Tracker/Yearly/2026\|📊 Mood Tracker]] | [[06-Archive/\|🗄️ Arquivo]] |
+| [[Writing Dashboard\|📚 Manuscritos]] | [[04-Tasks/Inbox/Inbox\|📥 Caixa de Entrada]] | [[Resources Dashboard\|📖 Livros]] |
+| [[Writing Dashboard\|👤 Personagens]] | [[Tasks Dashboard\|✅ Próximas Ações]] | [[Resources Dashboard\|📄 Artigos]] |
+| [[Writing Dashboard\|🌍 Worldbuilding]] | [[Projects Dashboard\|🎯 Projetos]] | [[Resources Dashboard\|👥 Contatos]] |
+| [[Writing Dashboard\|🔬 Pesquisa]] | [[03-Daily/Index de Diario\|📓 Diário]] | [[Resources Dashboard\|📝 Definições]] |
+| [[Writing Dashboard\|📊 Painel de Escrita]] | [[00-Dashboard/Mood-Energy Tracker/Yearly/2026\|📊 Mood Tracker]] | [[06-Archive/Index\|🗄️ Arquivo]] |
 
 ---
 

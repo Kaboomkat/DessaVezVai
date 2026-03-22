@@ -15,6 +15,7 @@ tags:
 
 | Versão | Data | Título |
 |--------|------|--------|
+| [[CHANGELOG v0.2.6\|v0.2.6]] | 2026-03-22 | Navegação segura no Home sem perder os emojis |
 | [[CHANGELOG v0.2.5\|v0.2.5]] | 2026-03-20 | Mapa ASCII do vault no README |
 | [[CHANGELOG v0.2.4\|v0.2.4]] | 2026-03-20 | Destaque do dia confiável no índice e README reescrito |
 | [[CHANGELOG v0.2.3\|v0.2.3]] | 2026-03-20 | Normalização visível de PT-BR e hardening da navegação rápida |
