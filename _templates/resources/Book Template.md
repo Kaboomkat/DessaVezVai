@@ -92,4 +92,4 @@ tags:
 
 ---
 
-[[05-Resources/Books/|← Todos os Livros]] | [[Resources Dashboard|Recursos]]
+[[05-Resources/Books/Index|← Todos os Livros]] | [[Resources Dashboard|Recursos]]

@@ -69,4 +69,4 @@ tags:
 
 ---
 
-[[05-Resources/Articles/|← Todos os Artigos]]
+[[05-Resources/Articles/Index|← Todos os Artigos]] | [[Resources Dashboard|Recursos]]

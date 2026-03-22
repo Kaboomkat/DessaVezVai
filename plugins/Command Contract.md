@@ -24,6 +24,7 @@ tags:
 | `00-Dashboard/Writing Dashboard.md` | Nova Cena | QuickAdd | `QuickAdd: New Scene` |
 | `00-Dashboard/Writing Dashboard.md` | Novo Personagem | QuickAdd | `QuickAdd: New Character` |
 | `00-Dashboard/Writing Dashboard.md` | Nova Entrada de Mundo | QuickAdd | `QuickAdd: New Worldbuilding` |
+| `00-Dashboard/Writing Dashboard.md` | Nova Pesquisa | QuickAdd | `QuickAdd: New Research` |
 | `00-Dashboard/Writing Dashboard.md` | Capturar Fragmento | QuickAdd | `QuickAdd: New Snippet` |
 | `00-Dashboard/Projects Dashboard.md` | Novo Projeto | QuickAdd | `QuickAdd: New Project` |
 | `00-Dashboard/Projects Dashboard.md` | Nova Ideia Algum Dia/Talvez | QuickAdd | `QuickAdd: New Someday` |
@@ -36,6 +37,13 @@ tags:
 | `04-Tasks/Inbox/*.md` | Process Inbox Item | QuickAdd | `QuickAdd: Process Inbox Item` |
 | `04-Tasks/Next/*.md` | Complete Task | QuickAdd | `QuickAdd: Complete Task` |
 | `04-Tasks/Waiting/*.md` | Complete Task | QuickAdd | `QuickAdd: Complete Task` |
+| `01-Writing/Worldbuilding/Index.md` | Nova Entrada de Mundo | QuickAdd | `QuickAdd: New Worldbuilding` |
+| `01-Writing/Characters/Index.md` | Novo Personagem | QuickAdd | `QuickAdd: New Character` |
+| `01-Writing/Research/Index.md` | Nova Pesquisa | QuickAdd | `QuickAdd: New Research` |
+| `05-Resources/Contacts/Index.md` | Novo Contato | QuickAdd | `QuickAdd: New Contact` |
+| `05-Resources/Books/Index.md` | Novo Livro | QuickAdd | `QuickAdd: New Book Note` |
+| `05-Resources/Articles/Index.md` | Novo Artigo | QuickAdd | `QuickAdd: New Article` |
+| `05-Resources/Definitions/Index.md` | Nova Definicao | QuickAdd | `QuickAdd: New Definition` |
 
 ## Regra
 

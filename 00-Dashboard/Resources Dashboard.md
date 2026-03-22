@@ -87,7 +87,7 @@ SORT file.mtime DESC
 LIMIT 5
 ```
 
-[[05-Resources/Books/|→ Todos os livros]]
+[[05-Resources/Books/Index|→ Todos os livros]]
 
 ---
 
@@ -103,7 +103,7 @@ SORT file.ctime DESC
 LIMIT 5
 ```
 
-[[05-Resources/Articles/|→ Todos os artigos]]
+[[05-Resources/Articles/Index|→ Todos os artigos]]
 
 ---
 
@@ -119,7 +119,7 @@ SORT file.name ASC
 LIMIT 10
 ```
 
-[[05-Resources/Contacts/|→ Todos os contatos]]
+[[05-Resources/Contacts/Index|→ Todos os contatos]]
 
 ---
 
@@ -132,7 +132,7 @@ SORT file.ctime DESC
 LIMIT 8
 ```
 
-[[05-Resources/Definitions/|→ Todas as definições]]
+[[05-Resources/Definitions/Index|→ Todas as definições]]
 
 ---
 
@@ -149,10 +149,10 @@ Use `Ctrl/Cmd + O` para busca rápida, ou tente:
 
 | Recursos | Relacionados |
 |----------|-------------|
-| [[05-Resources/Books/\|📖 Livros]] | [[Writing Dashboard\|✍️ Escrita]] |
-| [[05-Resources/Articles/\|📄 Artigos]] | [[01-Writing/Research/\|🔬 Pesquisa]] |
-| [[05-Resources/Contacts/\|👥 Contatos]] | [[Home\|🏠 Início]] |
-| [[05-Resources/Definitions/\|📝 Definições]] | [[Tasks Dashboard\|✅ Tarefas]] |
+| [[05-Resources/Books/Index\|📖 Livros]] | [[Writing Dashboard\|✍️ Escrita]] |
+| [[05-Resources/Articles/Index\|📄 Artigos]] | [[01-Writing/Research/Index\|🔬 Pesquisa]] |
+| [[05-Resources/Contacts/Index\|👥 Contatos]] | [[Home\|🏠 Início]] |
+| [[05-Resources/Definitions/Index\|📝 Definições]] | [[Tasks Dashboard\|✅ Tarefas]] |
 
 ---
 

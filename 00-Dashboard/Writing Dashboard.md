@@ -75,6 +75,11 @@ type command
 action QuickAdd: New Worldbuilding
 ```
 ```button
+name 🔬 Nova Pesquisa
+type command
+action QuickAdd: New Research
+```
+```button
 name 💡 Capturar Fragmento
 type command
 action QuickAdd: New Snippet
@@ -137,7 +142,7 @@ SORT file.mtime DESC
 LIMIT 5
 ```
 
-[[01-Writing/Characters/|→ Todos os personagens]]
+[[01-Writing/Characters/Index|→ Todos os personagens]]
 
 ---
 
@@ -153,7 +158,7 @@ SORT file.mtime DESC
 LIMIT 5
 ```
 
-[[01-Writing/Worldbuilding/|→ Todo o worldbuilding]]
+[[01-Writing/Worldbuilding/Index|→ Todo o worldbuilding]]
 
 ---
 
@@ -169,7 +174,7 @@ SORT file.mtime DESC
 LIMIT 5
 ```
 
-[[01-Writing/Research/|→ Todas as pesquisas]]
+[[01-Writing/Research/Index|→ Todas as pesquisas]]
 
 ---
 

@@ -4,6 +4,7 @@ type: character
 role: protagonista | antagonista | coadjuvante | secundário
 project:
 arc:
+summary:
 status: active
 created: {{date}}
 modified: {{date}}
@@ -15,6 +16,7 @@ tags:
 
 > [!info] Personagem em Resumo
 > **Papel:** `= this.role` | **Projeto:** `= this.project` | **Arc:** `= this.arc`
+> **Resumo:** `= this.summary`
 
 ---
 
@@ -181,4 +183,4 @@ WHERE project = this.project AND file.name != this.file.name
 
 ---
 
-[[{{project}}|← Voltar ao Manuscrito]] | [[01-Writing/Characters/|Todos os Personagens]]
+[[01-Writing/Characters/Index|← Índice de Personagens]] | [[Writing Dashboard|Painel de Escrita]]

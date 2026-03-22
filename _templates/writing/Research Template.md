@@ -3,6 +3,7 @@ title: "{{title}}"
 type: research
 topic:
 project:
+summary:
 source:
 url:
 reliability: alta | média | baixa
@@ -16,6 +17,7 @@ tags:
 
 > [!info] Nota de Pesquisa
 > **Tópico:** `= this.topic` | **Projeto:** `= this.project` | **Confiabilidade:** `= this.reliability`
+> **Resumo:** `= this.summary`
 
 ---
 
@@ -86,4 +88,4 @@ LIMIT 5
 
 ---
 
-[[01-Writing/Research/|← Todas as Pesquisas]] | [[{{project}}|Voltar ao Manuscrito]]
+[[01-Writing/Research/Index|← Índice de Pesquisa]] | [[Writing Dashboard|Painel de Escrita]]

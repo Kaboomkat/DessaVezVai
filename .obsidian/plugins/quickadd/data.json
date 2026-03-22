@@ -121,6 +121,26 @@
       }
     },
     {
+      "id": "new-research",
+      "name": "New Research",
+      "type": "Template",
+      "command": true,
+      "templatePath": "_templates/writing/Research Template.md",
+      "folder": {
+        "enabled": true,
+        "folders": [
+          "01-Writing/Research"
+        ],
+        "chooseWhenCreatingNote": false
+      },
+      "fileOpening": {
+        "location": "tab",
+        "direction": "vertical",
+        "mode": "default",
+        "focus": true
+      }
+    },
+    {
       "id": "new-snippet",
       "name": "New Snippet",
       "type": "Template",

@@ -3,6 +3,7 @@ title: "{{title}}"
 type: worldbuilding
 category: local | cultura | história | magia | tecnologia | organização | outro
 project:
+summary:
 created: {{date}}
 modified: {{date}}
 tags:
@@ -13,6 +14,7 @@ tags:
 
 > [!info] Entrada de Mundo
 > **Categoria:** `= this.category` | **Projeto:** `= this.project`
+> **Resumo:** `= this.summary`
 
 ---
 
@@ -88,4 +90,4 @@ tags:
 
 ---
 
-[[{{project}}|← Voltar ao Manuscrito]] | [[01-Writing/Worldbuilding/|Todo o Worldbuilding]]
+[[01-Writing/Worldbuilding/Index|← Índice de Worldbuilding]] | [[Writing Dashboard|Painel de Escrita]]

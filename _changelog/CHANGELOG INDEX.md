@@ -15,6 +15,7 @@ tags:
 
 | Versão | Data | Título |
 |--------|------|--------|
+| [[CHANGELOG v0.3.3\|v0.3.3]] | 2026-03-22 | Templates rápidos e índices canônicos para Resources e Writing |
 | [[CHANGELOG v0.3.2\|v0.3.2]] | 2026-03-22 | Hotfix de ownership entre Templater e QuickAdd |
 | [[CHANGELOG v0.3.1\|v0.3.1]] | 2026-03-22 | Hotfix do fluxo diário após a regressão do GTD |
 | [[CHANGELOG v0.3.0\|v0.3.0]] | 2026-03-22 | Arquitetura GTD do 04-Tasks com automação leve e navegação segura |

@@ -81,4 +81,4 @@ tags:
 
 ---
 
-[[05-Resources/Contacts/|← Todos os Contatos]]
+[[05-Resources/Contacts/Index|← Todos os Contatos]] | [[Resources Dashboard|Recursos]]

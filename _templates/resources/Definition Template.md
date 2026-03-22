@@ -65,4 +65,4 @@ LIMIT 5
 
 ---
 
-[[05-Resources/Definitions/|← Todas as Definições]]
+[[05-Resources/Definitions/Index|← Todas as Definições]] | [[Resources Dashboard|Recursos]]
