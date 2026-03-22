@@ -15,6 +15,7 @@ tags:
 
 | Versão | Data | Título |
 |--------|------|--------|
+| [[CHANGELOG v0.3.5\|v0.3.5]] | 2026-03-22 | Lists recentes de Resources alinhadas com os índices |
 | [[CHANGELOG v0.3.4\|v0.3.4]] | 2026-03-22 | Visão geral do Resources Dashboard sem contar os índices |
 | [[CHANGELOG v0.3.3\|v0.3.3]] | 2026-03-22 | Templates rápidos e índices canônicos para Resources e Writing |
 | [[CHANGELOG v0.3.2\|v0.3.2]] | 2026-03-22 | Hotfix de ownership entre Templater e QuickAdd |

@@ -63,13 +63,15 @@ TABLE WITHOUT ID
     file.link as "Livro",
     author as "Autor",
     rating as "Avaliação",
-    status as "Status"
+    status as "Status",
+    file.mtime as "Atualizado"
 FROM "05-Resources/Books"
+WHERE file.name != "Index"
 SORT file.mtime DESC
-LIMIT 5
+LIMIT 15
 ```
 
-[[05-Resources/Books/Index|→ Todos os livros]]
+[[05-Resources/Books/Index|→ Abrir índice completo de livros]]
 
 ---
 
@@ -79,42 +81,51 @@ LIMIT 5
 TABLE WITHOUT ID
     file.link as "Artigo",
     source as "Fonte",
-    file.cday as "Adicionado"
+    topic as "Tópico",
+    file.mtime as "Atualizado"
 FROM "05-Resources/Articles"
-SORT file.ctime DESC
-LIMIT 5
+WHERE file.name != "Index"
+SORT file.mtime DESC
+LIMIT 15
 ```
 
-[[05-Resources/Articles/Index|→ Todos os artigos]]
+[[05-Resources/Articles/Index|→ Abrir índice completo de artigos]]
 
 ---
 
-## 👥 Contatos
+## 👥 Contatos Recentes
 
 ```dataview
 TABLE WITHOUT ID
     file.link as "Nome",
     role as "Cargo",
-    company as "Empresa"
+    company as "Empresa",
+    file.mtime as "Atualizado"
 FROM "05-Resources/Contacts"
-SORT file.name ASC
-LIMIT 10
+WHERE file.name != "Index"
+SORT file.mtime DESC
+LIMIT 15
 ```
 
-[[05-Resources/Contacts/Index|→ Todos os contatos]]
+[[05-Resources/Contacts/Index|→ Abrir índice completo de contatos]]
 
 ---
 
 ## 📝 Definições Recentes
 
 ```dataview
-LIST
+TABLE WITHOUT ID
+    file.link as "Definição",
+    category as "Categoria",
+    related_to as "Relacionado a",
+    file.mtime as "Atualizado"
 FROM "05-Resources/Definitions"
-SORT file.ctime DESC
-LIMIT 8
+WHERE file.name != "Index"
+SORT file.mtime DESC
+LIMIT 15
 ```
 
-[[05-Resources/Definitions/Index|→ Todas as definições]]
+[[05-Resources/Definitions/Index|→ Abrir índice completo de definições]]
 
 ---
 
