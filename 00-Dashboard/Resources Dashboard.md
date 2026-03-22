@@ -16,35 +16,17 @@ cssclass: dashboard
 ## 📊 Visão Geral dos Recursos
 
 ```dataviewjs
-const books = dv.pages('"05-Resources/Books"').length;
-const articles = dv.pages('"05-Resources/Articles"').length;
-const contacts = dv.pages('"05-Resources/Contacts"').length;
-const definitions = dv.pages('"05-Resources/Definitions"').length;
+const countNotes = (path) => dv.pages(path).where(p => p.file.name !== "Index").length;
 
-dv.container.innerHTML = `
-<div class="dashboard-cards">
-    <div class="dashboard-card">
-        <h3>📖 Livros</h3>
-        <div class="stat-number">${books}</div>
-        <div class="stat-label">Notas de livros</div>
-    </div>
-    <div class="dashboard-card">
-        <h3>📄 Artigos</h3>
-        <div class="stat-number">${articles}</div>
-        <div class="stat-label">Resumos de artigos</div>
-    </div>
-    <div class="dashboard-card">
-        <h3>👥 Contatos</h3>
-        <div class="stat-number">${contacts}</div>
-        <div class="stat-label">Pessoas</div>
-    </div>
-    <div class="dashboard-card">
-        <h3>📝 Definições</h3>
-        <div class="stat-number">${definitions}</div>
-        <div class="stat-label">Termos e conceitos</div>
-    </div>
-</div>
-`;
+dv.table(
+    ["Área", "Total", "Escopo"],
+    [
+        ["📖 Livros", countNotes('"05-Resources/Books"'), "Notas de leitura e resenhas"],
+        ["📄 Artigos", countNotes('"05-Resources/Articles"'), "Resumos e leituras curtas"],
+        ["👥 Contatos", countNotes('"05-Resources/Contacts"'), "Pessoas e relações"],
+        ["📝 Definições", countNotes('"05-Resources/Definitions"'), "Termos e conceitos"],
+    ]
+);
 ```
 
 ---
