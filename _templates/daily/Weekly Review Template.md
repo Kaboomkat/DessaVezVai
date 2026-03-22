@@ -49,7 +49,7 @@ tR += `> [!quote]\n> *${q}*\n\n**Semana de ${formattedWeekStart}**`;
 - [ ] Pasta de Downloads
 
 ### Revisar Capturas de Escrita
-- [ ] Processar [[01-Writing/Snippets/|Fragmentos de Escrita]]
+- [ ] Processar [[01-Writing/Snippets/Index|Fragmentos de Escrita]]
 - [ ] Revisar notas de pesquisa
 
 ---
@@ -106,7 +106,7 @@ WHERE type = "project"
 ```
 
 Para cada projeto:
-- [ ] Qual é a Próxima Ação? (se nenhuma, adicionar uma)
+- [ ] Existe ao menos uma próxima ação, um item agendado ou um aguardando resposta?
 - [ ] O projeto ainda está ativo?
 - [ ] Algum projeto deve ser pausado ou concluído?
 
@@ -127,6 +127,7 @@ WHERE status != "complete"
 ```dataview
 LIST
 FROM "02-Projects/Someday"
+WHERE file.name != "Index"
 LIMIT 10
 ```
 
@@ -162,7 +163,7 @@ LIMIT 10
 ## Conclusão
 
 - [ ] Revisei todos os meus projetos
-- [ ] Há uma Próxima Ação para cada projeto ativo
+- [ ] Cada projeto ativo tem ao menos um próximo movimento claro
 - [ ] Meu calendário está atualizado
 - [ ] Me sinto claro e pronto para a semana
 

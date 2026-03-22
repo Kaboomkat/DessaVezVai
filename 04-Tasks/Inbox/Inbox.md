@@ -4,50 +4,39 @@ type: index
 cssclass: inbox
 ---
 
-# 📥 Inbox
+# Inbox
 
-> [!info] Capture everything here. Process daily.
+> [!info] Capture primeiro. Clarifique depois.
 
-This is your GTD inbox. Capture any thought, task, idea, or reminder here. During your daily review, process each item by asking:
+Este é o ponto único de captura do GTD para tarefas, lembretes e compromissos soltos.
 
-1. **What is it?**
-2. **Is it actionable?**
-   - No → Trash, Someday/Maybe, or Reference
-   - Yes → Continue...
-3. **What's the next action?**
-   - Takes <2 minutes? → Do it now
-   - Takes longer? → Continue...
-4. **Am I the best person?**
-   - No → Delegate (Waiting For)
-   - Yes → Add to Next Actions
-
----
-
-## ➕ Quick Capture
+## Captura rápida
 
 ```button
-name 📥 Add to Inbox
+name Adicionar na Inbox
 type command
 action QuickAdd: Quick Capture
 ```
 
----
+## Como processar
 
-## 📋 Inbox Items
+1. Abra uma nota na tabela abaixo.
+2. Rode `QuickAdd: Process Inbox Item`.
+3. Deixe a macro decidir entre `Próximas Ações`, `Aguardando Resposta`, `Projeto`, `Algum Dia / Talvez`, `Referência` ou `Fragmentos`.
+
+## Itens na Inbox
 
 ```dataview
 TABLE WITHOUT ID
     file.link as "Item",
-    file.cday as "Captured",
+    file.cday as "Capturado",
     tags as "Tags"
 FROM "04-Tasks/Inbox"
 WHERE file.name != "Inbox"
 SORT file.ctime ASC
 ```
 
----
-
-## 📊 Inbox Stats
+## Estado da Inbox
 
 ```dataviewjs
 const items = dv.pages('"04-Tasks/Inbox"').where(p => p.file.name !== "Inbox");
@@ -55,34 +44,29 @@ const count = items.length;
 
 let message = "";
 if (count === 0) {
-    message = "🎉 **Inbox Zero!** Great job keeping things clear.";
+    message = "Inbox Zero. O ponto de captura está limpo.";
 } else if (count <= 5) {
-    message = `📬 ${count} items to process. Quick review should do it.`;
+    message = `${count} item(ns) esperando. Uma sessão curta de processamento resolve.`;
 } else if (count <= 15) {
-    message = `📮 ${count} items waiting. Time for a processing session.`;
+    message = `${count} item(ns) esperando. Está na hora de clarificar a inbox.`;
 } else {
-    message = `📦 ${count} items piling up! Schedule a longer review session.`;
+    message = `${count} item(ns) esperando. Reserve um bloco maior para processar.`;
 }
 
 dv.paragraph(message);
 ```
 
----
+## Buckets do GTD
 
-## 🔄 Processing Workflow
-
-When processing inbox items, move them to:
-
-| If... | Then move to... |
-|-------|-----------------|
-| Not actionable, not needed | 🗑️ Delete |
-| Might be useful someday | [[02-Projects/Someday/\|💭 Someday]] |
-| Reference material | [[04-Tasks/Reference/\|📚 Reference]] |
-| Next physical action clear | [[04-Tasks/Next/\|⚡ Next Actions]] |
-| Waiting on someone else | [[04-Tasks/Waiting/\|⏳ Waiting]] |
-| Multi-step outcome | [[02-Projects/Active/\|🎯 New Project]] |
-| Writing idea | [[01-Writing/Snippets/\|💡 Snippets]] |
+| Se este item for... | Direcione para... |
+|---|---|
+| Uma ação física clara | [[04-Tasks/Next/Index|Próximas Ações]] |
+| Delegado ou dependente | [[04-Tasks/Waiting/Index|Aguardando Resposta]] |
+| Um resultado com múltiplos passos | [[02-Projects/Active/Index|Projetos Ativos]] |
+| Não acionável, mas útil | [[04-Tasks/Reference/Index|Referência Operacional]] |
+| Algo para incubar | [[02-Projects/Someday/Index|Algum Dia / Talvez]] |
+| Um fragmento ou ideia de escrita | [[01-Writing/Snippets/Index|Fragmentos]] |
 
 ---
 
-[[Tasks Dashboard|← Back to Tasks Dashboard]]
+[[Tasks Dashboard|<- Painel de Tarefas]]

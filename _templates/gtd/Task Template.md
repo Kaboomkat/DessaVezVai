@@ -1,80 +1,48 @@
 ---
 title: "{{title}}"
 type: task
-status: inbox
+status: next
 priority: média
 due:
+scheduled_for:
 project:
-context:
-energy: baixa | média | alta
+context: @computador
+energy:
 time_required:
 waiting_on:
 created: {{date}}
+captured: {{date}} {{time}}
 completed_date:
 tags:
-  - task
+  - task/next
 ---
 
 # {{title}}
 
-> [!todo] Tarefa
+> [!todo] Próxima ação
 > **Status:** `= this.status` | **Prioridade:** `= this.priority` | **Contexto:** `= this.context`
 
----
+```button
+name Complete Task
+type command
+action QuickAdd: Complete Task
+```
 
-## 🎯 Próxima Ação
+## Ação
 
 - [ ] {{title}}
 
----
+## Detalhes
 
-## 📝 Detalhes
+*O que exatamente precisa acontecer?*
 
-**O que exatamente precisa ser feito?**
+## Metadados
 
-
-**Por que é importante?**
-
-
-**Como é o "pronto"?**
-
+- Projeto: `= this.project`
+- Prazo: `= this.due`
+- Agendado: `= this.scheduled_for`
+- Aguardando: `= this.waiting_on`
 
 ---
 
-## 🔗 Contexto
-
-**Projeto:** `= this.project`
-
-**Prazo:** `= this.due`
-
-**Contexto:** `= this.context`
-
-**Energia necessária:** `= this.energy`
-
-**Tempo necessário:** `= this.time_required`
-
----
-
-## 📋 Subtarefas
-
-- [ ]
-- [ ]
-- [ ]
-
----
-
-## 📝 Notas
-
-
----
-
-## ✅ Conclusão
-
-**Concluída em:** `= this.completed_date`
-
-**Resultado:**
-
-
----
-
-[[Tasks Dashboard|← Painel de Tarefas]]
+[[Tasks Dashboard|<- Painel de Tarefas]]

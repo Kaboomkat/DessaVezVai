@@ -2,13 +2,13 @@
 title: "{{title}}"
 type: project
 status: active
-area: pessoal | trabalho | escrita | aprendizado | outro
-priority: alta | média | baixa
+area: outro
+priority: média
 start_date: {{date}}
 target_date:
 completed_date:
 progress: 0
-outcome:
+outcome: "{{title}}"
 created: {{date}}
 modified: {{date}}
 tags:
@@ -17,115 +17,31 @@ tags:
 
 # {{title}}
 
-> [!info] Visão Geral do Projeto
-> **Status:** `= this.status` | **Área:** `= this.area` | **Progresso:** `= this.progress`%
+> [!goal] Resultado desejado
+> {{title}}
 
----
+## Compromissos atuais
 
-## 🎯 Resultado Desejado
+- [ ] Este projeto tem ao menos uma próxima ação, um item agendado ou um aguardando resposta.
 
-*Como é o "pronto"? Seja específico.*
-
-
----
-
-## ❓ Por que isso importa
-
-*Por que este projeto é importante? O que acontece se não for feito?*
-
-
----
-
-## 📋 Próximas Ações
+## Próximas ações
 
 ```dataview
-TASK
+TABLE WITHOUT ID
+    file.link as "Ação",
+    status as "Status",
+    context as "Contexto",
+    scheduled_for as "Agendado",
+    due as "Prazo"
 FROM "04-Tasks"
-WHERE project = this.file.name AND !completed
+WHERE type = "task" AND project = this.file.name AND status != "done"
+SORT status ASC, file.ctime ASC
 ```
 
-**Próxima ação imediata:**
-- [ ]
+## Notas
+
+*Capture aqui suporte, resultado desejado e decisões relevantes.*
 
 ---
 
-## 🗺️ Plano do Projeto
-
-### Marcos Principais
-
-- [ ] **Marco 1:**
-- [ ] **Marco 2:**
-- [ ] **Marco 3:**
-- [ ] **Concluído:**
-
-### Brainstorm / Todas as Tarefas
-
-- [ ]
-- [ ]
-- [ ]
-
----
-
-## 📅 Cronograma
-
-| Marco | Data Alvo | Status |
-|-------|-----------|--------|
-| | | |
-
-**Data de início:** `= this.start_date`
-
-**Conclusão prevista:** `= this.target_date`
-
----
-
-## 📚 Materiais de Referência
-
-*Links para recursos e documentos relevantes.*
-
--
-
----
-
-## 👥 Partes Envolvidas
-
-| Pessoa | Papel | Contato |
-|--------|-------|---------|
-| | | |
-
----
-
-## 📝 Notas do Projeto
-
-### Notas de Reuniões
-
-
-### Decisões Tomadas
-
-
-### Questões em Aberto
-
--
-
----
-
-## 📊 Atualizações de Progresso
-
-| Data | Atualização | Próximo Passo |
-|------|-------------|---------------|
-| | | |
-
----
-
-## ✅ Conclusão
-
-**Data de conclusão:** `= this.completed_date`
-
-**Resultado final:**
-
-
-**Lições aprendidas:**
-
-
----
-
-[[Projects Dashboard|← Painel de Projetos]]
+[[Projects Dashboard|<- Painel de Projetos]]

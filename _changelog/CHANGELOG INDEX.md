@@ -15,32 +15,34 @@ tags:
 
 | Versão | Data | Título |
 |--------|------|--------|
+| [[CHANGELOG v0.2.8\|v0.2.8]] | 2026-03-22 | Arquitetura GTD do 04-Tasks com automação leve e navegação segura |
+| [[CHANGELOG v0.2.7\|v0.2.7]] | 2026-03-22 | Ponte de automação externa via Local REST API |
 | [[CHANGELOG v0.2.6\|v0.2.6]] | 2026-03-22 | Navegação segura no Home sem perder os emojis |
 | [[CHANGELOG v0.2.5\|v0.2.5]] | 2026-03-20 | Mapa ASCII do vault no README |
 | [[CHANGELOG v0.2.4\|v0.2.4]] | 2026-03-20 | Destaque do dia confiável no índice e README reescrito |
 | [[CHANGELOG v0.2.3\|v0.2.3]] | 2026-03-20 | Normalização visível de PT-BR e hardening da navegação rápida |
 | [[CHANGELOG v0.2.2\|v0.2.2]] | 2026-03-20 | Limpeza de encoding do Weekly Dashboard |
-| [[CHANGELOG v0.2.1\|v0.2.1]] | 2026-03-20 | Destaque resiliente e weekly trackers canonicos |
-| [[CHANGELOG v0.2.0\|v0.2.0]] | 2026-03-20 | Criacao segura de reviews e navegacao periodica |
-| [[CHANGELOG v0.1.9\|v0.1.9]] | 2026-03-20 | Indice canonico do diario |
-| [[CHANGELOG v0.1.8\|v0.1.8]] | 2026-03-20 | Fallback do Dataview no tablet + normalizacao do changelog |
+| [[CHANGELOG v0.2.1\|v0.2.1]] | 2026-03-20 | Destaque resiliente e weekly trackers canônicos |
+| [[CHANGELOG v0.2.0\|v0.2.0]] | 2026-03-20 | Criação segura de reviews e navegação periódica |
+| [[CHANGELOG v0.1.9\|v0.1.9]] | 2026-03-20 | Índice canônico do diário |
+| [[CHANGELOG v0.1.8\|v0.1.8]] | 2026-03-20 | Fallback do Dataview no tablet + normalização do changelog |
 | [[CHANGELOG v0.1.7\|v0.1.7]] | 2026-03-20 | Review contextual por data e retorno do heatmap anual |
 | [[CHANGELOG v0.1.6\|v0.1.6]] | 2026-03-20 | Arquitetura de review via QuickAdd URI |
-| [[CHANGELOG v0.1.5\|v0.1.5]] | 2026-03-20 | Hotfix da media no Mood-Energy Tracker mensal |
-| [[CHANGELOG v0.1.4\|v0.1.4]] | 2026-03-20 | Hotfix do Daily Dashboard, QuickAdd e calendario mensal |
+| [[CHANGELOG v0.1.5\|v0.1.5]] | 2026-03-20 | Hotfix da média no Mood-Energy Tracker mensal |
+| [[CHANGELOG v0.1.4\|v0.1.4]] | 2026-03-20 | Hotfix do Daily Dashboard, QuickAdd e calendário mensal |
 | [[CHANGELOG v0.1.3\|v0.1.3]] | 2026-03-20 | Hotfix do QuickAdd e ajuste visual do tracker mensal |
-| [[CHANGELOG v0.1.2\|v0.1.2]] | 2026-03-20 | Restauracao do fluxo de criacao e dos trackers |
+| [[CHANGELOG v0.1.2\|v0.1.2]] | 2026-03-20 | Restauração do fluxo de criação e dos trackers |
 | [[CHANGELOG v0.1.1\|v0.1.1]] | 2026-03-20 | Hotfix do sistema daily e reviews inline |
-| [[CHANGELOG v0.1.0\|v0.1.0]] | 2026-03-20 | Documentacao operacional e README do repositorio |
+| [[CHANGELOG v0.1.0\|v0.1.0]] | 2026-03-20 | Documentação operacional e README do repositório |
 | [[CHANGELOG v0.0.9\|v0.0.9]] | 2026-03-20 | Limpeza de ownership do Templater |
 | [[CHANGELOG v0.0.8\|v0.0.8]] | 2026-03-20 | Controles inline de mood e energia nas reviews |
-| [[CHANGELOG v0.0.7\|v0.0.7]] | 2026-03-20 | Migracao da daily note antiga e limpeza dos trackers |
-| [[CHANGELOG v0.0.6\|v0.0.6]] | 2026-03-20 | Correcao de wiring dos botoes e das notas periodicas |
+| [[CHANGELOG v0.0.7\|v0.0.7]] | 2026-03-20 | Migração da daily note antiga e limpeza dos trackers |
+| [[CHANGELOG v0.0.6\|v0.0.6]] | 2026-03-20 | Correção de wiring dos botões e das notas periódicas |
 | [[CHANGELOG v0.0.5\|v0.0.5]] | 2026-03-20 | Reescrita dos trackers de humor e energia |
-| [[CHANGELOG v0.0.4\|v0.0.4]] | 2026-03-20 | Contrato operacional do vault + consolidacao do sistema daily |
-| [[CHANGELOG v0.0.3\|v0.0.3]] | 2026-03-19 | Correcao do sistema daily + novo sistema emoji |
+| [[CHANGELOG v0.0.4\|v0.0.4]] | 2026-03-20 | Contrato operacional do vault + consolidação do sistema daily |
+| [[CHANGELOG v0.0.3\|v0.0.3]] | 2026-03-19 | Correção do sistema daily + novo sistema emoji |
 | [[CHANGELOG v0.0.2\|v0.0.2]] | 2026-03-19 | Weekly Dashboard + CustomJS DashboardHelpers |
-| [[CHANGELOG v0.0.1\|v0.0.1]] | 2026-03-19 | Correcao de 5 bugs no Mood-Energy Tracker e QuickAdd |
+| [[CHANGELOG v0.0.1\|v0.0.1]] | 2026-03-19 | Correção de 5 bugs no Mood-Energy Tracker e QuickAdd |
 
 ---
 

@@ -6,73 +6,96 @@ navbar_name: Tarefas
 cssclass: dashboard
 ---
 
-# ✅ Painel de Tarefas
+# Painel de Tarefas
 
 > [!quote]
-> *"Sua mente serve para ter ideias, não para armazená-las."* — David Allen
+> *"Sua mente serve para ter ideias, não para armazená-las."* - David Allen
 
----
-
-## 📊 Visão Geral das Tarefas
+## Visão Geral das Tarefas
 
 ```dataviewjs
-const tasks = dv.pages('"04-Tasks"').where(p => p.type === "task");
+const pages = dv.pages('"04-Tasks"');
+const tasks = pages.where(p => p.type === "task");
+const today = dv.date("today");
+
 const inbox = tasks.where(p => p.status === "inbox").length;
 const next = tasks.where(p => p.status === "next").length;
 const waiting = tasks.where(p => p.status === "waiting").length;
 const done = tasks.where(p => p.status === "done").length;
+const scheduled = tasks.where(p => p.scheduled_for && dv.date(p.scheduled_for)?.toISODate() === today.toISODate() && p.status !== "done").length;
+const due = tasks.where(p => p.due && p.status !== "done").length;
 
 dv.container.innerHTML = `
 <div class="dashboard-cards">
     <div class="dashboard-card">
-        <h3>📥 Caixa de Entrada</h3>
+        <h3>Inbox</h3>
         <div class="stat-number">${inbox}</div>
-        <div class="stat-label">Itens a processar</div>
+        <div class="stat-label">Capturas esperando clarificação</div>
     </div>
     <div class="dashboard-card">
-        <h3>⚡ Próximas Ações</h3>
+        <h3>Próximas</h3>
         <div class="stat-number">${next}</div>
-        <div class="stat-label">Prontas para fazer</div>
+        <div class="stat-label">Ações claras</div>
     </div>
     <div class="dashboard-card">
-        <h3>⏳ Aguardando</h3>
+        <h3>Aguardando</h3>
         <div class="stat-number">${waiting}</div>
-        <div class="stat-label">Delegadas / aguardando</div>
+        <div class="stat-label">Delegadas ou bloqueadas</div>
     </div>
     <div class="dashboard-card">
-        <h3>✅ Concluídas</h3>
+        <h3>Hoje</h3>
+        <div class="stat-number">${scheduled}</div>
+        <div class="stat-label">Hard landscape do dia</div>
+    </div>
+    <div class="dashboard-card">
+        <h3>Prazos</h3>
+        <div class="stat-number">${due}</div>
+        <div class="stat-label">Itens com data</div>
+    </div>
+    <div class="dashboard-card">
+        <h3>Concluídas</h3>
         <div class="stat-number">${done}</div>
-        <div class="stat-label">Feitas</div>
+        <div class="stat-label">Tarefas finalizadas</div>
     </div>
 </div>
 `;
 ```
 
----
-
-## 🚀 Ações Rápidas
+## Ações Rápidas
 
 ```button
-name 📥 Captura Rápida
+name Captura Rápida
 type command
 action QuickAdd: Quick Capture
 ```
 ```button
-name ✅ Processar Caixa de Entrada
+name Abrir Inbox
 type link
 action [[04-Tasks/Inbox/Inbox]]
 ```
 ```button
-name 🔄 Revisão Semanal
+name Revisão Semanal
 type link
 action [[03-Daily/Reviews/Weekly Review]]
 ```
 
----
+> [!tip] Para processar um item da inbox, abra a nota e rode `QuickAdd: Process Inbox Item`.
 
-## 📥 Caixa de Entrada (Processar)
+## Hoje / Hard Landscape
 
-> [!tasks-today] Itens não processados precisam da sua atenção
+```dataview
+TABLE WITHOUT ID
+    file.link as "Tarefa",
+    status as "Status",
+    context as "Contexto",
+    project as "Projeto",
+    due as "Prazo"
+FROM "04-Tasks"
+WHERE type = "task" AND scheduled_for = date(today) AND status != "done"
+SORT due ASC, file.ctime ASC
+```
+
+## Inbox
 
 ```dataview
 TABLE WITHOUT ID
@@ -83,65 +106,50 @@ WHERE type = "task" AND status = "inbox"
 SORT file.ctime ASC
 ```
 
-**Perguntas de processamento:**
-1. O que é isso?
-2. É acionável? → Se não: descartar / Material de Referência / Algum Dia
-3. Qual é a Próxima Ação? → Se < 2 min, faça agora
-4. Sou a pessoa certa? → Se não, delegue (Aguardando Resposta)
-5. Mover para Próximas Ações com contexto
+## Próximas Ações
 
----
-
-## ⚡ Próximas Ações
-
-> [!callout|tasks-today] Prontas para fazer agora
-
-### 🔥 Alta Prioridade
+### Alta prioridade
 
 ```dataview
 TASK
 FROM "04-Tasks/Next"
-WHERE !completed AND priority = "high"
+WHERE !completed AND priority = "alta"
 SORT file.ctime ASC
 ```
 
-### 📋 Todas as Próximas Ações por Contexto
+### Por contexto
 
 ```dataview
 TABLE WITHOUT ID
     file.link as "Ação",
     context as "Contexto",
     project as "Projeto",
+    scheduled_for as "Agendado",
     due as "Prazo"
 FROM "04-Tasks/Next"
 WHERE type = "task" AND status = "next" AND !completed
-SORT context ASC, priority DESC
+SORT context ASC, scheduled_for ASC, due ASC
 ```
 
----
-
-## ⏳ Aguardando Resposta
-
-> [!info] Delegadas ou aguardando input externo
+## Aguardando Resposta
 
 ```dataview
 TABLE WITHOUT ID
     file.link as "Item",
     waiting_on as "Aguardando",
+    scheduled_for as "Agendado",
     due as "Follow-up",
     project as "Projeto"
 FROM "04-Tasks/Waiting"
 WHERE type = "task" AND status = "waiting"
-SORT due ASC
+SORT scheduled_for ASC, due ASC
 ```
 
----
-
-## 📅 Vencendo Em Breve
+## Prazos da Próxima Semana
 
 ```dataviewjs
 const today = dv.date("today");
-const nextWeek = today.plus({days: 7});
+const nextWeek = today.plus({ days: 7 });
 
 const dueSoon = dv.pages('"04-Tasks"')
     .where(p => p.due && dv.date(p.due) <= nextWeek && p.status !== "done")
@@ -153,17 +161,15 @@ if (dueSoon.length > 0) {
         dueSoon.map(p => [
             p.file.link,
             p.due,
-            p.priority || "—"
+            p.priority || "-"
         ])
     );
 } else {
-    dv.paragraph("*Nenhuma tarefa vencendo nos próximos 7 dias. 🎉*");
+    dv.paragraph("*Nenhuma tarefa com prazo nos próximos 7 dias.*");
 }
 ```
 
----
-
-## 📊 Tarefas por Projeto
+## Tarefas por Projeto
 
 ```dataviewjs
 const tasks = dv.pages('"04-Tasks"')
@@ -171,9 +177,11 @@ const tasks = dv.pages('"04-Tasks"')
 
 const byProject = {};
 tasks.forEach(t => {
-    const proj = t.project;
-    if (!byProject[proj]) byProject[proj] = [];
-    byProject[proj].push(t);
+    const key = t.project;
+    if (!byProject[key]) {
+        byProject[key] = [];
+    }
+    byProject[key].push(t);
 });
 
 for (const [project, items] of Object.entries(byProject)) {
@@ -182,15 +190,14 @@ for (const [project, items] of Object.entries(byProject)) {
 }
 ```
 
+## Navegação Rápida
+
+| Listas GTD | Relacionados | Reviews |
+|---|---|---|
+| [[04-Tasks/Inbox/Inbox|Inbox]] | [[04-Tasks/Next/Index|Próximas Ações]] | [[Daily Dashboard|Daily]] |
+| [[04-Tasks/Waiting/Index|Aguardando Resposta]] | [[04-Tasks/Reference/Index|Referência Operacional]] | [[03-Daily/Reviews/Weekly Review|Weekly Review]] |
+| [[02-Projects/Active/Index|Projetos Ativos]] | [[02-Projects/Someday/Index|Algum Dia / Talvez]] | [[Projects Dashboard|Projetos]] |
+
 ---
 
-## 🔗 Navegação Rápida
-
-| Listas GTD | Ações | Revisões |
-|------------|-------|----------|
-| [[04-Tasks/Inbox/\|📥 Caixa de Entrada]] | [[04-Tasks/Next/\|⚡ Próximas Ações]] | [[Daily Dashboard\|📅 Diária]] |
-| [[04-Tasks/Waiting/\|⏳ Aguardando]] | [[04-Tasks/Reference/\|📚 Referência]] | [[03-Daily/Reviews/Weekly Review\|🔄 Semanal]] |
-
----
-
-*Lembre-se: uma mente limpa é uma mente produtiva.*
+*Um sistema claro torna a ação mais simples.*

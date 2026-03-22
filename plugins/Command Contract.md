@@ -32,6 +32,10 @@ tags:
 | `00-Dashboard/Resources Dashboard.md` | Adicionar Contato | QuickAdd | `QuickAdd: New Contact` |
 | `00-Dashboard/Resources Dashboard.md` | Adicionar Definicao | QuickAdd | `QuickAdd: New Definition` |
 | `00-Dashboard/Tasks Dashboard.md` | Captura Rapida | QuickAdd | `QuickAdd: Quick Capture` |
+| `04-Tasks/Inbox/Inbox.md` | Adicionar na Inbox | QuickAdd | `QuickAdd: Quick Capture` |
+| `04-Tasks/Inbox/*.md` | Process Inbox Item | QuickAdd | `QuickAdd: Process Inbox Item` |
+| `04-Tasks/Next/*.md` | Complete Task | QuickAdd | `QuickAdd: Complete Task` |
+| `04-Tasks/Waiting/*.md` | Complete Task | QuickAdd | `QuickAdd: Complete Task` |
 
 ## Regra
 

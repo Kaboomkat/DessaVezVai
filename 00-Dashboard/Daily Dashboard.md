@@ -201,6 +201,21 @@ if (writingActivity.length > 0) {
 
 ---
 
+## Hard Landscape de Hoje
+
+```dataview
+TABLE WITHOUT ID
+    file.link as "Tarefa",
+    context as "Contexto",
+    project as "Projeto",
+    due as "Prazo"
+FROM "04-Tasks"
+WHERE type = "task" AND scheduled_for = date(today) AND status != "done"
+SORT due ASC, file.ctime ASC
+```
+
+---
+
 ## Tarefas Concluídas Esta Semana
 
 ```dataviewjs
@@ -229,7 +244,7 @@ if (completed.length > 0) {
 3. **Revisar Próximas Ações** - O que você vai fazer hoje?
 4. **Verificar Aguardando Resposta** - Algum follow-up necessário?
 
-### Lista de Verificacao Semanal
+### Lista de Verificação Semanal
 - [ ] Zerar a Caixa de Entrada
 - [ ] Revisar calendário anterior
 - [ ] Revisar calendário futuro

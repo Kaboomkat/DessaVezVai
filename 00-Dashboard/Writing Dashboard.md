@@ -182,7 +182,7 @@ SORT file.ctime DESC
 LIMIT 8
 ```
 
-[[01-Writing/Snippets/|→ Todos os fragmentos]]
+[[01-Writing/Snippets/Index|→ Todos os fragmentos]]
 
 ---
 

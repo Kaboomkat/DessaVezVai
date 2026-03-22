@@ -16,14 +16,14 @@ Use esta nota como ponto de entrada fixo para a revisão da semana.
 1. Abra o [[Weekly Dashboard]] para ver humor, energia, escrita e tarefas da semana.
 2. Crie ou abra a nota semanal do plugin Periodic Notes.
 3. Use o template [[_templates/daily/Weekly Review Template|Weekly Review Template]] na nota da semana.
-4. Revise projetos, caixa de entrada e próximas ações antes de encerrar.
+4. Revise projetos, inbox, próximas ações e aguardando resposta antes de encerrar.
 
 ## Links rápidos
 
 - [[Weekly Dashboard|Weekly Dashboard]]
 - [[Daily Dashboard|Daily Dashboard]]
 - [[04-Tasks/Inbox/Inbox|Caixa de Entrada]]
-- [[02-Projects/Active/|Projetos Ativos]]
+- [[02-Projects/Active/Index|Projetos Ativos]]
 - [[00-Dashboard/Mood-Energy Tracker/Hub|Mood & Energy Tracker]]
 
 ## Contrato de dados

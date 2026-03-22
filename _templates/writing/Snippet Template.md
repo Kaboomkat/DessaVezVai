@@ -1,9 +1,9 @@
 ---
 title: "{{title}}"
 type: snippet
-category: idea | dialogue | scene | description | character | other
-project: 
-mood: 
+category: idea
+project:
+mood:
 created: {{date}}
 tags:
   - writing/snippet
@@ -11,45 +11,18 @@ tags:
 
 # {{title}}
 
-> [!tip] Quick capture — process during review
+> [!tip] Fragmento de escrita
+> Revise isso no fluxo de escrita e decida se vira cena, nota ou material de suporte.
 
-**Category:** `= this.category` | **Mood:** `= this.mood`
+## A ideia
 
----
+{{VALUE}}
 
-## 💡 The Idea
+## Uso possível
 
-<!-- Write your snippet, fragment, or idea here -->
-
-
-
----
-
-## 🎯 Potential Use
-
-**Could work for:**
-- 
-
-**Project:**
-
-
-**Scene/Chapter:**
-
+- Pode entrar no projeto:
+- Pode virar:
 
 ---
 
-## 📝 Notes
-
-
----
-
-## ✅ Status
-
-- [ ] Processed into project
-- [ ] Expanded into full scene
-- [ ] Used as reference
-- [ ] Archived
-
----
-
-[[01-Writing/Snippets/|← All Snippets]]
+[[01-Writing/Snippets/Index|<- Índice de Fragmentos]] | [[Writing Dashboard|Painel de Escrita]]

@@ -1,8 +1,8 @@
 ---
 title: "{{title}}"
 type: someday
-category: projeto | aprendizado | viagem | compra | pessoal | outro
-interest_level: alta | média | baixa
+category: outro
+interest_level: média
 created: {{date}}
 review_date:
 tags:
@@ -12,62 +12,18 @@ tags:
 # {{title}}
 
 > [!abstract] Algum Dia / Talvez
-> **Categoria:** `= this.category` | **Interesse:** `= this.interest_level`
+> Revise isso na Revisão Semanal antes de ativar.
+
+## Ideia
+
+*Por que isso é interessante? Como seria um bom resultado?*
+
+## Primeiras notas
+
+1. O que torna isso atraente?
+2. O que precisaria ser verdade antes de ativar?
+3. Qual seria o primeiro movimento óbvio se isso ficar ativo?
 
 ---
 
-## 💭 A Ideia
-
-*O que é isso? Por que te interessa?*
-
-
----
-
-## 🎯 Como seria o sucesso?
-
-
----
-
-## 🤔 O que está te impedindo?
-
-- [ ] Tempo
-- [ ] Dinheiro
-- [ ] Habilidades / Conhecimento
-- [ ] Outras prioridades
-- [ ] Momento errado
-- [ ] Outro:
-
----
-
-## 📋 Primeiros Passos (quando estiver pronto)
-
-*Se decidisse fazer isso agora, quais seriam as primeiras ações?*
-
-1.
-2.
-3.
-
----
-
-## 🔗 Recursos / Referências
-
--
-
----
-
-## 📝 Notas
-
-
----
-
-## 📅 Revisão
-
-**Última revisão:**
-
-**Próxima revisão:** `= this.review_date`
-
-**Ainda tenho interesse?** Sim / Não / Talvez
-
----
-
-[[02-Projects/Someday/|← Lista Algum Dia/Talvez]] | [[Projects Dashboard|Painel de Projetos]]
+[[02-Projects/Someday/Index|<- Índice Algum Dia / Talvez]] | [[Projects Dashboard|Painel de Projetos]]

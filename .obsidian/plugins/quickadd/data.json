@@ -3,30 +3,61 @@
     {
       "id": "quick-capture",
       "name": "Quick Capture",
-      "type": "Template",
+      "type": "Macro",
       "command": true,
-      "templatePath": "_templates/gtd/Quick Capture Template.md",
-      "fileNameFormat": {
-        "enabled": true,
-        "format": "{{DATE:YYYY-MM-DD-HHmmss}}"
-      },
-      "folder": {
-        "enabled": true,
-        "folders": [
-          "04-Tasks/Inbox"
-        ],
-        "chooseWhenCreatingNote": false
-      },
-      "openFileInNewTab": {
-        "enabled": false,
-        "direction": "vertical",
-        "focus": true
-      },
-      "fileOpening": {
-        "location": "tab",
-        "direction": "vertical",
-        "focus": true,
-        "mode": "default"
+      "macro": {
+        "id": "quick-capture",
+        "name": "Quick Capture",
+        "commands": [
+          {
+            "name": "Run GTD capture",
+            "type": "UserScript",
+            "path": "_scripts/quickadd/GtdWorkflow.js",
+            "settings": {
+              "action": "capture"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "process-inbox-item",
+      "name": "Process Inbox Item",
+      "type": "Macro",
+      "command": true,
+      "macro": {
+        "id": "process-inbox-item",
+        "name": "Process Inbox Item",
+        "commands": [
+          {
+            "name": "Run GTD processing",
+            "type": "UserScript",
+            "path": "_scripts/quickadd/GtdWorkflow.js",
+            "settings": {
+              "action": "process"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "complete-task",
+      "name": "Complete Task",
+      "type": "Macro",
+      "command": true,
+      "macro": {
+        "id": "complete-task",
+        "name": "Complete Task",
+        "commands": [
+          {
+            "name": "Run GTD completion",
+            "type": "UserScript",
+            "path": "_scripts/quickadd/GtdWorkflow.js",
+            "settings": {
+              "action": "complete"
+            }
+          }
+        ]
       }
     },
     {

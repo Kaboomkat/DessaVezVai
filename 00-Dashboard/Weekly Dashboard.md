@@ -250,6 +250,40 @@ if (completed.length > 0) {
 
 ---
 
+## Tarefas Agendadas Esta Semana
+
+```dataviewjs
+const today = dv.date("today");
+const weekStart = today.minus({ days: today.weekday - 1 });
+const weekEnd = weekStart.plus({ days: 6 });
+
+const scheduled = dv.pages('"04-Tasks"')
+    .where(p =>
+        p.type === "task" &&
+        p.scheduled_for &&
+        dv.date(p.scheduled_for) >= weekStart &&
+        dv.date(p.scheduled_for) <= weekEnd &&
+        p.status !== "done"
+    )
+    .sort(p => p.scheduled_for, "asc");
+
+if (scheduled.length > 0) {
+    dv.table(
+        ["Tarefa", "Agendado", "Contexto", "Projeto"],
+        scheduled.map(p => [
+            p.file.link,
+            p.scheduled_for,
+            p.context || "-",
+            p.project || "-"
+        ])
+    );
+} else {
+    dv.paragraph("*Nenhuma tarefa agendada para esta semana.*");
+}
+```
+
+---
+
 ## Revisões desta Semana
 
 ```dataviewjs
