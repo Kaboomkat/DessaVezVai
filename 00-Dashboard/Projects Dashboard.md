@@ -148,9 +148,9 @@ LIMIT 5
 
 | Projetos | Relacionados |
 |---|---|
-| [[02-Projects/Active/Index|Projetos Ativos]] | [[Tasks Dashboard|Tarefas]] |
-| [[02-Projects/Someday/Index|Algum Dia / Talvez]] | [[Writing Dashboard|Escrita]] |
-| [[02-Projects/Archive/Index|Arquivo]] | [[Home|Início]] |
+| [[02-Projects/Active/Index\|Projetos Ativos]] | [[Tasks Dashboard\|Tarefas]] |
+| [[02-Projects/Someday/Index\|Algum Dia / Talvez]] | [[Writing Dashboard\|Escrita]] |
+| [[02-Projects/Archive/Index\|Arquivo]] | [[Home\|Início]] |
 
 ---
 
