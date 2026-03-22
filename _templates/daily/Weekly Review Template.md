@@ -4,34 +4,40 @@ type: review
 frequency: weekly
 week: "{{date:YYYY-[W]ww}}"
 week_start: "{{date:YYYY-MM-DD}}"
-created: {{date}}
+created: {{date:YYYY-MM-DD}}
 tags:
   - review/weekly
 ---
 
 # Revisão Semanal - {{date:YYYY-[W]ww}}
 
-<%*
-const weekStartDate = tp.date.now("YYYY-MM-DD");
+```dataviewjs
 const displayMonthNames = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
-const displayDate = new Date(`${weekStartDate}T12:00:00`);
-const formattedWeekStart = `${displayDate.getDate()} de ${displayMonthNames[displayDate.getMonth()]} de ${displayDate.getFullYear()}`;
 const weeklyQuotes = [
-  '"A Revisão Semanal é o momento de reunir e processar tudo, revisar seu sistema, atualizar suas listas e ficar limpo, claro, atual e completo." - David Allen',
-  '"Não basta estar ocupado. A questão é: com o que estamos ocupados?" - Henry David Thoreau',
-  '"A chave não é priorizar o que está na sua agenda, mas agendar suas prioridades." - Stephen Covey',
-  '"Planos não são nada; planejar é tudo." - Dwight D. Eisenhower',
-  '"O que é medido é gerenciado." - Peter Drucker',
-  '"Sua mente serve para ter ideias, não para armazená-las." - David Allen',
-  '"Foque em ser produtivo, não em estar ocupado." - Tim Ferriss',
-  '"Feito é melhor que perfeito." - Sheryl Sandberg'
+  "\"A Revisão Semanal é o momento de reunir e processar tudo, revisar seu sistema, atualizar suas listas e ficar limpo, claro, atual e completo.\" - David Allen",
+  "\"Não basta estar ocupado. A questão é: com o que estamos ocupados?\" - Henry David Thoreau",
+  "\"A chave não é priorizar o que está na sua agenda, mas agendar suas prioridades.\" - Stephen Covey",
+  "\"Planos não são nada; planejar é tudo.\" - Dwight D. Eisenhower",
+  "\"O que é medido é gerenciado.\" - Peter Drucker",
+  "\"Sua mente serve para ter ideias, não para armazená-las.\" - David Allen",
+  "\"Foque em ser produtivo, não em estar ocupado.\" - Tim Ferriss",
+  "\"Feito é melhor que perfeito.\" - Sheryl Sandberg"
 ];
-const now = new Date();
-const startOfYear = new Date(now.getFullYear(), 0, 1);
-const weekNum = Math.ceil(((now - startOfYear) / 86400000 + startOfYear.getDay() + 1) / 7);
-const q = weeklyQuotes[weekNum % weeklyQuotes.length];
-tR += `> [!quote]\n> *${q}*\n\n**Semana de ${formattedWeekStart}**`;
-%>
+
+const weekStart = dv.date(dv.current().week_start ?? "{{date:YYYY-MM-DD}}");
+const displayDate = weekStart ? weekStart.toJSDate() : new Date("{{date:YYYY-MM-DD}}T12:00:00");
+displayDate.setHours(12, 0, 0, 0);
+
+const weekValue = String(dv.current().week ?? "{{date:YYYY-[W]ww}}");
+const weekNumber = Number((weekValue.match(/W(\d{2})$/) ?? [null, "01"])[1]);
+const quote = weeklyQuotes[(weekNumber - 1 + weeklyQuotes.length) % weeklyQuotes.length];
+const formattedWeekStart = `${displayDate.getDate()} de ${displayMonthNames[displayDate.getMonth()]} de ${displayDate.getFullYear()}`;
+
+const quoteBlock = dv.el("blockquote", "");
+quoteBlock.innerHTML = `<p><em>${quote}</em></p>`;
+const weekLead = dv.el("p", `Semana de ${formattedWeekStart}`);
+weekLead.style.fontWeight = "600";
+```
 
 ---
 
