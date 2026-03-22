@@ -15,9 +15,9 @@ tags:
 
 | Versão | Data | Título |
 |--------|------|--------|
-| [[CHANGELOG v0.2.10\|v0.2.10]] | 2026-03-22 | Hotfix de ownership entre Templater e QuickAdd |
-| [[CHANGELOG v0.2.9\|v0.2.9]] | 2026-03-22 | Hotfix do fluxo diário após a regressão do GTD |
-| [[CHANGELOG v0.2.8\|v0.2.8]] | 2026-03-22 | Arquitetura GTD do 04-Tasks com automação leve e navegação segura |
+| [[CHANGELOG v0.3.2\|v0.3.2]] | 2026-03-22 | Hotfix de ownership entre Templater e QuickAdd |
+| [[CHANGELOG v0.3.1\|v0.3.1]] | 2026-03-22 | Hotfix do fluxo diário após a regressão do GTD |
+| [[CHANGELOG v0.3.0\|v0.3.0]] | 2026-03-22 | Arquitetura GTD do 04-Tasks com automação leve e navegação segura |
 | [[CHANGELOG v0.2.7\|v0.2.7]] | 2026-03-22 | Ponte de automação externa via Local REST API |
 | [[CHANGELOG v0.2.6\|v0.2.6]] | 2026-03-22 | Navegação segura no Home sem perder os emojis |
 | [[CHANGELOG v0.2.5\|v0.2.5]] | 2026-03-20 | Mapa ASCII do vault no README |

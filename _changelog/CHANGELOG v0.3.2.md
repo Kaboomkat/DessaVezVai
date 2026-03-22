@@ -1,12 +1,12 @@
 ---
 type: changelog
-version: 0.2.10
+version: 0.3.2
 date: 2026-03-22
 tags:
   - meta/changelog
 ---
 
-# Changelog v0.2.10
+# Changelog v0.3.2
 
 **Data:** 2026-03-22
 **Título:** Hotfix de ownership entre Templater e QuickAdd
@@ -27,7 +27,7 @@ tags:
 - `_scripts/templater/README.md`
 - `03-Daily/Morning Reviews/2026-03-21 Morning Review.md`
 - `03-Daily/Evening Reviews/2026-03-21 Evening Review.md`
-- `_changelog/CHANGELOG v0.2.10.md`
+- `_changelog/CHANGELOG v0.3.2.md`
 - `_changelog/CHANGELOG INDEX.md`
 
 ---

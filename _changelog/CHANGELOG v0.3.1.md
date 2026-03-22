@@ -1,12 +1,12 @@
 ---
 type: changelog
-version: 0.2.9
+version: 0.3.1
 date: 2026-03-22
 tags:
   - meta/changelog
 ---
 
-# Changelog v0.2.9
+# Changelog v0.3.1
 
 **Data:** 2026-03-22
 **Título:** Hotfix do fluxo diário após a regressão do GTD
@@ -29,7 +29,7 @@ tags:
 - `_templates/daily/Monthly Review Template.md`
 - `03-Daily/Journal/2026-03-21.md`
 - `03-Daily/Journal/2026-03-22.md`
-- `_changelog/CHANGELOG v0.2.9.md`
+- `_changelog/CHANGELOG v0.3.1.md`
 - `_changelog/CHANGELOG INDEX.md`
 
 ---

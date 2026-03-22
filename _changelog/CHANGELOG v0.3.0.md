@@ -1,12 +1,12 @@
 ---
 type: changelog
-version: 0.2.8
+version: 0.3.0
 date: 2026-03-22
 tags:
   - meta/changelog
 ---
 
-# Changelog v0.2.8
+# Changelog v0.3.0
 
 **Data:** 2026-03-22  
 **Título:** Arquitetura GTD do `04-Tasks` com automação leve e navegação segura
