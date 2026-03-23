@@ -15,6 +15,7 @@ tags:
 
 | Versao | Data | Titulo |
 |--------|------|--------|
+| [[CHANGELOG v0.4.5\|v0.4.5]] | 2026-03-23 | Hotfix do QuickAdd nas template choices legadas |
 | [[CHANGELOG v0.1.8\|v0.1.8]] | 2026-03-20 | Fallback do Dataview no tablet + normalizacao do changelog |
 | [[CHANGELOG v0.1.7\|v0.1.7]] | 2026-03-20 | Review contextual por data e retorno do heatmap anual |
 | [[CHANGELOG v0.1.6\|v0.1.6]] | 2026-03-20 | Arquitetura de review via QuickAdd URI |

@@ -22,6 +22,8 @@
         "direction": "vertical",
         "focus": true
       },
+      "appendLink": false,
+      "openFile": true,
       "fileOpening": {
         "location": "tab",
         "direction": "vertical",
@@ -35,6 +37,10 @@
       "type": "Template",
       "command": true,
       "templatePath": "_templates/writing/Scene Template.md",
+      "fileNameFormat": {
+        "enabled": false,
+        "format": "{{value}}"
+      },
       "folder": {
         "enabled": true,
         "folders": [
@@ -42,6 +48,8 @@
         ],
         "chooseWhenCreatingNote": true
       },
+      "appendLink": false,
+      "openFile": true,
       "fileOpening": {
         "location": "tab",
         "direction": "vertical",
@@ -55,6 +63,10 @@
       "type": "Template",
       "command": true,
       "templatePath": "_templates/writing/Character Template.md",
+      "fileNameFormat": {
+        "enabled": false,
+        "format": "{{value}}"
+      },
       "folder": {
         "enabled": true,
         "folders": [
@@ -62,6 +74,8 @@
         ],
         "chooseWhenCreatingNote": false
       },
+      "appendLink": false,
+      "openFile": true,
       "fileOpening": {
         "location": "tab",
         "direction": "vertical",
@@ -75,6 +89,10 @@
       "type": "Template",
       "command": true,
       "templatePath": "_templates/writing/Worldbuilding Template.md",
+      "fileNameFormat": {
+        "enabled": false,
+        "format": "{{value}}"
+      },
       "folder": {
         "enabled": true,
         "folders": [
@@ -82,6 +100,8 @@
         ],
         "chooseWhenCreatingNote": false
       },
+      "appendLink": false,
+      "openFile": true,
       "fileOpening": {
         "location": "tab",
         "direction": "vertical",
@@ -95,6 +115,10 @@
       "type": "Template",
       "command": true,
       "templatePath": "_templates/writing/Snippet Template.md",
+      "fileNameFormat": {
+        "enabled": false,
+        "format": "{{value}}"
+      },
       "folder": {
         "enabled": true,
         "folders": [
@@ -102,6 +126,8 @@
         ],
         "chooseWhenCreatingNote": false
       },
+      "appendLink": false,
+      "openFile": true,
       "fileOpening": {
         "location": "tab",
         "direction": "vertical",
@@ -115,6 +141,10 @@
       "type": "Template",
       "command": true,
       "templatePath": "_templates/gtd/Project Template.md",
+      "fileNameFormat": {
+        "enabled": false,
+        "format": "{{value}}"
+      },
       "folder": {
         "enabled": true,
         "folders": [
@@ -122,6 +152,8 @@
         ],
         "chooseWhenCreatingNote": false
       },
+      "appendLink": false,
+      "openFile": true,
       "fileOpening": {
         "location": "tab",
         "direction": "vertical",
@@ -135,6 +167,10 @@
       "type": "Template",
       "command": true,
       "templatePath": "_templates/gtd/Someday Template.md",
+      "fileNameFormat": {
+        "enabled": false,
+        "format": "{{value}}"
+      },
       "folder": {
         "enabled": true,
         "folders": [
@@ -142,6 +178,8 @@
         ],
         "chooseWhenCreatingNote": false
       },
+      "appendLink": false,
+      "openFile": true,
       "fileOpening": {
         "location": "tab",
         "direction": "vertical",
@@ -155,6 +193,10 @@
       "type": "Template",
       "command": true,
       "templatePath": "_templates/resources/Book Template.md",
+      "fileNameFormat": {
+        "enabled": false,
+        "format": "{{value}}"
+      },
       "folder": {
         "enabled": true,
         "folders": [
@@ -162,6 +204,8 @@
         ],
         "chooseWhenCreatingNote": false
       },
+      "appendLink": false,
+      "openFile": true,
       "fileOpening": {
         "location": "tab",
         "direction": "vertical",
@@ -175,6 +219,10 @@
       "type": "Template",
       "command": true,
       "templatePath": "_templates/resources/Article Template.md",
+      "fileNameFormat": {
+        "enabled": false,
+        "format": "{{value}}"
+      },
       "folder": {
         "enabled": true,
         "folders": [
@@ -182,6 +230,8 @@
         ],
         "chooseWhenCreatingNote": false
       },
+      "appendLink": false,
+      "openFile": true,
       "fileOpening": {
         "location": "tab",
         "direction": "vertical",
@@ -195,6 +245,10 @@
       "type": "Template",
       "command": true,
       "templatePath": "_templates/resources/Contact Template.md",
+      "fileNameFormat": {
+        "enabled": false,
+        "format": "{{value}}"
+      },
       "folder": {
         "enabled": true,
         "folders": [
@@ -202,6 +256,8 @@
         ],
         "chooseWhenCreatingNote": false
       },
+      "appendLink": false,
+      "openFile": true,
       "fileOpening": {
         "location": "tab",
         "direction": "vertical",
@@ -215,6 +271,10 @@
       "type": "Template",
       "command": true,
       "templatePath": "_templates/resources/Definition Template.md",
+      "fileNameFormat": {
+        "enabled": false,
+        "format": "{{value}}"
+      },
       "folder": {
         "enabled": true,
         "folders": [
@@ -222,6 +282,8 @@
         ],
         "chooseWhenCreatingNote": false
       },
+      "appendLink": false,
+      "openFile": true,
       "fileOpening": {
         "location": "tab",
         "direction": "vertical",
@@ -248,6 +310,7 @@
         "createInSameFolderAsActiveFile": false,
         "chooseFromSubfolders": false
       },
+      "appendLink": false,
       "openFile": true,
       "fileOpening": {
         "location": "tab",
@@ -277,6 +340,7 @@
         "createInSameFolderAsActiveFile": false,
         "chooseFromSubfolders": true
       },
+      "appendLink": false,
       "openFile": true,
       "fileOpening": {
         "location": "tab",
@@ -306,6 +370,7 @@
         "createInSameFolderAsActiveFile": false,
         "chooseFromSubfolders": true
       },
+      "appendLink": false,
       "openFile": true,
       "fileOpening": {
         "location": "tab",
