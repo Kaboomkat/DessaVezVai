@@ -37,5 +37,3 @@ if (trackers.length === 0) {
 - Daily notes only aggregate and display those values.
 
 [[00-Dashboard/Daily Dashboard|Back to Daily Dashboard]]
-
-

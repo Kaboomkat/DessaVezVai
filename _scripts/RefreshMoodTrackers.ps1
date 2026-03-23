@@ -523,9 +523,21 @@ dv.container.innerHTML = `
 '@
 }
 
-$WeekCode = Get-WeekCode
-$MonthCode = Get-MonthCode
-$YearCode = Get-YearCode
+$WeekCode = @'
+```dataviewjs
+await dv.view("_scripts/dataview/mood-tracker", { mode: "week" });
+```
+'@
+$MonthCode = @'
+```dataviewjs
+await dv.view("_scripts/dataview/mood-tracker", { mode: "month" });
+```
+'@
+$YearCode = @'
+```dataviewjs
+await dv.view("_scripts/dataview/mood-tracker", { mode: "year" });
+```
+'@
 
 $MonthTemplate = @"
 ---
