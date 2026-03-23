@@ -45,54 +45,71 @@ dv.table(
 ## 📖 Definição Central
 
 **O que é:**
-
+- 
 
 **Por que importa:**
-
+- 
 
 ---
 
 ## 🔍 Detalhamento
 
-| Aspecto | Observação |
-|---|---|
-| Escopo / área de aplicação | |
-| Etimologia / origem | |
-| Elementos principais | |
-| Limites / exceções | |
-| Comparações úteis | |
+**Escopo / área de aplicação:**
+- 
+
+**Etimologia / origem:**
+- 
+
+**Elementos principais:**
+- 
+
+**Limites / exceções:**
+- 
+
+**Comparações úteis:**
+- 
 
 ---
 
-## 🧩 Conceitos Relacionados
+## 🔗 Conceitos Relacionados
 
-| Conceito | Relação | Nota |
-|---|---|---|
-| | | |
+**Conceitos diretamente relacionados:**
+- 
+
+**Como se conectam:**
+- 
 
 ---
 
 ## 🧪 Exemplos e Aplicações
 
-| Exemplo / caso | Contexto | Insight |
-|---|---|---|
-| | | |
+**Exemplos / casos:**
+- 
+
+**Aplicações práticas:**
+- 
+
+**Insight principal:**
+- 
 
 ---
 
 ## 📚 Fontes e Referências
 
-| Fonte | Link / referência | Nota |
-|---|---|---|
-| | | |
+- 
 
 ---
 
 ## ✍️ Uso na Escrita
 
-| Aplicação narrativa | Ideia / cena | Observação |
-|---|---|---|
-| | | |
+**Como esse conceito pode aparecer nas histórias:**
+- 
+
+**Cenas / ideias possíveis:**
+- 
+
+**Riscos de uso superficial / clichê:**
+- 
 
 ---
 
