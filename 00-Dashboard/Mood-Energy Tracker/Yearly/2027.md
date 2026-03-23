@@ -64,14 +64,6 @@ for (let month = 1; month <= 12; month++) {
     byMonth[month] = { moodMorning: [], energyMorning: [], moodEvening: [], energyEvening: [] };
 }
 
-const attr = value => String(value ?? "").replace(/"/g, "&quot;");
-const internalLink = (path, innerHtml, style = "", ariaLabel = path) => {
-    if (!path) return innerHtml;
-    const safePath = attr(path);
-    const safeAria = attr(ariaLabel);
-    return `<a href="${safePath}" data-href="${safePath}" aria-label="${safeAria}" class="internal-link" style="${style}">${innerHtml}</a>`;
-};
-
 const dayMap = {};
 const upsertDay = (key, { reviewPath = null, journalPath = null } = {}) => {
     if (!dayMap[key]) {
@@ -135,7 +127,7 @@ for (let month = 1; month <= 12; month++) {
         worstMonth = month;
     }
     monthCards += `<div style="background:${h.scoreColor(moodAvg, "mood")};border-radius:10px;padding:12px;text-align:center;">
-        <div>${internalLink(`00-Dashboard/Mood-Energy Tracker/Monthly/${year}/${String(month).padStart(2, "0")}`, monthNames[month - 1], "color:#fff;text-decoration:none;", `Abrir tracker mensal de ${monthNames[month - 1]}`)}</div>
+        <div>${h.internalLink(`00-Dashboard/Mood-Energy Tracker/Monthly/${year}/${String(month).padStart(2, "0")}`, monthNames[month - 1], "color:#fff;text-decoration:none;", `Abrir tracker mensal de ${monthNames[month - 1]}`)}</div>
         <div style="font-size:1.4em;margin-top:4px;">${h.closestEmoji(moodAvg, "mood") || "-"}</div>
         <div style="font-size:0.85em;color:#fff;">${moodAvg == null ? "-" : moodAvg.toFixed(1)}</div>
     </div>`;
@@ -185,7 +177,7 @@ for (let i = 0; i < cells.length; i += 7) {
         const title = `${cell.key}${cell.score == null ? "" : ` média do dia ${cell.score.toFixed(1)}`}`;
         const inner = `<div title="${title}" style="width:12px;height:12px;border-radius:3px;background:${bg};"></div>`;
         return cell.path
-            ? internalLink(cell.path, inner, "display:block;width:12px;height:12px;", `Abrir registro ${cell.key}`)
+            ? h.internalLink(cell.path, inner, "display:block;width:12px;height:12px;", `Abrir registro ${cell.key}`)
             : inner;
     }).join("");
     heatmapColumns += `<div style="display:grid;grid-template-rows:repeat(7,12px);gap:3px;">${column}</div>`;

@@ -74,7 +74,7 @@ FROM "01-Writing/Characters"
 WHERE project = this.file.name
 ```
 
-[[_templates/Character Template|+ Adicionar Personagem]]
+[[_templates/writing/Character Template|+ Adicionar Personagem]]
 
 ---
 
@@ -86,7 +86,7 @@ FROM "01-Writing/Worldbuilding"
 WHERE project = this.file.name
 ```
 
-[[_templates/Worldbuilding Template|+ Adicionar Entrada de Mundo]]
+[[_templates/writing/Worldbuilding Template|+ Adicionar Entrada de Mundo]]
 
 ---
 

@@ -55,6 +55,12 @@ function trimToNull(value) {
     return text.length > 0 ? text : null;
 }
 
+// ── Duplicata intencional de DashboardHelpers._normalizeHeading ──────────
+// GtdWorkflow roda como macro QuickAdd (CommonJS module.exports),
+// DashboardHelpers roda como classe CustomJS (global).
+// Não há mecanismo de import compartilhado entre os dois contextos.
+// Se alterar stripAccents/normalizeHeading aqui, alinhe com
+// DashboardHelpers._normalizeHeading em _scripts/DashboardHelpers.js.
 function stripAccents(value) {
     return String(value ?? "")
         .normalize("NFD")
@@ -143,6 +149,10 @@ function splitFrontmatter(markdown) {
     return { frontmatter: match[1], body: match[2] ?? "" };
 }
 
+// ── Similar a DashboardHelpers.extractSectionText, mas com diferenças: ───
+// 1. Aceita múltiplos headings alternativos (array)
+// 2. Aplica cleanBoilerplate no resultado (remove dataview, buttons, etc.)
+// 3. Usa /^---+$/ como separador (extractSectionText usa /^([-*_])\1{2,}$/)
 function findSection(markdown, headings) {
     const { body } = splitFrontmatter(markdown);
     const lines = body.split("\n");
@@ -985,7 +995,6 @@ async function completeTask(params) {
         return;
     }
 
-    let content = await app.vault.read(file);
     const completedDate = nowDate();
     const title = trimToNull(frontmatter.title) ?? file.basename;
 
@@ -997,6 +1006,8 @@ async function completeTask(params) {
             fm.title = title;
         }
     });
+
+    let content = await app.vault.read(file);
 
     if (/- \[ \]/.test(content)) {
         content = content.replace(/- \[ \]/, "- [x]");

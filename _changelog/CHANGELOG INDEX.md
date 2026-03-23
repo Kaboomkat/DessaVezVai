@@ -15,6 +15,7 @@ tags:
 
 | Versão | Data | Título |
 |--------|------|--------|
+| [[CHANGELOG v0.4.2\|v0.4.2]] | 2026-03-22 | Correção de interações frágeis e centralização do internalLink |
 | [[CHANGELOG v0.4.1\|v0.4.1]] | 2026-03-22 | Rollback do refactor visual dos mood trackers |
 | [[CHANGELOG v0.4.0\|v0.4.0]] | 2026-03-22 | Trackers mensais, semanais e anuais extraídos para view compartilhada do Dataview |
 | [[CHANGELOG v0.3.9\|v0.3.9]] | 2026-03-22 | Hotfix dos links internos no mood tracker mensal, semanal e anual |

@@ -95,6 +95,14 @@ class DashboardHelpers {
         return text ? text : null;
     }
 
+    internalLink(path, innerHtml, style = "", ariaLabel = null) {
+        if (!path) return innerHtml;
+        const attr = v => String(v ?? "").replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        const safePath = attr(path);
+        const safeAria = attr(ariaLabel ?? path);
+        return `<a href="${safePath}" data-href="${safePath}" aria-label="${safeAria}" class="internal-link" style="${style}">${innerHtml}</a>`;
+    }
+
     _normalizeHeading(text) {
         return String(text ?? "")
             .normalize("NFD")
