@@ -11,56 +11,92 @@ tags:
 
 # {{title}}
 
-> [!definition] Definição
-> **Categoria:** `= this.category`
+> [!definition] Contrato da Nota
+> Os campos estruturados deste conceito ficam nas propriedades da nota.
+> O corpo abaixo serve para definição, contexto, exemplos, relações e uso na escrita.
 
 ---
 
-## 📖 Definição
+## 📚 Dados do Conceito
 
-*O que é?*
+```dataviewjs
+const definition = dv.current();
+const value = (field) => {
+    if (field === null || field === undefined || field === "") return "—";
+    if (Array.isArray(field)) return field.length ? field.map((item) => value(item)).join(", ") : "—";
+    if (typeof field === "object" && typeof field.toISODate === "function") return field.toISODate();
+    return String(field);
+};
 
-
----
-
-## 🔍 Detalhes
-
-**Etimologia / Origem:**
-
-
-**Aspectos principais:**
--
-
-**Exemplos:**
--
-
----
-
-## 🔗 Conceitos Relacionados
-
-```dataview
-LIST
-FROM "05-Resources/Definitions"
-WHERE contains(related_to, this.file.name) OR contains(this.related_to, file.name)
-LIMIT 5
+dv.table(
+    ["Campo", "Valor"],
+    [
+        ["Categoria", value(definition.category)],
+        ["Relacionado a", value(definition.related_to)],
+        ["Fonte principal", value(definition.source)],
+        ["Criado em", value(definition.created)],
+        ["Tags", value(definition.tags)],
+    ]
+);
 ```
 
 ---
 
-## 📚 Fontes
+## 📖 Definição Central
 
-- `= this.source`
+**O que é:**
+
+
+**Por que importa:**
+
 
 ---
 
-## 📝 Notas
+## 🔍 Detalhamento
 
+| Aspecto | Observação |
+|---|---|
+| Escopo / área de aplicação | |
+| Etimologia / origem | |
+| Elementos principais | |
+| Limites / exceções | |
+| Comparações úteis | |
+
+---
+
+## 🧩 Conceitos Relacionados
+
+| Conceito | Relação | Nota |
+|---|---|---|
+| | | |
+
+---
+
+## 🧪 Exemplos e Aplicações
+
+| Exemplo / caso | Contexto | Insight |
+|---|---|---|
+| | | |
+
+---
+
+## 📚 Fontes e Referências
+
+| Fonte | Link / referência | Nota |
+|---|---|---|
+| | | |
 
 ---
 
 ## ✍️ Uso na Escrita
 
-*Como este conceito pode aparecer nas minhas histórias?*
+| Aplicação narrativa | Ideia / cena | Observação |
+|---|---|---|
+| | | |
+
+---
+
+## 📝 Notas
 
 
 ---
