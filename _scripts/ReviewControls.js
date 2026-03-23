@@ -1,7 +1,8 @@
 class ReviewControls {
 
-    constructor(appInstance = app) {
+    constructor(appInstance = app, helpers = null) {
         this.app = appInstance;
+        this._helpers = helpers;
         this.moodOptions = [
             { value: "\uD83D\uDE22", label: "Muito mal" },
             { value: "\uD83D\uDE15", label: "Mal" },
@@ -18,12 +19,13 @@ class ReviewControls {
         ];
     }
 
-    _emojiIndex(value, options) {
+    _optionIndex(value, options) {
         const idx = options.findIndex(option => option.value === String(value).trim());
         return idx >= 0 ? idx + 1 : null;
     }
 
     _indexColor(v) {
+        if (this._helpers) return this._helpers._indexColor(v);
         if (!v) return "#2a2a2a";
         const t = (v - 1) / 4;
         const r = Math.round(169 + (15 - 169) * t);
@@ -34,7 +36,7 @@ class ReviewControls {
 
     _colorForValue(value, type) {
         const options = type === "energy" ? this.energyOptions : this.moodOptions;
-        return this._indexColor(this._emojiIndex(value, options));
+        return this._indexColor(this._optionIndex(value, options));
     }
 
     async updateFrontmatterField(filePath, field, value) {

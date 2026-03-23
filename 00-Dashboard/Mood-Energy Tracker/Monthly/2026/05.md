@@ -44,14 +44,6 @@ const year = Number(cur.year) || new Date().getFullYear();
 const month = Number(cur.month) || (new Date().getMonth() + 1);
 const monthNames = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
 const monthName = monthNames[month - 1];
-const attr = value => String(value ?? "").replace(/"/g, "&quot;");
-const internalLink = (path, innerHtml, style = "", ariaLabel = path) => {
-    if (!path) return innerHtml;
-    const safePath = attr(path);
-    const safeAria = attr(ariaLabel);
-    return `<a href="${safePath}" data-href="${safePath}" aria-label="${safeAria}" class="internal-link" style="${style}">${innerHtml}</a>`;
-};
-
 const mornings = dv.pages('"03-Daily/Morning Reviews"').where(p => {
     const d = dv.date(p.date);
     return d && d.year === year && d.month === month;
@@ -117,7 +109,7 @@ const calendarCells = cells.map(day => {
     const emoji = h.closestEmoji(mood, "mood") || "&nbsp;";
     const journal = journalByDay[day];
     const dayLabel = journal
-        ? internalLink(journal.file.path, String(day), "color:#fff;text-decoration:none;", `Abrir diario ${journal.file.name}`)
+        ? h.internalLink(journal.file.path, String(day), "color:#fff;text-decoration:none;", `Abrir diario ${journal.file.name}`)
         : `<span style="color:#fff;">${day}</span>`;
 
     return `<div style="aspect-ratio:1/1;min-height:72px;padding:6px;border-radius:10px;background:${color};display:flex;flex-direction:column;justify-content:space-between;">
@@ -137,7 +129,7 @@ for (let day = 1; day <= daysInMonth; day++) {
     isoWeeks.add(h.currentWeekNumber(new Date(year, month - 1, day)));
 }
 const weekLinks = Array.from(isoWeeks).sort((a, b) => a - b).map(week =>
-    internalLink(`00-Dashboard/Mood-Energy Tracker/Weekly/${year}/${String(week).padStart(2, "0")}`, `Semana ${week}`, "", `Abrir tracker semanal ${week}`)
+    h.internalLink(`00-Dashboard/Mood-Energy Tracker/Weekly/${year}/${String(week).padStart(2, "0")}`, `Semana ${week}`, "", `Abrir tracker semanal ${week}`)
 ).join(" | ");
 
 dv.container.innerHTML = `

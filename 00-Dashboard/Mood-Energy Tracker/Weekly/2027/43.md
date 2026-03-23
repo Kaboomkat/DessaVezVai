@@ -64,13 +64,6 @@ const avg = values => {
     const arr = Array.from(values ?? []);
     return arr.length ? arr.reduce((a, b) => a + b, 0) / arr.length : null;
 };
-const attr = value => String(value ?? "").replace(/"/g, "&quot;");
-const internalLink = (path, innerHtml, style = "", ariaLabel = path) => {
-    if (!path) return innerHtml;
-    const safePath = attr(path);
-    const safeAria = attr(ariaLabel);
-    return `<a href="${safePath}" data-href="${safePath}" aria-label="${safeAria}" class="internal-link" style="${style}">${innerHtml}</a>`;
-};
 const values = { mm: [], em: [], mn: [], en: [] };
 const dayLabels = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sab", "Dom"];
 let rows = "";
@@ -95,7 +88,7 @@ for (let i = 0; i < 7; i++) {
     const target = journal || morning || evening;
     const highlightText = journal ? await h.resolveHighlight(app, journal) : null;
     rows += `<tr>
-        <td style="padding:6px 10px;white-space:nowrap;">${internalLink(target.file.path, `${day.toFormat("dd/MM")} ${dayLabels[i]}`, "", `Abrir registro ${key}`)}</td>
+        <td style="padding:6px 10px;white-space:nowrap;">${h.internalLink(target.file.path, `${day.toFormat("dd/MM")} ${dayLabels[i]}`, "", `Abrir registro ${key}`)}</td>
         ${h.cell(morning?.mood_morning, "mood")}
         ${h.cell(morning?.energy_morning, "energy")}
         ${h.cell(evening?.mood_evening, "mood")}
