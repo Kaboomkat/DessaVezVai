@@ -1,4 +1,4 @@
-$ErrorActionPreference = "Stop"
+﻿$ErrorActionPreference = "Stop"
 
 $Root = Split-Path -Parent $PSScriptRoot
 $Utf8NoBom = New-Object System.Text.UTF8Encoding($false)
@@ -90,6 +90,13 @@ const avg = values => {
     const arr = Array.from(values ?? []);
     return arr.length ? arr.reduce((a, b) => a + b, 0) / arr.length : null;
 };
+const attr = value => String(value ?? "").replace(/"/g, "&quot;");
+const internalLink = (path, innerHtml, style = "", ariaLabel = path) => {
+    if (!path) return innerHtml;
+    const safePath = attr(path);
+    const safeAria = attr(ariaLabel);
+    return `<a href="${safePath}" data-href="${safePath}" aria-label="${safeAria}" class="internal-link" style="${style}">${innerHtml}</a>`;
+};
 const values = { mm: [], em: [], mn: [], en: [] };
 const dayLabels = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sab", "Dom"];
 let rows = "";
@@ -114,7 +121,7 @@ for (let i = 0; i < 7; i++) {
     const target = journal || morning || evening;
     const highlightText = journal ? await h.resolveHighlight(app, journal) : null;
     rows += `<tr>
-        <td style="padding:6px 10px;white-space:nowrap;"><a href="${target.file.path}" class="internal-link">${day.toFormat("dd/MM")} ${dayLabels[i]}</a></td>
+        <td style="padding:6px 10px;white-space:nowrap;">${internalLink(target.file.path, `${day.toFormat("dd/MM")} ${dayLabels[i]}`, "", `Abrir registro ${key}`)}</td>
         ${h.cell(morning?.mood_morning, "mood")}
         ${h.cell(morning?.energy_morning, "energy")}
         ${h.cell(evening?.mood_evening, "mood")}
@@ -188,6 +195,13 @@ const year = Number(cur.year) || new Date().getFullYear();
 const month = Number(cur.month) || (new Date().getMonth() + 1);
 const monthNames = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
 const monthName = monthNames[month - 1];
+const attr = value => String(value ?? "").replace(/"/g, "&quot;");
+const internalLink = (path, innerHtml, style = "", ariaLabel = path) => {
+    if (!path) return innerHtml;
+    const safePath = attr(path);
+    const safeAria = attr(ariaLabel);
+    return `<a href="${safePath}" data-href="${safePath}" aria-label="${safeAria}" class="internal-link" style="${style}">${innerHtml}</a>`;
+};
 
 const mornings = dv.pages('"03-Daily/Morning Reviews"').where(p => {
     const d = dv.date(p.date);
@@ -254,7 +268,7 @@ const calendarCells = cells.map(day => {
     const emoji = h.closestEmoji(mood, "mood") || "&nbsp;";
     const journal = journalByDay[day];
     const dayLabel = journal
-        ? `<a href="${journal.file.path}" class="internal-link" style="color:#fff;text-decoration:none;">${day}</a>`
+        ? internalLink(journal.file.path, String(day), "color:#fff;text-decoration:none;", `Abrir diario ${journal.file.name}`)
         : `<span style="color:#fff;">${day}</span>`;
 
     return `<div style="aspect-ratio:1/1;min-height:72px;padding:6px;border-radius:10px;background:${color};display:flex;flex-direction:column;justify-content:space-between;">
@@ -274,7 +288,7 @@ for (let day = 1; day <= daysInMonth; day++) {
     isoWeeks.add(h.currentWeekNumber(new Date(year, month - 1, day)));
 }
 const weekLinks = Array.from(isoWeeks).sort((a, b) => a - b).map(week =>
-    `<a href="00-Dashboard/Mood-Energy Tracker/Weekly/${year}/${String(week).padStart(2, "0")}" class="internal-link">Semana ${week}</a>`
+    internalLink(`00-Dashboard/Mood-Energy Tracker/Weekly/${year}/${String(week).padStart(2, "0")}`, `Semana ${week}`, "", `Abrir tracker semanal ${week}`)
 ).join(" | ");
 
 dv.container.innerHTML = `
@@ -353,10 +367,21 @@ for (let month = 1; month <= 12; month++) {
     byMonth[month] = { moodMorning: [], energyMorning: [], moodEvening: [], energyEvening: [] };
 }
 
+const attr = value => String(value ?? "").replace(/"/g, "&quot;");
+const internalLink = (path, innerHtml, style = "", ariaLabel = path) => {
+    if (!path) return innerHtml;
+    const safePath = attr(path);
+    const safeAria = attr(ariaLabel);
+    return `<a href="${safePath}" data-href="${safePath}" aria-label="${safeAria}" class="internal-link" style="${style}">${innerHtml}</a>`;
+};
+
 const dayMap = {};
-const upsertDay = (key, path) => {
-    if (!dayMap[key]) dayMap[key] = { moods: [], path };
-    if (!dayMap[key].path) dayMap[key].path = path;
+const upsertDay = (key, { reviewPath = null, journalPath = null } = {}) => {
+    if (!dayMap[key]) {
+        dayMap[key] = { moods: [], reviewPath: null, journalPath: null };
+    }
+    if (reviewPath && !dayMap[key].reviewPath) dayMap[key].reviewPath = reviewPath;
+    if (journalPath) dayMap[key].journalPath = journalPath;
 };
 
 mornings.forEach(p => {
@@ -413,7 +438,7 @@ for (let month = 1; month <= 12; month++) {
         worstMonth = month;
     }
     monthCards += `<div style="background:${h.scoreColor(moodAvg, "mood")};border-radius:10px;padding:12px;text-align:center;">
-        <div><a href="00-Dashboard/Mood-Energy Tracker/Monthly/${year}/${String(month).padStart(2, "0")}" class="internal-link" style="color:#fff;text-decoration:none;">${monthNames[month - 1]}</a></div>
+        <div>${internalLink(`00-Dashboard/Mood-Energy Tracker/Monthly/${year}/${String(month).padStart(2, "0")}`, monthNames[month - 1], "color:#fff;text-decoration:none;", `Abrir tracker mensal de ${monthNames[month - 1]}`)}</div>
         <div style="font-size:1.4em;margin-top:4px;">${h.closestEmoji(moodAvg, "mood") || "-"}</div>
         <div style="font-size:0.85em;color:#fff;">${moodAvg == null ? "-" : moodAvg.toFixed(1)}</div>
     </div>`;
@@ -433,11 +458,12 @@ for (let cursor = new Date(start); cursor <= end; cursor.setDate(cursor.getDate(
     const key = `${cursor.getFullYear()}-${String(cursor.getMonth() + 1).padStart(2, "0")}-${String(cursor.getDate()).padStart(2, "0")}`;
     const entry = dayMap[key];
     const score = avg(entry?.moods);
+    const path = entry?.journalPath || entry?.reviewPath || null;
     cells.push({
         key,
         day: cursor.getDate(),
         month: cursor.getMonth(),
-        path: entry?.path,
+        path,
         score
     });
 }
@@ -462,7 +488,7 @@ for (let i = 0; i < cells.length; i += 7) {
         const title = `${cell.key}${cell.score == null ? "" : ` média do dia ${cell.score.toFixed(1)}`}`;
         const inner = `<div title="${title}" style="width:12px;height:12px;border-radius:3px;background:${bg};"></div>`;
         return cell.path
-            ? `<a href="${cell.path}" class="internal-link" style="display:block;width:12px;height:12px;">${inner}</a>`
+            ? internalLink(cell.path, inner, "display:block;width:12px;height:12px;", `Abrir registro ${cell.key}`)
             : inner;
     }).join("");
     heatmapColumns += `<div style="display:grid;grid-template-rows:repeat(7,12px);gap:3px;">${column}</div>`;

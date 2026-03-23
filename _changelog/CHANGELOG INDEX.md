@@ -15,6 +15,7 @@ tags:
 
 | Versão | Data | Título |
 |--------|------|--------|
+| [[CHANGELOG v0.3.9\|v0.3.9]] | 2026-03-22 | Hotfix dos links internos no mood tracker mensal, semanal e anual |
 | [[CHANGELOG v0.3.8\|v0.3.8]] | 2026-03-22 | Tabela inline de propriedades nas notas de contato |
 | [[CHANGELOG v0.3.7\|v0.3.7]] | 2026-03-22 | Contrato canônico dos contatos sem `= this.*` no corpo |
 | [[CHANGELOG v0.3.6\|v0.3.6]] | 2026-03-22 | Hotfix da navegação rápida no Projects Dashboard |
