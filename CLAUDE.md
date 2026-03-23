@@ -112,6 +112,17 @@ Gestão de tarefas
 - `task next` — Mostrar Próximas Ações
 - `task process` — Processar itens da Caixa de Entrada
 
+## Regras de Segurança
+
+### Verificação de Caminhos (Obsidian)
+Ao trabalhar com o vault Obsidian, SEMPRE verifique caminhos de arquivos, templates e configs de plugins contra o sistema de arquivos real antes de fazer mudanças. Nunca adivinhe caminhos — use Read ou Bash para confirmar que existem primeiro.
+
+### Configuração Windows / MCP
+Ao configurar servidores MCP ou configs de apps no Windows, sempre use PowerShell para verificar caminhos de executáveis e locais de config antes de escrever mudanças. Use `where.exe` ou `Get-Command` para descobrir caminhos ao invés de adivinhar.
+
+### Preservação de Dados do Usuário
+NUNCA substitua dados personalizados do usuário por valores genéricos. Ao editar arquivos com conteúdo do usuário (dados financeiros, nomes, texto customizado), preserve todos os valores existentes exatamente como estão. Se não tiver certeza, pergunte antes de sobrescrever.
+
 ## Workflow de Escrita
 
 1. **Capturar** → Ideias vão para `04-Tasks/Inbox` ou `01-Writing/Snippets`
