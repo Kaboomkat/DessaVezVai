@@ -1,11 +1,36 @@
 {
-  "calendarSources": [],
-  "defaultCalendar": 0,
+  "calendarSources": [
+    {
+      "type": "local",
+      "color": "#d08770",
+      "directory": "04-Tasks/Next",
+      "heading": ""
+    },
+    {
+      "type": "local",
+      "color": "#ebcb8b",
+      "directory": "04-Tasks/Inbox",
+      "heading": ""
+    },
+    {
+      "type": "local",
+      "color": "#a3be8c",
+      "directory": "03-Daily/Events",
+      "heading": ""
+    },
+    {
+      "type": "local",
+      "color": "#5e81ac",
+      "directory": "02-Projects/Active",
+      "heading": ""
+    }
+  ],
+  "defaultCalendar": 2,
   "firstDay": 1,
   "initialView": {
     "desktop": "timeGridWeek",
     "mobile": "timeGrid3Days"
   },
   "timeFormat24h": true,
-  "clickToCreateEventFromMonthView": false
+  "clickToCreateEventFromMonthView": true
 }
