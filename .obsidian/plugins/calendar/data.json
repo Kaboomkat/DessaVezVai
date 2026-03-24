@@ -24,7 +24,7 @@
     },
     "zettels": {
       "color": "#b48ead",
-      "display": "calendar-and-menu"
+      "display": "menu"
     },
     "emoji-tags": {
       "display": "none"

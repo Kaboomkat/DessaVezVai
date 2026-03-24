@@ -1652,6 +1652,7 @@ function createSourcesStore() {
     const store = writable$1([]);
     return Object.assign({ registerSource: (source) => {
             store.update((val) => {
+                if (val.some((s) => s.id === source.id)) return val;
                 val.push(source);
                 return val;
             });
