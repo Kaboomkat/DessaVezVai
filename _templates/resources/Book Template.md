@@ -3,11 +3,11 @@ title: "{{title}}"
 type: book
 author:
 genre:
-status: para-ler | lendo | concluído | abandonado
+status: para-ler | lendo | concluido | abandonado
 rating:
 date_started:
 date_finished:
-format: físico | ebook | audiobook
+format: fisico | ebook | audiobook
 pages:
 created: {{date}}
 tags:
@@ -16,12 +16,12 @@ tags:
 
 # {{title}}
 
-> [!book] Informações do Livro
-> **Autor:** `= this.author` | **Avaliação:** `= this.rating`/5 | **Status:** `= this.status`
+> [!book] Informacoes do Livro
+> **Autor:** `= this.author` | **Avaliacao:** `= this.rating`/5 | **Status:** `= this.status`
 
 ---
 
-## 📖 Visão Geral
+## Visao Geral
 
 **Por que peguei este livro:**
 
@@ -31,9 +31,9 @@ tags:
 
 ---
 
-## ⭐ Avaliação e Resenha
+## Avaliacao e Resenha
 
-**Avaliação:** `= this.rating` / 5
+**Avaliacao:** `= this.rating` / 5
 
 **Resenha:**
 
@@ -43,7 +43,7 @@ tags:
 
 ---
 
-## 📝 Notas e Destaques
+## Notas e Destaques
 
 ### Ideias Principais
 
@@ -51,7 +51,7 @@ tags:
 2.
 3.
 
-### Citações Favoritas
+### Citacoes Favoritas
 
 >
 
@@ -61,7 +61,7 @@ tags:
 
 ---
 
-## 🎯 Como Isso se Aplica a Mim
+## Como Isso se Aplica a Mim
 
 **Ideias para implementar:**
 -
@@ -69,12 +69,12 @@ tags:
 **Relevante para minha escrita:**
 -
 
-**Questões levantadas:**
+**Questoes levantadas:**
 -
 
 ---
 
-## 🔗 Relacionados
+## Relacionados
 
 **Livros similares:**
 -
@@ -84,12 +84,21 @@ tags:
 
 ---
 
-## 📊 Registro de Leitura
+## Notas permanentes derivadas
 
-| Data | Páginas | Notas |
+Use esta secao para registrar apenas os insights que merecem virar nota permanente.
+
+- [[ ]]
+- [[ ]]
+
+---
+
+## Registro de Leitura
+
+| Data | Paginas | Notas |
 |------|---------|-------|
 | | | |
 
 ---
 
-[[05-Resources/Books/Index|← Todos os Livros]] | [[Resources Dashboard|Recursos]]
+[[05-Resources/Books/Index|<- Todos os Livros]] | [[Resources Dashboard|Recursos]]

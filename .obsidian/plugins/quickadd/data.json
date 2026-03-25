@@ -281,6 +281,26 @@
       }
     },
     {
+      "id": "new-knowledge",
+      "name": "New Knowledge Note",
+      "type": "Template",
+      "command": true,
+      "templatePath": "_templates/resources/Knowledge Template.md",
+      "folder": {
+        "enabled": true,
+        "folders": [
+          "05-Resources/Knowledge"
+        ],
+        "chooseWhenCreatingNote": false
+      },
+      "fileOpening": {
+        "location": "tab",
+        "direction": "vertical",
+        "mode": "default",
+        "focus": true
+      }
+    },
+    {
       "id": "mood-year-tracker",
       "name": "New Year Tracker",
       "type": "Template",

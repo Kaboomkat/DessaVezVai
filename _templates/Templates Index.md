@@ -3,13 +3,13 @@ title: Templates
 type: index
 ---
 
-# 📋 Templates
+# Templates
 
-All templates for the vault. Use with Templater plugin (`Alt + T`) or QuickAdd (`Ctrl/Cmd + Q`).
+All templates for the vault. Use with Templater (`Alt + T`) or QuickAdd (`Ctrl/Cmd + Q`).
 
 ---
 
-## ✍️ Writing Templates
+## Writing Templates
 
 | Template | Purpose | Folder |
 |----------|---------|--------|
@@ -22,7 +22,7 @@ All templates for the vault. Use with Templater plugin (`Alt + T`) or QuickAdd (
 
 ---
 
-## ✅ GTD / Task Templates
+## GTD / Task Templates
 
 | Template | Purpose | Folder |
 |----------|---------|--------|
@@ -33,7 +33,7 @@ All templates for the vault. Use with Templater plugin (`Alt + T`) or QuickAdd (
 
 ---
 
-## 📅 Daily / Review Templates
+## Daily / Review Templates
 
 | Template | Purpose | Folder |
 |----------|---------|--------|
@@ -42,7 +42,7 @@ All templates for the vault. Use with Templater plugin (`Alt + T`) or QuickAdd (
 | [[Morning Review Template]] | Morning planning review | `03-Daily/Morning Reviews/` |
 | [[Evening Review Template]] | Evening shutdown review | `03-Daily/Evening Reviews/` |
 
-*Weekly Review is a permanent note at `03-Daily/Reviews/Weekly Review.md`*
+*Weekly Review is a permanent note at `03-Daily/Reviews/Weekly Review.md`.*
 
 ### Review Flow
 
@@ -53,63 +53,57 @@ All templates for the vault. Use with Templater plugin (`Alt + T`) or QuickAdd (
 
 ---
 
-## 📚 Resource Templates
+## Resource Templates
 
 | Template | Purpose | Folder |
 |----------|---------|--------|
 | [[Book Template]] | Book notes | `05-Resources/Books/` |
 | [[Article Template]] | Article summaries | `05-Resources/Articles/` |
+| [[Knowledge Template]] | Permanent notes | `05-Resources/Knowledge/` |
 | [[Contact Template]] | People/contacts | `05-Resources/Contacts/` |
 | [[Definition Template]] | Terms/concepts | `05-Resources/Definitions/` |
 
 ---
 
-## ⚙️ Template Setup
+## Template Setup
 
 ### Templater Configuration
 
-In Templater settings, set template folder paths:
+Keep these flags disabled:
 
-| Folder Path | Template |
-|-------------|----------|
-| `01-Writing/Manuscripts` | `_templates/writing/Manuscript Template` |
-| `01-Writing/Characters` | `_templates/writing/Character Template` |
-| `01-Writing/Worldbuilding` | `_templates/writing/Worldbuilding Template` |
-| `01-Writing/Research` | `_templates/writing/Research Template` |
-| `01-Writing/Snippets` | `_templates/writing/Snippet Template` |
-| `02-Projects/Active` | `_templates/gtd/Project Template` |
-| `02-Projects/Someday` | `_templates/gtd/Someday Template` |
-| `03-Daily/Journal` | `_templates/daily/Daily Note Template` |
-| `04-Tasks/Inbox` | `_templates/gtd/Quick Capture Template` |
-| `04-Tasks/Next` | `_templates/gtd/Task Template` |
-| `05-Resources/Books` | `_templates/resources/Book Template` |
-| `05-Resources/Articles` | `_templates/resources/Article Template` |
-| `05-Resources/Contacts` | `_templates/resources/Contact Template` |
-| `05-Resources/Definitions` | `_templates/resources/Definition Template` |
+- `trigger_on_file_creation = false`
+- `enable_folder_templates = false`
+
+Templates should be rendered by `QuickAdd` or `Periodic Notes`, not by folder ownership.
 
 ### QuickAdd Configuration
 
-Set up these QuickAdd macros:
-- **New Writing Session** → Opens today's writing focus
-- **Quick Capture** → Creates inbox item
-- **New Scene** → Scene Template in Manuscripts
-- **New Character** → Character Template
-- **Morning Review** → Opens daily note + tasks
-- **Evening Review** → Opens daily note evening section
+Expected commands:
 
-### Plugin Contract
+- `Quick Capture`
+- `Process Inbox Item`
+- `Complete Task`
+- `New Scene`
+- `New Character`
+- `New Worldbuilding`
+- `New Research`
+- `New Snippet`
+- `New Project`
+- `New Someday`
+- `New Book Note`
+- `New Article`
+- `New Knowledge Note`
+- `New Contact`
+- `New Definition`
 
-Required for the current vault logic:
-- **Dataview** → all dashboards and trackers
-- **Templater** → all templates under `_templates/`
-- **CustomJS** → loads `_scripts/DashboardHelpers.js`
-- **QuickAdd** → buttons that create notes or run review flows
-- **Periodic Notes** → `Open today's daily note` and weekly note commands
-- **Buttons** → dashboard action buttons
+### Layer Model
 
-Operational rule:
-- This repo does not currently version `.obsidian/`, so plugin installation alone is not enough. Recreate the plugin settings and macro names documented in the vault.
+- `04-Tasks/Inbox` handles fleeting operational capture.
+- `01-Writing/Snippets` handles fleeting creative capture.
+- `03-Daily/Journal` handles fleeting contextual capture.
+- `Books`, `Articles`, and `Research` are source notes.
+- `Knowledge` stores only rewritten, reusable permanent notes.
 
 ---
 
-[[Home|← Home]]
+[[Home|<- Home]]
