@@ -21,6 +21,7 @@ tags:
 | [[CHANGELOG v0.4.6\|v0.4.6]] | 2026-03-24 | Full Calendar + fix de duplicacao no Calendar Beta |
 | [[CHANGELOG v0.4.5\|v0.4.5]] | 2026-03-23 | Hotfix do Quick Capture no Home |
 | [[CHANGELOG v0.4.4\|v0.4.4]] | 2026-03-23 | Hotfix do QuickAdd em Resources, Writing e Projects |
+| [[CHANGELOG v0.4.6\|v0.4.6]] | 2026-03-23 | Reestruturacao do Definition Template para formato orientado a tabelas |
 | [[CHANGELOG v0.4.3\|v0.4.3]] | 2026-03-22 | Skills de workflow, hook de validação JSON e regras de segurança |
 | [[CHANGELOG v0.4.2\|v0.4.2]] | 2026-03-22 | Correção de interações frágeis e centralização do internalLink |
 | [[CHANGELOG v0.4.1\|v0.4.1]] | 2026-03-22 | Rollback do refactor visual dos mood trackers |
