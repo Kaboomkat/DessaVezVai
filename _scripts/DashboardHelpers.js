@@ -149,6 +149,29 @@ class DashboardHelpers {
         return this.normalizeHighlight(cleaned);
     }
 
+    async syncHighlightToFrontmatter(app, filePath, heading = "Destaque do Dia") {
+        if (!app?.vault || !filePath) return false;
+        const file = app.vault.getAbstractFileByPath(filePath);
+        if (!file) return false;
+
+        const source = await app.vault.cachedRead(file);
+        const bodyText = this.extractSectionText(source, heading);
+        if (!bodyText) return false;
+
+        try {
+            await app.fileManager.processFrontMatter(file, frontmatter => {
+                const current = this.normalizeHighlight(frontmatter.highlight);
+                if (current !== bodyText) {
+                    frontmatter.highlight = bodyText;
+                }
+            });
+            return true;
+        } catch (error) {
+            console.warn(`Falha ao sincronizar highlight em ${filePath}`, error);
+            return false;
+        }
+    }
+
     async resolveHighlight(app, pageOrPath, heading = "Destaque do Dia") {
         const page = typeof pageOrPath === "string" ? null : pageOrPath;
         const filePath = typeof pageOrPath === "string" ? pageOrPath : page?.file?.path;

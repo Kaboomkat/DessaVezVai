@@ -1,0 +1,43 @@
+{
+  "calendarSources": [
+    {
+      "type": "local",
+      "color": "#d08770",
+      "directory": "04-Tasks/Next",
+      "heading": ""
+    },
+    {
+      "type": "local",
+      "color": "#ebcb8b",
+      "directory": "04-Tasks/Inbox",
+      "heading": ""
+    },
+    {
+      "type": "local",
+      "color": "#a3be8c",
+      "directory": "03-Daily/Events",
+      "heading": ""
+    },
+    {
+      "type": "local",
+      "color": "#5e81ac",
+      "directory": "02-Projects/Active",
+      "heading": ""
+    },
+    {
+      "type": "ical",
+      "color": "#b3dc6c",
+      "url": "https://calendar.google.com/calendar/ical/726aa60c0dea7d5599e123add47eeb3b9b7283e9be7ae90b57b1045d7388135f%40group.calendar.google.com/private-a076816636580a9eeeb8904772273ba5/basic.ics",
+      "name": "Obsidian Rodrigo"
+    }
+  ],
+  "defaultCalendar": 2,
+  "firstDay": 1,
+  "initialView": {
+    "desktop": "dayGridMonth",
+    "mobile": "timeGrid3Days"
+  },
+  "timeFormat24h": true,
+  "clickToCreateEventFromMonthView": true,
+  "timeZone": "local"
+}
