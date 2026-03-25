@@ -34,9 +34,10 @@
   "defaultCalendar": 2,
   "firstDay": 1,
   "initialView": {
-    "desktop": "timeGridWeek",
+    "desktop": "dayGridMonth",
     "mobile": "timeGrid3Days"
   },
   "timeFormat24h": true,
-  "clickToCreateEventFromMonthView": true
+  "clickToCreateEventFromMonthView": true,
+  "timeZone": "local"
 }

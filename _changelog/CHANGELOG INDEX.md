@@ -15,6 +15,7 @@ tags:
 
 | Versão | Data | Título |
 |--------|------|--------|
+| [[CHANGELOG v0.4.8\|v0.4.8]] | 2026-03-24 | Hotfix do timezone de eventos ICS no Full Calendar |
 | [[CHANGELOG v0.4.7\|v0.4.7]] | 2026-03-24 | Calendar Bases + configuracao do Full Calendar com fontes do vault |
 | [[CHANGELOG v0.4.6\|v0.4.6]] | 2026-03-24 | Full Calendar + fix de duplicacao no Calendar Beta |
 | [[CHANGELOG v0.4.5\|v0.4.5]] | 2026-03-23 | Hotfix do Quick Capture no Home |

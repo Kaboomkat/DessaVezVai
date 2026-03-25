@@ -65097,16 +65097,22 @@ var import_ical = __toModule(require_ical());
 function getDate2(t3) {
   return DateTime2.fromSeconds(t3.toUnixTime(), { zone: "UTC" }).toISODate();
 }
-function getTime3(t3) {
+function getTime3(t3, useLocal) {
   if (t3.isDate) {
     return "00:00";
   }
-  return DateTime2.fromSeconds(t3.toUnixTime(), { zone: "UTC" }).toISOTime({
+  return DateTime2.fromSeconds(t3.toUnixTime(), { zone: useLocal ? "local" : "UTC" }).toISOTime({
     includeOffset: false,
     includePrefix: false,
     suppressMilliseconds: true,
     suppressSeconds: true
   });
+}
+function getDateLocal(t3) {
+  if (t3.isDate) {
+    return DateTime2.fromSeconds(t3.toUnixTime(), { zone: "local" }).toISODate();
+  }
+  return DateTime2.fromSeconds(t3.toUnixTime(), { zone: "local" }).toISODate();
 }
 function specifiesEnd2(iCalEvent) {
   return Boolean(iCalEvent.component.getFirstProperty("dtend")) || Boolean(iCalEvent.component.getFirstProperty("duration"));
@@ -65132,8 +65138,8 @@ function icsToOFC(input) {
       endTime: getTime3(input.endDate.convertToZone(import_ical.default.Timezone.utcTimezone))
     });
   } else {
-    const date = getDate2(input.startDate);
-    const endDate = specifiesEnd2(input) && input.endDate ? getDate2(input.endDate) : void 0;
+    const date = getDateLocal(input.startDate);
+    const endDate = specifiesEnd2(input) && input.endDate ? getDateLocal(input.endDate) : void 0;
     const allDay = input.startDate.isDate;
     return __spreadValues({
       type: "single",
@@ -65143,8 +65149,8 @@ function icsToOFC(input) {
       endDate: date !== endDate ? endDate : void 0
     }, allDay ? { allDay: true } : {
       allDay: false,
-      startTime: getTime3(input.startDate),
-      endTime: getTime3(input.endDate)
+      startTime: getTime3(input.startDate, true),
+      endTime: getTime3(input.endDate, true)
     });
   }
 }
