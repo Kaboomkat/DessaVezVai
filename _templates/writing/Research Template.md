@@ -6,7 +6,7 @@ project:
 summary:
 source:
 url:
-reliability: alta | média | baixa
+reliability: alta | media | baixa
 created: {{date}}
 modified: {{date}}
 tags:
@@ -16,12 +16,12 @@ tags:
 # {{title}}
 
 > [!info] Nota de Pesquisa
-> **Tópico:** `= this.topic` | **Projeto:** `= this.project` | **Confiabilidade:** `= this.reliability`
+> **Topico:** `= this.topic` | **Projeto:** `= this.project` | **Confiabilidade:** `= this.reliability`
 > **Resumo:** `= this.summary`
 
 ---
 
-## 📚 Fonte
+## Fonte
 
 **Fonte:** `= this.source`
 
@@ -31,34 +31,34 @@ tags:
 
 ---
 
-## 📝 Resumo
+## Resumo
 
 *Pontos principais desta pesquisa:*
 
 
 ---
 
-## 🔍 Notas Detalhadas
+## Notas Detalhadas
 
-### Conteúdo Principal
+### Conteudo Principal
 
 
 ### Fatos-chave
 
 -
 
-### Citações
+### Citacoes
 
 >
 
 ---
 
-## ✍️ Aplicação na Escrita
+## Aplicacao na Escrita
 
-**Como isso se aplica à minha história:**
+**Como isso se aplica a minha historia:**
 
 
-**Cenas / capítulos relevantes:**
+**Cenas / capitulos relevantes:**
 -
 
 **Personagens afetados:**
@@ -66,13 +66,13 @@ tags:
 
 ---
 
-## ❓ Questões Levantadas
+## Questoes Levantadas
 
 -
 
 ---
 
-## 🔗 Pesquisas Relacionadas
+## Pesquisas Relacionadas
 
 ```dataview
 LIST
@@ -83,9 +83,18 @@ LIMIT 5
 
 ---
 
-## 📝 Notas
+## Notas permanentes derivadas
+
+Promova para `Knowledge` apenas os conceitos que sobrevivem a fonte e podem ser reutilizados na escrita.
+
+- [[ ]]
+- [[ ]]
+
+---
+
+## Notas
 
 
 ---
 
-[[01-Writing/Research/Index|← Índice de Pesquisa]] | [[Writing Dashboard|Painel de Escrita]]
+[[01-Writing/Research/Index|<- Indice de Pesquisa]] | [[Writing Dashboard|Painel de Escrita]]

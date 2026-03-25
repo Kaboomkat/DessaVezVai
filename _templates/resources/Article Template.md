@@ -20,7 +20,7 @@ tags:
 
 ---
 
-## 🔗 Fonte
+## Fonte
 
 **URL:** `= this.url`
 
@@ -30,14 +30,14 @@ tags:
 
 ---
 
-## 📝 Resumo
+## Resumo
 
-*Pontos principais em 3–5 frases:*
+*Pontos principais em 3-5 frases:*
 
 
 ---
 
-## 🔑 Principais Aprendizados
+## Principais Aprendizados
 
 1.
 2.
@@ -45,12 +45,12 @@ tags:
 
 ---
 
-## 📋 Notas Detalhadas
+## Notas Detalhadas
 
 
 ---
 
-## 💭 Meus Pensamentos
+## Meus Pensamentos
 
 **O que concordo:**
 
@@ -63,10 +63,19 @@ tags:
 
 ---
 
-## 🔗 Relacionados
+## Relacionados
 
 -
 
 ---
 
-[[05-Resources/Articles/Index|← Todos os Artigos]] | [[Resources Dashboard|Recursos]]
+## Notas permanentes derivadas
+
+Registre aqui apenas as ideias que merecem ser reescritas em palavras proprias dentro de `05-Resources/Knowledge`.
+
+- [[ ]]
+- [[ ]]
+
+---
+
+[[05-Resources/Articles/Index|<- Todos os Artigos]] | [[Resources Dashboard|Recursos]]

@@ -14,6 +14,7 @@ tags:
 - [ ] `Periodic Notes: Open weekly note` cria ou abre uma nota em `03-Daily/Reviews/`
 - [ ] `QuickAdd: Morning Review` cria ou abre `03-Daily/Morning Reviews/YYYY-MM-DD Morning Review.md`
 - [ ] `QuickAdd: Evening Review` cria ou abre `03-Daily/Evening Reviews/YYYY-MM-DD Evening Review.md`
+- [ ] `QuickAdd: New Knowledge Note` cria uma nota em `05-Resources/Knowledge/` com `type: knowledge`
 
 ## Reviews
 
@@ -29,6 +30,8 @@ tags:
 - [ ] `Mood-Energy Tracker` anual usa a media do dia entre manha e noite e abre a daily note quando ela existir
 - [ ] `Daily Dashboard` mostra `scheduled_for = hoje` em um bloco separado de hard landscape
 - [ ] `Weekly Dashboard` mostra tarefas agendadas da semana sem interferir no fluxo do `Periodic Notes`
+- [ ] `Resources Dashboard` mostra a secao de `Knowledge` sem erro de Dataview
+- [ ] `05-Resources/Knowledge/Index.md` lista notas recentes, por topico e notas sem `source_notes`
 
 ## GTD
 
@@ -37,6 +40,12 @@ tags:
 - [ ] Promover um item para projeto cria 1 nota em `02-Projects/Active` e 1 proxima acao em `04-Tasks/Next`
 - [ ] `QuickAdd: Complete Task` sincroniza checkbox, `status: done` e `completed_date`
 - [ ] Links GTD para Inbox, Next, Waiting, Reference, Projects e Snippets abrem notas-canone e nao criam arquivos vazios
+
+## Conhecimento
+
+- [ ] `Book Template`, `Article Template` e `Research Template` exibem a secao `Notas permanentes derivadas`
+- [ ] `Inbox`, `Snippets` e `Daily` continuam funcionando sem novo atrito de captura
+- [ ] Links entre notas-fonte e notas em `Knowledge` aparecem normalmente nos backlinks
 
 ## Configuracao
 
