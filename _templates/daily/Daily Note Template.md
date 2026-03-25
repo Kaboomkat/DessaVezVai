@@ -129,6 +129,31 @@ dv.container.innerHTML = `
 ## Destaque do Dia
 
 
+```dataviewjs
+const loadHelpers = async () => {
+    if (typeof cJS === "function") {
+        try {
+            const m = await cJS();
+            if (m?.DashboardHelpers) return m.DashboardHelpers;
+        } catch (_) {}
+    }
+    const f = app.vault.getAbstractFileByPath("_scripts/DashboardHelpers.js");
+    if (!f) return null;
+    const src = await app.vault.cachedRead(f);
+    const Cls = new Function(`${src}; return DashboardHelpers;`)();
+    return new Cls();
+};
+
+const btn = dv.el("button", "Sincronizar Destaque");
+btn.style.cssText = "padding:4px 12px;border-radius:6px;border:1px solid var(--background-modifier-border);cursor:pointer;font-size:0.85em;opacity:0.7;";
+btn.addEventListener("click", async () => {
+    const helpers = await loadHelpers();
+    if (!helpers) { new Notice("DashboardHelpers não encontrado"); return; }
+    const ok = await helpers.syncHighlightToFrontmatter(app, dv.current().file.path);
+    new Notice(ok ? "Destaque sincronizado!" : "Nenhum destaque encontrado.");
+});
+```
+
 ---
 
 ## Reviews do Dia

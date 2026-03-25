@@ -57,6 +57,24 @@ await controls.renderReviewPicker(dv, {
     currentMood: dv.current().mood_evening,
     currentEnergy: dv.current().energy_evening
 });
+
+// Sync highlight da nota diária
+const dailyPath = "03-Daily/Journal/${date}.md";
+const loadHelpers = async () => {
+    if (typeof cJS === "function") {
+        try {
+            const m = await cJS();
+            if (m?.DashboardHelpers) return m.DashboardHelpers;
+        } catch (_) {}
+    }
+    const f = app.vault.getAbstractFileByPath("_scripts/DashboardHelpers.js");
+    if (!f) return null;
+    const src = await app.vault.cachedRead(f);
+    const Cls = new Function(\`\${src}; return DashboardHelpers;\`)();
+    return new Cls();
+};
+const helpers = await loadHelpers();
+if (helpers) await helpers.syncHighlightToFrontmatter(app, dailyPath);
 \`\`\`
 
 ---
